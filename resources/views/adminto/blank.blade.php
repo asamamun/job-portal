@@ -1,4 +1,4 @@
-@extends('adminto.layout', ['title' => 'Job Entry', 'name' => 'dashboard'])
+@extends('adminto.layout.admin', ['title' => 'Job Entry', 'name' => 'dashboard'])
 @section('head')
 
 @endsection

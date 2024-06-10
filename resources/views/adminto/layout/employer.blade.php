@@ -10,7 +10,7 @@
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('adminto/assets/images/favicon.ico ') }}">
+    <link rel="shortcut icon" href="{{ asset('adminto/assets/images/favicon.ico') }}">
 
     <!-- App css -->
 
@@ -26,7 +26,7 @@
     <div id="wrapper">
 
         @include('adminto.inc.topbar')
-        @include('adminto.inc.leftsidebar')
+        @include('adminto.inc.leftsidebar-employer')
         <div class="content-page">
             <div class="content">
                 <div class="container-fluid">

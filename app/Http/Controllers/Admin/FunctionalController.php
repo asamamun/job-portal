@@ -13,7 +13,7 @@ class FunctionalController extends Controller
      */
     public function index()
     {
-        echo "index called";
+        return view("adminto.functional.index");
     }
 
     /**
@@ -21,7 +21,7 @@ class FunctionalController extends Controller
      */
     public function create()
     {
-        echo "create called";
+        return view("adminto.functional.create");
     }
 
     /**
