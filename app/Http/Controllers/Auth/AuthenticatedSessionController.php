@@ -16,7 +16,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('adminto.login');
     }
 
     /**
@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-         $role = Auth::user()->roles;
+        $role = Auth::user()->roles;
         if($role == 'admin'){
             return redirect()->intended(route('admin.dashboard', absolute: false));
         }
@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('employer.dashboard', absolute: false));
         }
         if($role == 'applicant'){
-            return redirect()->intended(route('applicant.dashboard', absolute: false));
+            return redirect()->intended(route('home', absolute: false));
         } 
 
         return redirect()->intended(route('home', absolute: false));

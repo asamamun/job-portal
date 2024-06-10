@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('adminto.register');
     }
 
     /**
@@ -29,6 +29,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        //dd($request);
         $request->validate([
             'roles' => ['required'],
             'name' => ['required', 'string', 'max:255'],
@@ -47,6 +48,16 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        $role = Auth::user()->roles;
+        if($role == 'admin'){
+            return redirect()->intended(route('admin.dashboard', absolute: false));
+        }
+        if($role == 'employer'){
+            return redirect()->intended(route('employer.dashboard', absolute: false));
+        }
+        if($role == 'applicant'){
+            return redirect()->intended(route('home', absolute: false));
+        } 
+        return redirect()->intended(route('home', absolute: false));
     }
 }
