@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\ApplicantPostType;
+use App\Models\State;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ApplicantPostTypeController extends Controller
+class StateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class ApplicantPostTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ApplicantPostType $applicantPostType)
+    public function show(State $state)
     {
         //
     }
@@ -42,7 +43,7 @@ class ApplicantPostTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ApplicantPostType $applicantPostType)
+    public function edit(State $state)
     {
         //
     }
@@ -50,7 +51,7 @@ class ApplicantPostTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ApplicantPostType $applicantPostType)
+    public function update(Request $request, State $state)
     {
         //
     }
@@ -58,7 +59,7 @@ class ApplicantPostTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ApplicantPostType $applicantPostType)
+    public function destroy(State $state)
     {
         //
     }

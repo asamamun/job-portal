@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Special;
+use App\Models\Industrial;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class SpecialController extends Controller
+class IndustrialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class SpecialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Special $special)
+    public function show(Industrial $industrial)
     {
         //
     }
@@ -42,7 +43,7 @@ class SpecialController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Special $special)
+    public function edit(Industrial $industrial)
     {
         //
     }
@@ -50,7 +51,7 @@ class SpecialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Special $special)
+    public function update(Request $request, Industrial $industrial)
     {
         //
     }
@@ -58,7 +59,7 @@ class SpecialController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Special $special)
+    public function destroy(Industrial $industrial)
     {
         //
     }

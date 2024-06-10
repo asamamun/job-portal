@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\PostType;
+use App\Models\ApplicantPostType;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class PostTypeController extends Controller
+class ApplicantPostTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class PostTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PostType $postType)
+    public function show(ApplicantPostType $applicantPostType)
     {
         //
     }
@@ -42,7 +43,7 @@ class PostTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PostType $postType)
+    public function edit(ApplicantPostType $applicantPostType)
     {
         //
     }
@@ -50,7 +51,7 @@ class PostTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PostType $postType)
+    public function update(Request $request, ApplicantPostType $applicantPostType)
     {
         //
     }
@@ -58,7 +59,7 @@ class PostTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostType $postType)
+    public function destroy(ApplicantPostType $applicantPostType)
     {
         //
     }

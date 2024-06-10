@@ -26,7 +26,7 @@
     <div id="wrapper">
 
         @include('adminto.inc.topbar')
-        @include('adminto.inc.rightsidebaradmin')
+        @include('adminto.inc.leftsidebar-admin')
         <div class="content-page">
             <div class="content">
                 <div class="container-fluid">

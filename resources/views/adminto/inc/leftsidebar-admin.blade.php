@@ -8,7 +8,7 @@
 
             <img src="{{ asset('adminto/assets/images/users/user-1.jpg ') }}" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
             <div class="dropdown">
-                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">Nowak Helme</a>
+                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
                 <div class="dropdown-menu user-pro-dropdown">
 
                     <!-- item-->
@@ -69,21 +69,45 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
-
-                <li class="menu-title mt-2">Apps</li>
                 <li>
-                    <a href="apps-projects.html">
+                    <a href="{{route('settings.index')}}">
                         <i class="mdi mdi-briefcase-variant-outline"></i>
-                        <span> Projects </span>
+                        <span> Settings </span>
                     </a>
                 </li>
                 <li>
-                    <a href="#sidebarTables" data-bs-toggle="collapse">
+                    <a href="#">
+                        <i class="mdi mdi-briefcase-variant-outline"></i>
+                        <span> Admin Profile </span>
+                    </a>
+                </li>
+                <li class="menu-title mt-2">Applicants</li>
+                <li>
+                    <a href="#sidebarTables45345" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Post Types </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables45345">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('post_type.create')}}"> Create</a>
+                            </li>
+                            <li>
+                                <a href="{{route('post_type.index')}}"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="menu-title mt-2">Job Posts</li>
+                <li>
+                    <a href="#sidebarTables342342" data-bs-toggle="collapse">
                         <i class="mdi mdi-table"></i>
                         <span> Functional </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarTables">
+                    <div class="collapse" id="sidebarTables342342">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{route('functional.create')}}"> Create</a>
@@ -93,7 +117,175 @@
                             </li>
                         </ul>
                     </div>
-                </li>            
+                </li>
+                <li>
+                    <a href="#sidebarTables5346255" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Industrial </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables5346255">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('industrial.create')}}"> Create</a>
+                            </li>
+                            <li>
+                                <a href="{{route('industrial.index')}}"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarTables43654" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Special </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables43654">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('special.create')}}"> Create</a>
+                            </li>
+                            <li>
+                                <a href="{{route('special.index')}}"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarTables3423454534432" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Post </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables3423454534432">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="#">New Posts</a>
+                            </li>
+                            <li>
+                                <a href="#">Published Posts</a>
+                            </li>
+                            <li>
+                                <a href="#">Pro Posts</a>
+                            </li>
+                            <li>
+                                <a href="#">Hot Posts</a>
+                            </li>
+                            <li>
+                                <a href="#">Deleted Posts</a>
+                            </li>
+                            <li>
+                                <a href="#">Expired Posts</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-title mt-2">Address</li>
+                <li>
+                    <a href="#sidebarTables45352345" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Country </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables45352345">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('country.create')}}"> Create</a>
+                            </li>
+                            <li>
+                                <a href="{{route('country.index')}}"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarTables453453423" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> State </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables453453423">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('state.create')}}"> Create</a>
+                            </li>
+                            <li>
+                                <a href="{{route('state.index')}}"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-title mt-2">Quiz Games</li>
+                <li>
+                    <a href="#sidebarTables45355322345" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Quiz Category </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables45355322345">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="#"> Create</a>
+                            </li>
+                            <li>
+                                <a href="#"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarTables453532422345" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Question </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables453532422345">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="#"> Create</a>
+                            </li>
+                            <li>
+                                <a href="#"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarTables453532434222345" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Quiz Result </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables453532434222345">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="#"> Daily Highest</a>
+                            </li>
+                            <li>
+                                <a href="#"> All Time Highest </a>
+                            </li>
+                            <li>
+                                <a href="#"> All Result </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-title mt-2">Reports</li>
+                <li>
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-settings me-1"></i>
+                        <span>Daily Income</span>
+                    </a>
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-settings me-1"></i>
+                        <span>Total Income</span>
+                    </a>
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-settings me-1"></i>
+                        <span>Mothly Income</span>
+                    </a>
+                </li>
             </ul>
 
         </div>
