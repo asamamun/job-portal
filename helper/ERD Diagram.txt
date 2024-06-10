@@ -1,0 +1,327 @@
+01. Users Table: Stores information about all users
+	id (Primary Key)
+	name
+	password (hashed and salted)
+	email (unique)
+	roles (applicant, Employer, Admin)
+	created_at
+	updated_at
+
+02. Applicants Table: Stores additional information specific to job seekers.
+	id (Primary Key)
+	user_id (Foreign Key)
+	nid (unique)
+	file (Certificate pdf/image/doc)
+  	cv (pdf/image/doc/zip)
+	jobtype string (1,4,8,20,55)
+	Location
+	dob
+	Type (regular = 0, pro = 1)
+	points ( 10 point subtract per job application. per MCQ Game 5 point charge if pass the game reward 10 point. MCQ per day 1 game free.)
+	created_at
+	updated_at
+
+03. Post Types Table:
+	id (Primary Key)
+	name
+	created_at
+	updated_at
+
+04. ApplicantPostType
+	id (Primary Key)
+	applicant_id
+	job_type_id
+	created_at
+	updated_at
+
+05. Skill Types Table
+	id (Primary Key)
+	name
+	created_at
+	updated_at
+
+03. Skills Table:
+	id (Primary Key)
+	applicant_id(Foreign Key)
+	skill_type_id(Foreign Key)
+	created_at
+	updated_at
+
+04. Experience Table:
+	id (Primary Key)
+	applicant_id(Foreign Key)
+	company
+	address
+	phone
+	position
+	depertment
+	description
+	from
+	to (if null continue)
+	created_at
+	updated_at
+
+05. Education Table:
+	id (Primary Key)
+	applicant_id(Foreign Key)	
+	level ('primary', 'secondary', 'higher secondary', 'diploma', 'bachelor','master', 'phd', 'other')
+	institute	
+	board
+	duration
+	session
+	subject
+	group (Grade, Class/Division)
+	division
+	grade
+	grade_out_of
+	passing_year
+	created_at
+	updated_at
+
+06. References Table:
+	id (Primary Key)
+	applicant_id(Foreign Key)
+	name
+	organization
+	designation
+	phone
+	relation
+	email
+	address
+	created_at
+	updated_at
+
+07. Project Table:-
+	id (Primary Key)
+	applicant_id(Foreign Key)
+	title
+	description
+	url
+	status ('complete', 'continue', 'upcoming', 'cancelled')
+	created_at
+	updated_at
+
+08. Language Table:-
+	id (Primary Key)
+	applicant_id(Foreign Key)
+	name
+	type ('reading', 'writing', 'speeking')
+	level ('Beginner', 'Intermediate', 'Advanced')
+	created_at
+	updated_at
+
+08. links Table:-
+	id (Primary Key)
+	applicant_id(Foreign Key)
+	title
+	url
+	created_at
+	updated_at	
+
+
+09. Employers Table: Stores additional information specific to employers.
+	id (Primary Key)
+	user_id (Foreign Key) unique
+	name
+	description
+	website
+	licence_no
+	contact_person
+	contact_email
+	contact _phone
+	point ( 1 taka 2 point. 5 point add per application.)
+	type ( 0 = new first 1 post free , 1 = regular, 2 = employer submit 100 post, employer get pro type and he get 10% discount  per post on point.)
+	address
+	created_at
+	updated_at
+
+10. Recharge Table: 
+	id (Primary Key)
+	user_id (Foreign Key)
+	account_type ('sslcommerz', 'mobile banking', 'bank account')
+	account_name
+	account_number
+	amount (tk)
+	transaction_id
+	created_at
+	updated_at
+
+11. Withdraw Table: 
+	id (Primary Key)
+	user_id (Foreign Key)
+	account_type ('Bikas', 'Nagad', 'bank')
+	account_name
+	account_number
+	point ( 1000 point must in accout. 1 taka 2 point )
+	status ('Processing', 'Complete')
+	created_at
+	updated_at
+
+12. Income Table: 
+	id (Primary Key)
+	user_id (Foreign Key)
+	point
+	created_at
+	updated_at
+
+13. Industrial Category Table:-
+	id (Primary Key)
+	name
+	icon
+	staus (active = 1, disable = 0)
+	created_at
+	updated_at
+
+14. Functional Category Table:-
+	id (Primary Key)
+	name
+	icon
+	staus (active = 1, disable = 0)
+	created_at
+	updated_at
+
+15. Special Category Table:-
+	id (Primary Key)
+	name
+	icon
+	staus (active = 1, disable = 0)
+	created_at
+	updated_at
+
+16. Posts Table: Stores information about job postings.
+	id (Primary Key)
+	employer_id (Foreign Key)
+	functional_category_id
+	industrial_category_id
+	special_category_id
+	job_type (Full-time, Part-time, Contract, Internship)
+	job_title
+	job_description
+	salary_range
+	country_id
+	state_id
+ 	required_skills
+	address
+	thumb(png/jpg/jpeg)
+	file (photo/pdf)
+	point (par post 200 point)
+	type (regular = 0, pro = 1, hot = 2)
+	deadline
+	created_at
+	updated_at
+//pivot table command: job_user
+
+//artisan command: 
+//php artisan make:migration create_job_user_table --create=job_user
+
+17. Applications Table: Tracks job applications made by job seekers.
+	id (Primary Key)
+	job_id (Foreign Key)
+	user_id (Foreign Key)
+	Status (Applied, Under Review, Interview, Rejected, Accepted)
+	created_at
+	updated_at
+  
+18. Messages Table: Facilitates communication between job seekers and employers.
+	id (Primary Key)
+	sender_user_id (Foreign Key)
+	receiver user_id (Foreign Key)
+	job_id (Foreign Key, nullable)
+	message (text)
+	status (read, unread)
+	created_at
+	updated_at
+
+19. Saved Jobs Table: Keeps track of jobs saved by job seekers for later viewing.
+	id (Primary Key)
+	job_id (Foreign Key)
+	user_id (Foreign Key) job seeker
+	applied (0 , 1 default 0)
+	created_at
+	updated_at
+
+20. Company Reviews Table: Stores reviews and ratings given to companies by job seekers.
+	id (Primary Key)
+	employers_id (Foreign Key)
+	job_seeker_id (Foreign Key)
+	rating (1-5)
+	title
+	content
+	created_at
+	updated_at
+
+
+21. Category Table:-
+	id (Primary Key)
+	name
+	slug
+	icon
+	staus (active = 1, disable = 0)
+	created_at
+	updated_at
+
+22. Question Table:- 
+	id (Primary Key)
+	category_id (Foreign Key)
+	question
+	answer_one
+	answer_two
+	answer_three
+	answer_four
+	current_ans
+	created_at
+	updated_at
+
+23. Result Table:-
+	id (Primary Key)
+	user_id (Foreign Key)
+	mark
+	mark_out_of
+	status ( pass, fail, processing )
+	created_at
+	updated_at
+
+24. Country Table:-
+	id (Primary Key)
+	name
+	created_at
+	updated_at
+
+25. State Table
+	id (Primary Key)
+	name
+	country_id
+	created_at
+	updated_at
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

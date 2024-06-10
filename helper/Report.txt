@@ -1,0 +1,6 @@
+1. Total Income/Withdraw in point (2 point 1 taka) result in taka
+2. Mothly Income in point (2 point 1 taka)
+3. Daily Income in point (2 point 1 taka)
+4. Weekly report in point
+4. Employers Recharge/Withdraw History by Name/id/licence_no/email/phone
+5. Employers Job post History by Name/id/licence_no/email/phone

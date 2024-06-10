@@ -1,0 +1,6 @@
+database: job_portal
+
+
+
+email: admin@gmail.com
+pass: 12345678
