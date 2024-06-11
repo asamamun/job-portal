@@ -69,12 +69,12 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#sidebarTables5346255" data-bs-toggle="collapse">
+                    <a href="#sidebarTables534625" data-bs-toggle="collapse">
                         <i class="mdi mdi-table"></i>
                         <span> Industrial </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarTables5346255">
+                    <div class="collapse" id="sidebarTables534625">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{route('industrial.create')}}"> Create</a>
@@ -86,12 +86,12 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#sidebarTables43654" data-bs-toggle="collapse">
+                    <a href="#sidebarTables4365" data-bs-toggle="collapse">
                         <i class="mdi mdi-table"></i>
                         <span> Special </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarTables43654">
+                    <div class="collapse" id="sidebarTables4365">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{route('special.create')}}"> Create</a>

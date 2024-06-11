@@ -13,7 +13,7 @@ class SpecialController extends Controller
      */
     public function index()
     {
-        //
+        return view("adminto.special.index",["specials" => Special::all()]);
     }
 
     /**
@@ -21,7 +21,7 @@ class SpecialController extends Controller
      */
     public function create()
     {
-        //
+        return view("adminto.special.create");
     }
 
     /**
@@ -29,7 +29,15 @@ class SpecialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'icon' => 'required|max:255',
+        ]);
+        $special = new Special();
+        $special->name = $request->name;
+        $special->icon = $request->icon;
+        $special->save();
+        return redirect()->route('special.index')->with('success', 'Special created successfully');
     }
 
     /**
@@ -37,7 +45,7 @@ class SpecialController extends Controller
      */
     public function show(Special $special)
     {
-        //
+        echo "show called";
     }
 
     /**
@@ -45,7 +53,7 @@ class SpecialController extends Controller
      */
     public function edit(Special $special)
     {
-        //
+        return view("adminto.special.edit", ["special" => $special]);
     }
 
     /**
@@ -53,7 +61,14 @@ class SpecialController extends Controller
      */
     public function update(Request $request, Special $special)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'icon' => 'required|max:255',
+        ]);
+        $special->name = $request->name;
+        $special->icon = $request->icon;
+        $special->save();
+        return redirect()->route('special.index')->with('success', 'Special updated successfully');
     }
 
     /**
@@ -61,6 +76,7 @@ class SpecialController extends Controller
      */
     public function destroy(Special $special)
     {
-        //
+        $special->delete();
+        return redirect()->route('special.index')->with('success', 'Special deleted successfully');
     }
 }

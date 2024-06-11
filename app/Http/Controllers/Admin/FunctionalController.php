@@ -76,6 +76,7 @@ class FunctionalController extends Controller
      */
     public function destroy(Functional $functional)
     {
-        //
+        $functional->delete();
+        return redirect()->route('functional.index')->with('success', 'Functional deleted successfully');
     }
 }

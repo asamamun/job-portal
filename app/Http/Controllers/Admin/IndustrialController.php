@@ -13,7 +13,7 @@ class IndustrialController extends Controller
      */
     public function index()
     {
-        //
+        return view("adminto.industrial.index",["industrials" => Industrial::all()]);
     }
 
     /**
@@ -21,7 +21,7 @@ class IndustrialController extends Controller
      */
     public function create()
     {
-        //
+        return view("adminto.industrial.create");
     }
 
     /**
@@ -29,7 +29,15 @@ class IndustrialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'icon' => 'required|max:255',
+        ]);
+        $industrial = new Industrial();
+        $industrial->name = $request->name;
+        $industrial->icon = $request->icon;
+        $industrial->save();
+        return redirect()->route('industrial.index')->with('success', 'Industrial created successfully');
     }
 
     /**
@@ -37,7 +45,7 @@ class IndustrialController extends Controller
      */
     public function show(Industrial $industrial)
     {
-        //
+        echo "show called";
     }
 
     /**
@@ -45,7 +53,7 @@ class IndustrialController extends Controller
      */
     public function edit(Industrial $industrial)
     {
-        //
+        return view("adminto.industrial.edit", ["industrial" => $industrial]);
     }
 
     /**
@@ -53,7 +61,14 @@ class IndustrialController extends Controller
      */
     public function update(Request $request, Industrial $industrial)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'icon' => 'required|max:255',
+        ]);
+        $industrial->name = $request->name;
+        $industrial->icon = $request->icon;
+        $industrial->save();
+        return redirect()->route('industrial.index')->with('success', 'Industrial updated successfully');
     }
 
     /**
@@ -61,6 +76,7 @@ class IndustrialController extends Controller
      */
     public function destroy(Industrial $industrial)
     {
-        //
+        $industrial->delete();
+        return redirect()->route('industrial.index')->with('success', 'Industrial deleted successfully');
     }
 }
