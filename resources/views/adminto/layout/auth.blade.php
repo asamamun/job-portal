@@ -17,10 +17,11 @@
 
     <!-- icons -->
     <link href="{{ asset('adminto/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
 <body class="loading authentication-bg authentication-bg-pattern">
-
+    @include('inc.alert')
     @yield('content')
 
     <script src="{{ asset('adminto/assets/libs/jquery/jquery.min.js') }}"></script>

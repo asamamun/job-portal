@@ -18,11 +18,12 @@
 
     <!-- icons -->
     <link href="{{ asset('adminto/assets/css/icons.min.css ') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     @yield('head')
 </head>
 
 <body class="loading" data-layout-color="light" data-layout-mode="default" data-layout-size="fluid" data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
-
+    @include('inc.alert')
     <div id="wrapper">
 
         @include('adminto.inc.topbar')
@@ -59,10 +60,11 @@
 
     <!-- Dashboar init js-->
     <script src="{{ asset('adminto/assets/js/pages/dashboard.init.js ') }}"></script>
-
+    @yield('scripts')
     <!-- App js-->
     <script src="{{ asset('adminto/assets/js/app.min.js ') }}"></script>
-    @yield('scripts')
+
+    
 
 </body>
 

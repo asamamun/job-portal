@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\PostTypeController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\employer\DashboardController as EmployerDashboardController;
 use App\Http\Controllers\employer\PostController;
-use App\Http\Controllers\Applicant\ProfileController as ApplicantProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
@@ -46,7 +45,7 @@ Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::resource('posts', PostController::class);
 });
 Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
-    Route::get('/profile', [ApplicantProfileController::class, 'index'])->name('applicant.profile');
+   
 });
 
 require __DIR__.'/auth.php';

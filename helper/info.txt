@@ -1,6 +1,7 @@
 database: job_portal
 
 
+php artisan db:seed
 
 email: admin@gmail.com
-pass: 12345678
+pass: admin12345

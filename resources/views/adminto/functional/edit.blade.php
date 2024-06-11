@@ -11,18 +11,19 @@
             Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
         </p>
 
-        <form action="{{ route('functional.store') }}" class="parsley-examples" method="POST">
+        <form action="{{ route('functional.update', $functional->id) }}" class="parsley-examples" method="POST">
             @csrf
+            @method('PUT')
             <div class="mb-3">
                 <label for="catName" class="form-label">Name<span class="text-danger">*</span></label>
-                <input type="text" name="name" value="{{ old('name') }}" required="" class="form-control" id="catName">
+                <input type="text" name="name" required="" value="{{ $functional->name }}" class="form-control" id="catName">
             </div>
             <div class="mb-3">
                 <label for="iconName" class="form-label">Icon<span class="text-danger">*</span></label>
-                <input type="text" name="icon" value="{{ old('icon') }}" required="" class="form-control" id="iconName">
+                <input type="text" name="icon" required="" value="{{ $functional->icon }}" class="form-control" id="iconName">
             </div>
             <div class="text-end">
-                <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+                <button class="btn btn-primary waves-effect waves-light" type="submit">Update</button>
                 <button type="reset" class="btn btn-danger waves-effect">Reset</button>
                 <button type="reset" class="btn btn-secondary waves-effect">Cancel</button>
             </div>

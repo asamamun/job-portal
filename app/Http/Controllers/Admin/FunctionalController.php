@@ -13,7 +13,7 @@ class FunctionalController extends Controller
      */
     public function index()
     {
-        return view("adminto.functional.index");
+        return view("adminto.functional.index",["functionals" => Functional::all()]);
     }
 
     /**
@@ -29,7 +29,15 @@ class FunctionalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'icon' => 'required|max:255',
+        ]);
+        $functional = new Functional();
+        $functional->name = $request->name;
+        $functional->icon = $request->icon;
+        $functional->save();
+        return redirect()->route('functional.index')->with('success', 'Functional created successfully');
     }
 
     /**
@@ -45,7 +53,7 @@ class FunctionalController extends Controller
      */
     public function edit(Functional $functional)
     {
-        //
+        return view("adminto.functional.edit", ["functional" => $functional]);
     }
 
     /**
@@ -53,7 +61,14 @@ class FunctionalController extends Controller
      */
     public function update(Request $request, Functional $functional)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'icon' => 'required|max:255',
+        ]);
+        $functional->name = $request->name;
+        $functional->icon = $request->icon;
+        $functional->save();
+        return redirect()->route('functional.index')->with('success', 'Functional updated successfully');
     }
 
     /**

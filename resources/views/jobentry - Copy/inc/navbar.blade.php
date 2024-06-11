@@ -1,5 +1,6 @@
 <!-- Spinner Start -->
-<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+<div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
     <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
         <span class="sr-only">Loading...</span>
     </div>
@@ -34,26 +35,10 @@
                     <a href="404.html" class="dropdown-item">404</a>
                 </div>
             </div>
-            @guest
-            <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
-            <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>
-            @endguest
-
-            @if (Auth::check())
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
-                <div class="dropdown-menu rounded-0 m-0">
-                    <a href="{{ route('applicant.profile') }}" class="dropdown-item">Profile</a>
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <button type="submit" class="dropdown-item">Logout</button>
-                    </form>
-                </div>
-            </div>
-            @endif
-
+            <a href="contact.html" class="nav-item nav-link">Contact</a>
         </div>
-        <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
+        <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i
+                class="fa fa-arrow-right ms-3"></i></a>
     </div>
 </nav>
 <!-- Navbar End -->
