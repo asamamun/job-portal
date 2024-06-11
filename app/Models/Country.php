@@ -9,6 +9,21 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Country extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+    ];
+
+
+
+
+
+
+
+
+
+
+
     public function states(): HasMany
     {
         return $this->hasMany(State::class);

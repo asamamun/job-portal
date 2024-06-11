@@ -10,6 +10,26 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Employer extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'name',
+        'address',
+        'website',
+        'licence_no',
+        'contact_person',
+        'contact_phone',
+        'contact_email',
+        'logo',
+        'description',
+        'founded',
+        'linkedin',
+        'facebook',
+        'twitter',
+        'instagram',
+        'points',
+        'type',
+    ];
+    
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

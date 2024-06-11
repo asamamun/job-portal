@@ -11,6 +11,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Applicant extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'nid',
+        'file',
+        'cv',
+        'jobtype',
+        'location',
+        'dob',
+        'type',
+        'available_for',
+        'points',
+        'status',
+    ];
 
     public function user(): BelongsTo
     {

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class SavePost extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'applicant_id',
+        'post_id',
+        'applied',
+    ];
 }

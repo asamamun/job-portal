@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Link extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'applicant_id',
+        'title',
+        'url',
+    ];
     public function applicant(): BelongsTo
     {
         return $this->belongsTo(Applicant::class);

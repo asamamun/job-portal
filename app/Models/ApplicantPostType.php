@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ApplicantPostType extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'applicant_id',
+        'post_type_id',
+    ];
 }

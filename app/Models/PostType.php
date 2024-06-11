@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class PostType extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+    ];
     public function applicants(): BelongsToMany
     {
         return $this->belongsToMany(Applicant::class);

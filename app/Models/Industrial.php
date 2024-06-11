@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Industrial extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'icon',
+        'status',
+    ];
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);

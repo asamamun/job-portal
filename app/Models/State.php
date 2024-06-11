@@ -10,6 +10,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class State extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'country_id',
+        'name',
+    ];
+
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);

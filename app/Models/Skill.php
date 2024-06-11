@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Skill extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'applicant_id',
+        'skill_type_id',
+    ];
     public function applicant(): BelongsTo
     {
         return $this->belongsTo(Applicant::class);

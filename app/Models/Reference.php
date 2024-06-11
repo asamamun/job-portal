@@ -9,6 +9,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Reference extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'applicant_id',
+        'name',
+        'organization',
+        'designation',
+        'phone',
+        'relation',
+        'email',
+        'address',
+    ];
     public function applicant(): BelongsTo
     {
         return $this->belongsTo(Applicant::class);

@@ -9,6 +9,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Experience extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'applicant_id',
+        'company',
+        'address',
+        'phone',
+        'position',
+        'department',
+        'description',
+        'from',
+        'to',
+    ];
     public function applicant(): BelongsTo
     {
         return $this->belongsTo(Applicant::class);
