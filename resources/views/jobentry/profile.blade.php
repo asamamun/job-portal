@@ -1,71 +1,19 @@
 @extends('jobentry.layout', ['title' => 'Job Entry'])
 @section('head')
-    
+
 @endsection
 
 @section('content')
-<div class="row mt-3">
-            <div class="col-2">
-                <div class="container bg-warning bg-gradient p-0">
-
-                    <ul class="list-unstyled ps-0">
-                        <li class="mb-1">
-                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed " data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                                Home
-                            </button>
-                            <div class="collapse show" id="home-collapse">
-                                <ul class="nav-second-level">
-                                    <li><a href="#">Overview</a></li>
-                                    <li><a href="#">Updates</a></li>
-                                    <li><a href="#">Reports</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed " data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                                Dashboard
-                            </button>
-                            <div class="collapse" id="dashboard-collapse">
-                                <ul class="nav-second-level">
-                                    <li><a href="#">Overview</a></li>
-                                    <li><a href="#">Updates</a></li>
-                                    <li><a href="#">Reports</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed " data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                                Orders
-                            </button>
-                            <div class="collapse" id="orders-collapse">
-                                <ul class="nav-second-level">
-                                    <li><a href="#">Overview</a></li>
-                                    <li><a href="#">Updates</a></li>
-                                    <li><a href="#">Reports</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="border-top my-3"></li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed " data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                                Account
-                            </button>
-                            <div class="collapse" id="account-collapse">
-                                <ul class="nav-second-level">
-                                    <li><a href="#">Overview</a></li>
-                                    <li><a href="#">Updates</a></li>
-                                    <li><a href="#">Reports</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-            <div class="col-9 bg-light">
-
-                <div>
-                    <form action="#" class="parsley-examples" novalidate="">
+@include('jobentry.inc.jumbotron')
+<div class="container-fluid pt-3 pb-3" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Profile</h1>
+        <div class="row g-5">
+            @include('jobentry.inc.leftsidebar')
+            <div class="col-9">
+                <form action="#" class="parsley-examples" novalidate="">
+                    <fieldset>
+                        <legend>Personel Details:</legend>
                         <div class="mb-3">
                             <label for="userName" class="form-label">User Name<span class="text-danger">*</span></label>
                             <input type="text" name="nick" parsley-trigger="change" required="" placeholder="Enter user name" class="form-control" id="userName">
@@ -90,15 +38,15 @@
                                 </label>
                             </div>
                         </div>
-
                         <div class="text-end">
                             <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
                             <button type="reset" class="btn btn-secondary waves-effect">Cancel</button>
                         </div>
-                    </form>
-                </div>
+                    </fieldset>
+                </form>
             </div>
-
-
         </div>
+    </div>
+</div>
+@include('jobentry.inc.footer')
 @endsection

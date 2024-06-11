@@ -29,6 +29,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('jobentry/css/bootstrap.min.css ')}}" rel="stylesheet">
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('jobentry/css/style.css ')}}" rel="stylesheet">
@@ -39,14 +41,6 @@
         
         @include('jobentry.inc.navbar')
         @yield('content')
-        @include('jobentry.inc.carousel')
-        @include('jobentry.inc.search')
-        @include('jobentry.inc.category')
-        @include('jobentry.inc.about')
-        @include('jobentry.inc.job')
-        @include('jobentry.inc.testimonial')
-        @include('jobentry.inc.footer')
-
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
