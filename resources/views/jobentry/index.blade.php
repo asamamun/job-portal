@@ -2,7 +2,6 @@
 @section('head')
 
 @endsection
-
 @section('content')
 @include('jobentry.inc.carousel')
 @include('jobentry.inc.search')
@@ -11,4 +10,5 @@
 @include('jobentry.inc.job')
 @include('jobentry.inc.testimonial')
 @include('jobentry.inc.footer')
+
 @endsection

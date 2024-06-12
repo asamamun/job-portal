@@ -10,7 +10,21 @@
         <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Profile</h1>
         <div class="row g-5">
             @include('jobentry.inc.leftsidebar')
-            <div class="col-9">
+            <div class="col-md-9">
+                <form action="{{ route('applicant.update.image') }}" class="parsley-examples" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <fieldset>
+                        <legend>Profile Image:</legend>
+                        <div class="mb-3">
+                            <label for="userNameImage" class="form-label">Upload Image<span class="text-danger">*</span></label>
+                            <input type="file" name="image" parsley-trigger="change" required="" class="form-control" id="userNameImage">
+                        </div>
+                        <div class="text-end">
+                            <button class="btn btn-primary waves-effect waves-light" type="submit">Add Image</button>
+                        </div>
+                    </fieldset>
+                </form>
                 <form action="#" class="parsley-examples" novalidate="">
                     <fieldset>
                         <legend>Personel Details:</legend>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2024 at 11:50 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jun 12, 2024 at 08:42 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,6 +43,13 @@ CREATE TABLE `applicants` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `applicants`
+--
+
+INSERT INTO `applicants` (`id`, `user_id`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
+(1, 15, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 100, '1', '2024-06-11 21:17:47', '2024-06-11 21:17:47');
 
 -- --------------------------------------------------------
 
@@ -143,13 +150,13 @@ CREATE TABLE `education` (
 CREATE TABLE `employers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `website` varchar(255) NOT NULL,
-  `licence_no` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `licence_no` varchar(255) DEFAULT NULL,
   `contact_person` varchar(255) DEFAULT NULL,
-  `contact_phone` varchar(255) NOT NULL,
-  `contact_email` varchar(255) NOT NULL,
+  `contact_phone` varchar(255) DEFAULT NULL,
+  `contact_email` varchar(255) DEFAULT NULL,
   `logo` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `founded` varchar(255) DEFAULT NULL,
@@ -162,6 +169,14 @@ CREATE TABLE `employers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employers`
+--
+
+INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
+(1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'regular', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
+(2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37');
 
 -- --------------------------------------------------------
 
@@ -183,6 +198,13 @@ CREATE TABLE `experiences` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `experiences`
+--
+
+INSERT INTO `experiences` (`id`, `applicant_id`, `company`, `address`, `phone`, `position`, `department`, `description`, `from`, `to`, `created_at`, `updated_at`) VALUES
+(2, 1, 'IsDB1', 'Agargaon Dhaka, Bangladesh', '01831587760', 'trainee', 'WDPF', 'HTML, CSS, JS, PHP, Lavavel', '2024-06-01', '2024-06-12', '2024-06-11 22:15:03', '2024-06-11 22:29:12');
 
 -- --------------------------------------------------------
 
@@ -230,7 +252,25 @@ INSERT INTO `functionals` (`id`, `name`, `icon`, `status`, `created_at`, `update
 (8, 'Commercial', 'bi bi-funnel-fill', '1', '2024-06-11 04:48:25', '2024-06-11 04:48:25'),
 (9, 'Research/Consultancy', 'bi bi-funnel-fill', '1', '2024-06-11 04:48:46', '2024-06-11 04:48:46'),
 (10, 'Education/Training', 'bi bi-funnel-fill', '1', '2024-06-11 04:49:18', '2024-06-11 04:49:18'),
-(11, 'Beauty Care/ Health & Fitness', 'bi bi-funnel-fill', '1', '2024-06-11 04:49:58', '2024-06-11 04:49:58');
+(11, 'Beauty Care/ Health & Fitness', 'bi bi-funnel-fill', '1', '2024-06-11 04:49:58', '2024-06-11 04:49:58'),
+(13, 'Receptionist/ PS', 'bi bi-filter', '1', '2024-06-11 21:48:47', '2024-06-11 21:48:47'),
+(14, 'Engineer/Architects', 'bi bi-filter', '1', '2024-06-11 21:49:23', '2024-06-11 21:49:23'),
+(15, 'IT & Telecommunication', 'bi bi-filter', '1', '2024-06-11 21:49:45', '2024-06-11 21:49:45'),
+(16, 'Data Entry/Operator/BPO', 'bi bi-filter', '1', '2024-06-11 21:50:09', '2024-06-11 21:50:09'),
+(17, 'Garments/Textile', 'bi bi-filter', '1', '2024-06-11 21:50:35', '2024-06-11 21:50:35'),
+(18, 'Marketing/Sales', 'bi bi-filter', '1', '2024-06-11 21:51:18', '2024-06-11 21:51:18'),
+(19, 'Driving/Motor Technician', 'bi bi-filter', '1', '2024-06-11 21:51:35', '2024-06-11 21:51:35'),
+(20, 'HR/Org. Development', 'bi bi-filter', '1', '2024-06-11 21:51:59', '2024-06-11 21:51:59'),
+(21, 'Customer Service/Call Centre', 'bi bi-filter', '1', '2024-06-11 21:52:20', '2024-06-11 21:52:20'),
+(22, 'Security/Support Service', 'bi bi-filter', '1', '2024-06-11 21:52:41', '2024-06-11 21:52:41'),
+(23, 'Gen Mgt/Admin', 'bi bi-filter', '1', '2024-06-11 21:53:06', '2024-06-11 21:53:06'),
+(24, 'Media/Ad./Event Mgt.', 'bi bi-filter', '1', '2024-06-11 21:53:25', '2024-06-11 21:53:25'),
+(25, 'Law/Legal', 'bi bi-filter', '1', '2024-06-11 21:53:50', '2024-06-11 21:53:50'),
+(26, 'Design/Creative', 'bi bi-filter', '1', '2024-06-11 21:54:08', '2024-06-11 21:54:08'),
+(27, 'Medical/Pharma', 'bi bi-filter', '1', '2024-06-11 21:54:25', '2024-06-11 21:54:25'),
+(28, 'Company Secretary/Regulatory affairs', 'bi bi-filter', '1', '2024-06-11 21:54:45', '2024-06-11 21:54:45'),
+(29, 'Electrician/Construction/Repair', 'bi bi-filter', '1', '2024-06-11 21:55:11', '2024-06-11 21:55:11'),
+(30, 'Others', 'bi bi-filter', '1', '2024-06-11 21:55:49', '2024-06-11 21:55:49');
 
 -- --------------------------------------------------------
 
@@ -246,6 +286,40 @@ CREATE TABLE `industrials` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `industrials`
+--
+
+INSERT INTO `industrials` (`id`, `name`, `icon`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'Agro based Industry', 'bi bi-briefcase-fill', '1', '2024-06-11 21:59:25', '2024-06-11 22:02:48'),
+(3, 'Pharmaceuticals', 'bi bi-briefcase-fill', '1', '2024-06-11 22:03:20', '2024-06-11 22:03:20'),
+(4, 'Media / Advertising/ Event Mgt.', 'bi bi-briefcase-fill', '1', '2024-06-11 22:03:45', '2024-06-11 22:03:45'),
+(5, 'Archi./Engg./Construction', 'bi bi-briefcase-fill', '1', '2024-06-11 22:10:09', '2024-06-11 22:10:09'),
+(6, 'Hospital/ Diagnostic Center', 'bi bi-briefcase-fill', '1', '2024-06-11 22:10:32', '2024-06-11 22:10:32'),
+(7, 'NGO/Development', 'bi bi-briefcase-fill', '1', '2024-06-11 22:11:11', '2024-06-11 22:11:11'),
+(8, 'Automobile/Industrial Machine', 'bi bi-briefcase-fill', '1', '2024-06-11 22:11:46', '2024-06-11 22:11:46'),
+(9, 'Airline/ Travel/ Tourism', 'bi bi-briefcase-fill', '1', '2024-06-11 22:13:18', '2024-06-11 22:13:18'),
+(10, 'Real Estate/Development', 'bi bi-briefcase-fill', '1', '2024-06-11 22:13:35', '2024-06-11 22:13:35'),
+(11, 'Bank/Non-Bank Fin. Institution', 'bi bi-briefcase-fill', '1', '2024-06-11 22:13:56', '2024-06-11 22:13:56'),
+(12, 'Manufacturing (Light Industry)', 'bi bi-briefcase-fill', '1', '2024-06-11 22:14:17', '2024-06-11 22:14:17'),
+(13, 'Wholesale/ Retail/ Export-Import', 'bi bi-briefcase-fill', '1', '2024-06-11 22:14:35', '2024-06-11 22:14:35'),
+(14, 'Education', 'bi bi-briefcase-fill', '1', '2024-06-11 22:14:54', '2024-06-11 22:14:54'),
+(15, 'Manufacturing (Heavy Industry)', 'bi bi-briefcase-fill', '1', '2024-06-11 22:15:13', '2024-06-11 22:15:13'),
+(16, 'Telecommunication', 'bi bi-briefcase-fill', '1', '2024-06-11 22:15:32', '2024-06-11 22:15:32'),
+(17, 'Electronics/Consumer Durables', 'bi bi-briefcase-fill', '1', '2024-06-11 22:15:52', '2024-06-11 22:15:52'),
+(18, 'Hotel/Restaurant', 'bi bi-briefcase-fill', '1', '2024-06-11 22:16:52', '2024-06-11 22:16:52'),
+(19, 'Food & Beverage Industry', 'bi bi-briefcase-fill', '1', '2024-06-11 22:17:45', '2024-06-11 22:17:45'),
+(20, 'Energy/Power/Fuel', 'bi bi-briefcase-fill', '1', '2024-06-11 22:18:05', '2024-06-11 22:18:05'),
+(21, 'nformation Technology (IT)', 'bi bi-briefcase-fill', '1', '2024-06-11 22:18:35', '2024-06-11 22:18:35'),
+(22, 'Security Service', 'bi bi-briefcase-fill', '1', '2024-06-11 22:19:25', '2024-06-11 22:19:25'),
+(23, 'Garments/Textile', 'bi bi-briefcase-fill', '1', '2024-06-11 22:19:47', '2024-06-11 22:19:47'),
+(24, 'Logistics/ Transportation', 'bi bi-briefcase-fill', '1', '2024-06-11 22:20:30', '2024-06-11 22:20:30'),
+(25, 'Fire, Safety & Protection', 'bi bi-briefcase-fill', '1', '2024-06-11 22:20:57', '2024-06-11 22:20:57'),
+(26, 'Govt./Semi-Govt./Autonomous', 'bi bi-briefcase-fill', '1', '2024-06-11 22:21:16', '2024-06-11 22:21:16'),
+(27, 'Entertainment/ Recreation', 'bi bi-briefcase-fill', '1', '2024-06-11 22:22:21', '2024-06-11 22:22:21'),
+(28, 'E-Commerce/ F-Commerce', 'bi bi-briefcase-fill', '1', '2024-06-11 22:22:43', '2024-06-11 22:22:43'),
+(29, 'Others', 'bi bi-briefcase-fill', '1', '2024-06-11 22:23:00', '2024-06-11 22:23:00');
 
 -- --------------------------------------------------------
 
@@ -526,8 +600,10 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('nWm4bVfdCjKvDKwXQi2rMw9YVjtVyxZ09p4KHj1R', 11, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVWp3S3RDT2lKaTlGclF6Q1RRSGg2enlXcWNiYzZPNHplSUMyN0hlQSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9zcGVjaWFsIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTE7fQ==', 1718099317),
-('UJ3giDh9MFVBZ4bXWOkLjFQSUVkquWAbPhPinZTz', 13, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOHlMUTRnSFE5M3lWdUhxQWJLeXFkVFl3cnU2MmVOTGJIUjBEbU9MUSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcHBsaWNhbnQvcHJvZmlsZSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjEzO30=', 1718104550);
+('9GmQLmydgtGtuhTOpU3CIv7twu22KuKxLUOiVE1I', 15, '192.168.54.67', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUFJWbFlUVW5NNmpiaGk1ZmVkclBQNjJOSFlYWWFLbnJ4OGpsVTZTZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTY6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FwcGxpY2FudC9wcm9maWxlIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1718173222),
+('kdGoBxdPElnk5MEo52BSsavTX6srcQTynZjBFaV1', 16, '192.168.54.78', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZDYydGUxbDJXSmxvTmI0RlJreXVROHpJVUJDV0gxeG9HVGhVSkdINiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTI6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FkbWluL3NwZWNpYWwiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNjt9', 1718167576),
+('M7iMo1ezGRdxXYs7OWdpZrEppefSONQ0DYoZGLie', 15, '192.168.54.67', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiR2dTM3V1c0ZVZWdOOXI2bmNXUHB3ZUFOOE83bHlpVkNDQkxpOVR1VyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTY6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FwcGxpY2FudC9wcm9maWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1718169687),
+('XLE0D4OH9ny43cx9YjSEGBhYTjTs13bp4SRC7L3g', 15, '192.168.54.64', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYm4yZ2plU1JjU253UHlVRzVqc3BhdWQySXlydTNwNVB4a2hqd2VoeCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTk6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FwcGxpY2FudC9leHBlcmllbmNlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1718166694);
 
 -- --------------------------------------------------------
 
@@ -583,6 +659,44 @@ CREATE TABLE `specials` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `specials`
+--
+
+INSERT INTO `specials` (`id`, `name`, `icon`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'ডাটা এন্ট্রি/কম্পিউটার অপারেটর', 'bi bi-tools', '1', '2024-06-11 22:26:45', '2024-06-11 22:26:45'),
+(3, 'ইলেকট্রিশিয়ান/ইলেকট্রনিকস্ টেক.', 'bi bi-tools', '1', '2024-06-11 22:28:56', '2024-06-11 22:28:56'),
+(4, 'প্যাথলজিস্ট/ল্যাব সহকারী', 'bi bi-tools', '1', '2024-06-11 22:29:21', '2024-06-11 22:29:21'),
+(5, 'মেকানিক/টেকনিশিয়ান', 'bi bi-tools', '1', '2024-06-11 22:30:08', '2024-06-11 22:30:08'),
+(6, 'ড্রাইভার', 'bi bi-tools', '1', '2024-06-11 22:30:42', '2024-06-11 22:30:42'),
+(7, 'সিকিউরিটি গার্ড', 'bi bi-tools', '1', '2024-06-11 22:31:12', '2024-06-11 22:31:12'),
+(8, 'নার্স', 'bi bi-tools', '1', '2024-06-11 22:31:39', '2024-06-11 22:31:39'),
+(9, 'শেফ/বাবুর্চী', 'bi bi-tools', '1', '2024-06-11 22:32:05', '2024-06-11 22:32:05'),
+(10, 'ওয়েটার/ওয়েট্রেস', 'bi bi-tools', '1', '2024-06-11 22:33:32', '2024-06-11 22:33:32'),
+(11, 'ডেলিভারী ম্যান', 'bi bi-tools', '1', '2024-06-11 22:33:59', '2024-06-11 22:33:59'),
+(12, 'পিয়ন', 'bi bi-tools', '1', '2024-06-11 22:34:20', '2024-06-11 22:34:20'),
+(13, 'শো-রুম সহকারী/সেলসম্যান', 'bi bi-tools', '1', '2024-06-11 22:35:37', '2024-06-11 22:35:37'),
+(14, 'গ্রাফিক্স ডিজাইনার', 'bi bi-tools', '1', '2024-06-11 22:35:58', '2024-06-11 22:35:58'),
+(15, 'সেলস রিপ্রেজেন্টেটিভ/বিক্রয় প্রতিনিধি', 'bi bi-tools', '1', '2024-06-11 22:36:18', '2024-06-11 22:36:18'),
+(16, 'গার্মেন্টস টেকনিশিয়ান', 'bi bi-tools', '1', '2024-06-11 22:36:34', '2024-06-11 22:36:34'),
+(17, 'CAD অপারেটর', 'bi bi-tools', '1', '2024-06-11 22:37:48', '2024-06-11 22:37:48'),
+(18, 'কেয়ারগিভার/ন্যানী', 'bi bi-tools', '1', '2024-06-11 22:38:09', '2024-06-11 22:38:09'),
+(19, 'ওয়েল্ডার', 'bi bi-tools', '1', '2024-06-11 22:38:31', '2024-06-11 22:38:31'),
+(20, 'প্লাম্বার/পাইপফিটিং', 'bi bi-tools', '1', '2024-06-11 22:38:55', '2024-06-11 22:38:55'),
+(21, 'হাউজকিপার', 'bi bi-tools', '1', '2024-06-11 22:39:27', '2024-06-11 22:39:27'),
+(22, 'অন্যান্য', 'bi bi-tools', '1', '2024-06-11 22:40:39', '2024-06-11 22:40:39'),
+(23, 'রাজমিস্ত্রি/নির্মাণ কর্মী', 'bi bi-tools', '1', '2024-06-11 22:41:10', '2024-06-11 22:41:10'),
+(24, 'স্যুইং মেশিন অপারেটর', 'bi bi-tools', '1', '2024-06-11 22:41:30', '2024-06-11 22:41:30'),
+(25, 'ক্লিনার', 'bi bi-tools', '1', '2024-06-11 22:41:50', '2024-06-11 22:41:50'),
+(26, 'মালী', 'bi bi-tools', '1', '2024-06-11 22:42:15', '2024-06-11 22:42:15'),
+(27, 'জিম/ ফিটনেস ট্রেইনার', 'bi bi-tools', '1', '2024-06-11 22:42:39', '2024-06-11 22:42:39'),
+(28, 'বিউটিশিয়ান/ সেলুন', 'bi bi-tools', '1', '2024-06-11 22:43:44', '2024-06-11 22:43:44'),
+(29, 'ইমাম/ খতিব/ মুয়াজ্জিন', 'bi bi-briefcase-fill', '1', '2024-06-11 22:44:06', '2024-06-11 22:46:16'),
+(30, 'ইন্টারপ্রিটার/ দোভাষী', 'bi bi-tools', '1', '2024-06-11 22:44:41', '2024-06-11 22:44:41'),
+(31, 'ফায়ার সেফটি/ ফায়ারফাইটার', 'bi bi-tools', '1', '2024-06-11 22:45:05', '2024-06-11 22:45:05'),
+(32, 'বয়লার অপারেটর', 'bi bi-tools', '1', '2024-06-11 22:45:25', '2024-06-11 22:45:25'),
+(33, 'কার্পেন্টার', 'bi bi-tools', '1', '2024-06-11 22:45:50', '2024-06-11 22:45:50');
+
 -- --------------------------------------------------------
 
 --
@@ -606,6 +720,7 @@ CREATE TABLE `states` (
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
@@ -619,20 +734,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Lizeth McClure', 'dana21@example.com', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'applicant', 'HurBV345uP', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(2, 'Nikko Stehr', 'gutmann.paolo@example.net', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'applicant', 'hqkttwQoHD', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(3, 'Demetris Little', 'clare81@example.org', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'employer', 'u0YuXXMicX', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(4, 'Mr. Ubaldo Smitham V', 'boehm.kale@example.com', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'admin', 'FnLFtRj8zd', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(5, 'Ms. Destiney Haley III', 'alysha.tremblay@example.org', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'employer', '4aHxbHT1Ss', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(6, 'Lon Kutch', 'epfeffer@example.com', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'applicant', 'c6RwcJeeoz', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(7, 'Mrs. Gabriella Maggio Sr.', 'xboehm@example.net', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'admin', '1NQD0VTBpW', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(8, 'Prof. Gregory O\'Hara', 'green.melvin@example.net', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'employer', 'u9vUyUmEPe', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(9, 'Adonis Cormier', 'asha.schowalter@example.com', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'employer', 'EK9gG4vJAZ', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(10, 'Elias Okuneva', 'emerald57@example.net', '2024-06-11 00:40:48', '$2y$12$ejY43Uu.yERqo3DzypGYfeOn16lfpEcwv2K7Ag4tK6vKNGY.wQGii', 'applicant', 'KV2H1DHrux', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(11, 'nur', 'admin@gmail.com', '2024-06-11 00:40:48', '$2y$12$TVi.p/qQDBHUDnlgqPt0.uDZKqGlrU8Tzb5vSpRbevkugXo02FHia', 'admin', 'Xmdrlh9PA7BS2N3BvtHJA2U9qrx9BKoBnvzpjo7oJmhQrrbImxpAZVucqYUD', '2024-06-11 00:40:48', '2024-06-11 00:40:48'),
-(12, 'employer', 'employer@gmail.com', '2024-06-11 00:40:49', '$2y$12$gdY14U36vpTbA9gnIcSXpeuFM2C3oWFE1mp8giAnZdSQj/axE31JO', 'employer', 'n51cNy59KIaTOEuECppkEIGciciSyDdJ7LbL3uev6wZ31I578v0Ezspg7qDT', '2024-06-11 00:40:49', '2024-06-11 00:40:49'),
-(13, 'applicant', 'applicant@gmail.com', '2024-06-11 00:40:49', '$2y$12$4q83eV4dI8ZMFCCQ8kvxf.9WKTSLc57lAbiK3nXmXzlUXLGUEuQoe', 'applicant', 'IJqOef9zJvr6OzJy2KJ2lOR68X39XkZbNgd4k4aBrJQSzAx6ULIno6z7aG92', '2024-06-11 00:40:49', '2024-06-11 00:40:49');
+INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `created_at`, `updated_at`) VALUES
+(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', NULL, '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
+(15, 'applicant', 'img/1718173222.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'qljBEgZcbp0eKYeYfEL3jqvOBWJKqSm8JF7iV70LgHweLfG2csBzGXvjlvnp', '2024-06-11 21:17:47', '2024-06-12 00:20:22'),
+(16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'yM7dL0lccRpjQPFk7IGPDy3dryA8bMi0axf9YM7KT25lgHBV4HT4SSgse243', '2024-06-11 21:20:37', '2024-06-11 21:20:37');
 
 --
 -- Indexes for dumped tables
@@ -871,7 +976,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applicants`
 --
 ALTER TABLE `applicants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `applicant_post`
@@ -901,13 +1006,13 @@ ALTER TABLE `education`
 -- AUTO_INCREMENT for table `employers`
 --
 ALTER TABLE `employers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `experiences`
 --
 ALTER TABLE `experiences`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -919,13 +1024,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `functionals`
 --
 ALTER TABLE `functionals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `industrials`
 --
 ALTER TABLE `industrials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -1015,7 +1120,7 @@ ALTER TABLE `skill_types`
 -- AUTO_INCREMENT for table `specials`
 --
 ALTER TABLE `specials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `states`
@@ -1027,7 +1132,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

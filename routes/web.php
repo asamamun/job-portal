@@ -10,6 +10,7 @@ use App\Http\Controllers\employer\DashboardController as EmployerDashboardContro
 use App\Http\Controllers\employer\PostController;
 use App\Http\Controllers\Applicant\ProfileController as ApplicantProfileController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Applicant\ExperienceController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
 use App\Http\Middleware\Employer;
@@ -47,6 +48,9 @@ Route::middleware([Employer::class])->prefix('employer')->group(function () {
 });
 Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     Route::get('/profile', [ApplicantProfileController::class, 'index'])->name('applicant.profile');
+    Route::put('/update/image', [ApplicantProfileController::class, 'imageUpdate'])->name('applicant.update.image');
+    Route::put('/update', [ApplicantProfileController::class, 'update'])->name('applicant.update');
+    Route::resource('experience', ExperienceController::class);
 });
 
 require __DIR__.'/auth.php';

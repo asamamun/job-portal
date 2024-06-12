@@ -37,6 +37,7 @@
 </head>
 
 <body>
+    @include('inc.alert')
     <div class="container-xxl bg-white p-0">
         
         @include('jobentry.inc.navbar')
