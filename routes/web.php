@@ -10,6 +10,7 @@ use App\Http\Controllers\employer\DashboardController as EmployerDashboardContro
 use App\Http\Controllers\employer\PostController;
 use App\Http\Controllers\Applicant\ProfileController as ApplicantProfileController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Applicant\ExperienceController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
@@ -52,5 +53,24 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     Route::put('/update', [ApplicantProfileController::class, 'update'])->name('applicant.update');
     Route::resource('experience', ExperienceController::class);
 });
+
+
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
+
+
+
 
 require __DIR__.'/auth.php';

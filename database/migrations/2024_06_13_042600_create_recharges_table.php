@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
 			$table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-			$table->set('types',['online','offline']);
-			$table->integer('amount');
-			$table->string('transaction_id');
-			$table->set('status', ['done', 'fail', 'processing'])->default('processing');
+			$table->set('types',['online','offline'])->nullable();
+			$table->integer('amount')->nullable();
+			$table->string('transaction_id')->nullable();
+			$table->string('status')->nullable();
             $table->timestamps();
         });
     }

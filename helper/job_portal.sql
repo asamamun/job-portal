@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2024 at 10:01 AM
+-- Generation Time: Jun 13, 2024 at 04:27 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -848,13 +848,21 @@ CREATE TABLE `questions` (
 CREATE TABLE `recharges` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `types` set('online','offline') NOT NULL,
-  `amount` int(11) NOT NULL,
-  `transaction_id` varchar(255) NOT NULL,
-  `status` set('done','fail','processing') NOT NULL DEFAULT 'processing',
+  `types` set('online','offline') DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `transaction_id` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `recharges`
+--
+
+INSERT INTO `recharges` (`id`, `user_id`, `types`, `amount`, `transaction_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 14, NULL, 10, '666b00a736569', 'Pending', NULL, NULL),
+(2, 14, NULL, 10, '666b0101b3842', 'Pending', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -944,6 +952,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('7SiPmm218dOTeUQPXGJVzn32RCzqdja5rlXMAg4A', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTGkweDJtMVRVaTMxN2ZOa2NHUGRhVGt1QUNwRXU0MlFDV2xnSURYRCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9leGFtcGxlMiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE0O30=', 1718288382),
 ('9GmQLmydgtGtuhTOpU3CIv7twu22KuKxLUOiVE1I', 15, '192.168.54.67', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUFJWbFlUVW5NNmpiaGk1ZmVkclBQNjJOSFlYWWFLbnJ4OGpsVTZTZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTY6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FwcGxpY2FudC9wcm9maWxlIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1718173222),
 ('kdGoBxdPElnk5MEo52BSsavTX6srcQTynZjBFaV1', 16, '192.168.54.78', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZDYydGUxbDJXSmxvTmI0RlJreXVROHpJVUJDV0gxeG9HVGhVSkdINiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTI6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FkbWluL3NwZWNpYWwiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNjt9', 1718167576),
 ('M7iMo1ezGRdxXYs7OWdpZrEppefSONQ0DYoZGLie', 15, '192.168.54.67', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiR2dTM3V1c0ZVZWdOOXI2bmNXUHB3ZUFOOE83bHlpVkNDQkxpOVR1VyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTY6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FwcGxpY2FudC9wcm9maWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1718169687),
@@ -6169,7 +6178,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `created_at`, `updated_at`) VALUES
-(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', NULL, '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
+(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'MiGE5GWkibnuL9oHly1ud2B1jw3XUSJD8HXbo3mi4wsshxGO46ih5nTSDA8A', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
 (15, 'applicant', 'img/1718173222.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'qljBEgZcbp0eKYeYfEL3jqvOBWJKqSm8JF7iV70LgHweLfG2csBzGXvjlvnp', '2024-06-11 21:17:47', '2024-06-12 00:20:22'),
 (16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'yM7dL0lccRpjQPFk7IGPDy3dryA8bMi0axf9YM7KT25lgHBV4HT4SSgse243', '2024-06-11 21:20:37', '2024-06-11 21:20:37');
 
@@ -6597,7 +6606,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `recharges`
 --
 ALTER TABLE `recharges`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `references`

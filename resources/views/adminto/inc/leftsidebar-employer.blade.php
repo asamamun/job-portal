@@ -60,7 +60,7 @@
                     <div class="collapse" id="sidebarTables3245633">
                         <ul class="nav-second-level">
                             <li>
-                                <a href=""> Recharge </a>
+                                <a href="{{url('/example2')}}"> Recharge </a>
                             </li>
                             <li>
                                 <a href=""> Withdraw </a>
