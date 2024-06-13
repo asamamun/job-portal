@@ -73,4 +73,8 @@ class Applicant extends Model
     {
         return $this->hasMany(Review::class);
     }
+    public function results(): HasMany
+    {
+        return $this->hasMany(Result::class);
+    }
 }

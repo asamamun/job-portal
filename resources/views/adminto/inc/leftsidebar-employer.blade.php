@@ -51,6 +51,26 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <a href="#sidebarTables3245633" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Transactions </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTables3245633">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href=""> Recharge </a>
+                            </li>
+                            <li>
+                                <a href=""> Withdraw </a>
+                            </li>
+                            <li>
+                                <a href="#"> History </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
 
         </div>

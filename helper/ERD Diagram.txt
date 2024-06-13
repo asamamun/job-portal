@@ -138,11 +138,10 @@
 10. Recharge Table: 
 	id (Primary Key)
 	user_id (Foreign Key)
-	account_type ('sslcommerz', 'mobile banking', 'bank account')
-	account_name
-	account_number
+	types ('online', 'offline')
 	amount (tk)
 	transaction_id
+	staus ('done', 'fail', 'processing')
 	created_at
 	updated_at
 
@@ -152,8 +151,11 @@
 	account_type ('Bikas', 'Nagad', 'bank')
 	account_name
 	account_number
-	point ( 1000 point must in accout. 1 taka 2 point )
+	points ( 1000 point must in accout. 1 taka 2 point )
 	status ('Processing', 'Complete')
+	transaction_id
+	status
+	description
 	created_at
 	updated_at
 
@@ -254,7 +256,6 @@
 21. Category Table:-
 	id (Primary Key)
 	name
-	slug
 	icon
 	staus (active = 1, disable = 0)
 	created_at
@@ -264,19 +265,19 @@
 	id (Primary Key)
 	category_id (Foreign Key)
 	question
-	answer_one
-	answer_two
-	answer_three
-	answer_four
-	current_ans
+	option_one
+	option_two
+	option_three
+	option_four
+	answer
 	created_at
 	updated_at
 
 23. Result Table:-
 	id (Primary Key)
-	user_id (Foreign Key)
-	mark
-	mark_out_of
+	applicant_id(Foreign Key)
+	marks
+	marks_outof
 	status ( pass, fail, processing )
 	created_at
 	updated_at

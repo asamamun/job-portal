@@ -60,7 +60,8 @@ class RegisteredUserController extends Controller
                 return redirect()->intended(route('employer.dashboard', absolute: false));
             }
             $employer = Employer::create([
-                'user_id'=> $id
+                'user_id'=> $id,
+                'points' => 200
             ]);
             return redirect()->intended(route('employer.dashboard', absolute: false));
         }
@@ -69,7 +70,8 @@ class RegisteredUserController extends Controller
                 return redirect()->intended(route('employer.dashboard', absolute: false));
             }
             $applicant = Applicant::create([
-                'user_id'=> $id
+                'user_id'=> $id,
+                'points' => 20
             ]);
             return redirect()->intended(route('home', absolute: false));
         } 
