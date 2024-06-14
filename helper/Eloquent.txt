@@ -4,3 +4,5 @@ view--------------------------------------------
 //helper
 {{auth()->user()->applicant->user_id}}
 --------------------------------------------------
+use Illuminate\Support\Facades\Auth;
+$role = Auth::user()->roles;

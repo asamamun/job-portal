@@ -15,9 +15,9 @@ class Applicant
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->roles !== 'applicant') {
-            abort(403);
+        if(auth()->user() && auth()->user()->roles != 'applicant') {
+            return $next($request);
         }
-        return $next($request);
+        abort(403);
     }
 }

@@ -15,9 +15,9 @@ class Employer
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->roles !== 'employer') {
-            abort(403);
-        }
-        return $next($request);
+		if(auth()->user() && auth()->user()->roles == 'employer') {
+            return $next($request);
+		}
+        abort(403);
     }
 }

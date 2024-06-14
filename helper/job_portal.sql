@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2024 at 04:27 PM
+-- Generation Time: Jun 14, 2024 at 10:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -738,7 +738,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (29, '2024_06_13_042826_create_incomes_table', 2),
 (30, '2024_06_13_043237_create_categories_table', 2),
 (31, '2024_06_13_043244_create_questions_table', 2),
-(32, '2024_06_13_043314_create_results_table', 2);
+(32, '2024_06_13_043314_create_results_table', 2),
+(33, '2024_06_14_084222_create_personal_access_tokens_table', 3);
 
 -- --------------------------------------------------------
 
@@ -755,6 +756,25 @@ CREATE TABLE `password_reset_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -764,7 +784,7 @@ CREATE TABLE `posts` (
   `functional_id` bigint(20) UNSIGNED DEFAULT NULL,
   `industrial_id` bigint(20) UNSIGNED DEFAULT NULL,
   `special_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `job_type` set('Full-time','Part-time','Contract','Internship','Freelance') NOT NULL,
+  `job_type` set('full-time','part-time','contract','internship','freelance') NOT NULL DEFAULT 'full-time',
   `job_status` set('Open','Closed','Cancelled') NOT NULL,
   `country_id` bigint(20) UNSIGNED DEFAULT NULL,
   `state_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -952,11 +972,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('7SiPmm218dOTeUQPXGJVzn32RCzqdja5rlXMAg4A', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTGkweDJtMVRVaTMxN2ZOa2NHUGRhVGt1QUNwRXU0MlFDV2xnSURYRCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9leGFtcGxlMiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE0O30=', 1718288382),
-('9GmQLmydgtGtuhTOpU3CIv7twu22KuKxLUOiVE1I', 15, '192.168.54.67', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUFJWbFlUVW5NNmpiaGk1ZmVkclBQNjJOSFlYWWFLbnJ4OGpsVTZTZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTY6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FwcGxpY2FudC9wcm9maWxlIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1718173222),
-('kdGoBxdPElnk5MEo52BSsavTX6srcQTynZjBFaV1', 16, '192.168.54.78', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZDYydGUxbDJXSmxvTmI0RlJreXVROHpJVUJDV0gxeG9HVGhVSkdINiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTI6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FkbWluL3NwZWNpYWwiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNjt9', 1718167576),
-('M7iMo1ezGRdxXYs7OWdpZrEppefSONQ0DYoZGLie', 15, '192.168.54.67', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiR2dTM3V1c0ZVZWdOOXI2bmNXUHB3ZUFOOE83bHlpVkNDQkxpOVR1VyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTY6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FwcGxpY2FudC9wcm9maWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1718169687),
-('XLE0D4OH9ny43cx9YjSEGBhYTjTs13bp4SRC7L3g', 15, '192.168.54.64', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYm4yZ2plU1JjU253UHlVRzVqc3BhdWQySXlydTNwNVB4a2hqd2VoeCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTk6Imh0dHA6Ly8xOTIuMTY4LjU0LjY3L2pvYi1wb3J0YWwvcHVibGljL2FwcGxpY2FudC9leHBlcmllbmNlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1718166694);
+('joKOOZ1g5zRakODt7PW24QJMloXtDMiDMkDRQjD6', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQ2F5cTk2SnhMSnVPOXFKNVhSU0VXNmdwVE5tM1BtRmlBVnllMm14YSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lbXBsb3llci9wb3N0cy9jcmVhdGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNDt9', 1718354186);
 
 -- --------------------------------------------------------
 
@@ -6178,7 +6194,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `created_at`, `updated_at`) VALUES
-(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'MiGE5GWkibnuL9oHly1ud2B1jw3XUSJD8HXbo3mi4wsshxGO46ih5nTSDA8A', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
+(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'QrLxDsCqij38DJkXDqbdHPbEFLX6BmVK6CiGE2oGNIO6NOmsnFOpgKbErLUB', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
 (15, 'applicant', 'img/1718173222.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'qljBEgZcbp0eKYeYfEL3jqvOBWJKqSm8JF7iV70LgHweLfG2csBzGXvjlvnp', '2024-06-11 21:17:47', '2024-06-12 00:20:22'),
 (16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'yM7dL0lccRpjQPFk7IGPDy3dryA8bMi0axf9YM7KT25lgHBV4HT4SSgse243', '2024-06-11 21:20:37', '2024-06-11 21:20:37');
 
@@ -6347,6 +6363,14 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
 -- Indexes for table `posts`
@@ -6576,7 +6600,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `posts`

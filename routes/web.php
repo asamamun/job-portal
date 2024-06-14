@@ -10,6 +10,7 @@ use App\Http\Controllers\employer\DashboardController as EmployerDashboardContro
 use App\Http\Controllers\employer\PostController;
 use App\Http\Controllers\Applicant\ProfileController as ApplicantProfileController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Applicant\ExperienceController;
 use App\Http\Middleware\Admin;
@@ -70,7 +71,10 @@ Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 //SSLCOMMERZ END
 
-
+#Ajax
+Route::prefix('ajax')->group(function(){
+    Route::get('/state/{country_id}', [AjaxController::class, 'stateAjax']);
+});
 
 
 require __DIR__.'/auth.php';

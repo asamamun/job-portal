@@ -6,6 +6,8 @@ use DB;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Applicant;
+use App\Models\Employer;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -154,7 +156,7 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
-        echo "Transaction is Successful";
+        //echo "Transaction is Successful";
 
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
@@ -165,7 +167,7 @@ class SslCommerzPaymentController extends Controller
         #Check order status in order tabel against the transaction id or order id.
         $order_details = DB::table('recharges')
             ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'status', 'currency', 'amount')->first();
+            ->select('transaction_id', 'status', 'amount')->first();
 
         if ($order_details->status == 'Pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
@@ -180,13 +182,27 @@ class SslCommerzPaymentController extends Controller
                     ->where('transaction_id', $tran_id)
                     ->update(['status' => 'Processing']);
 
-                echo "<br >Transaction is successfully Completed";
+                //echo "<br >Transaction is successfully Completed";
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
-            echo "Transaction is successfully Completed";
+            //echo "Transaction is successfully Completed";
+            $points = $order_details->amount * 2;
+            if(Auth::user()->roles == 'employer'){
+                $employer = Employer::where('user_id', Auth::user()->id);
+                $employer->points = Auth::user()->employer->points + $points;
+                $employer->save();
+                return redirect()->intended(route('employer.dashboard', absolute: false))->with('success', 'Transaction is successfully Completed');
+            }
+            if(Auth::user()->roles == 'applicant'){
+                $applicant = Applicant::where('user_id', Auth::user()->id);
+                $applicant->points = Auth::user()->applicant->points + $points;
+                $applicant->save();
+                return redirect()->intended(route('applicant.profile', absolute: false))->with('success', 'Transaction is successfully Completed');;
+            }
+            return redirect()->intended(route('home', absolute: false))->with('success', 'Transaction is successfully Completed');;
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";

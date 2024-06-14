@@ -55,11 +55,11 @@
     <script src="{{ asset('adminto/assets/libs/jquery-knob/jquery.knob.min.js ') }}"></script>
 
     <!--Morris Chart-->
-    <script src="{{ asset('adminto/assets/libs/morris.js06/morris.min.js ') }}"></script>
-    <script src="{{ asset('adminto/assets/libs/raphael/raphael.min.js ') }}"></script>
+    <!-- <script src="{{ asset('adminto/assets/libs/morris.js06/morris.min.js ') }}"></script>
+    <script src="{{ asset('adminto/assets/libs/raphael/raphael.min.js ') }}"></script> -->
 
     <!-- Dashboar init js-->
-    <script src="{{ asset('adminto/assets/js/pages/dashboard.init.js ') }}"></script>
+    <!-- <script src="{{ asset('adminto/assets/js/pages/dashboard.init.js ') }}"></script> -->
 
     <!-- App js-->
     <script src="{{ asset('adminto/assets/js/app.min.js ') }}"></script>

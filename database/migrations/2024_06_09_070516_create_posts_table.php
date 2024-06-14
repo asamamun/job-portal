@@ -23,7 +23,7 @@ return new class extends Migration
             $table->bigInteger('special_id')->unsigned()->nullable();
             $table->foreign('special_id')->references('id')->on('specials')->onDelete('cascade');
             //job type
-            $table->set('job_type', ['Full-time', 'Part-time', 'Contract', 'Internship', 'Freelance']);
+            $table->set('job_type', ['full-time', 'part-time', 'contract', 'internship', 'freelance'])->default('full-time');
             $table->set('job_status', ['Open', 'Closed', 'Cancelled']);
             $table->bigInteger('country_id')->unsigned()->nullable();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
