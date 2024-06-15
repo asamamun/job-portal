@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Applicant
+class PostCheck
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,9 @@ class Applicant
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user() && auth()->user()->roles == 'applicant') {
+        if(auth()->user() && auth()->user()->employer->points >= 100) {
             return $next($request);
         }
-        abort(403);
+        return redirect("/example2");
     }
 }

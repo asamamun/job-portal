@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');          
             $table->enum('roles', ['employer', 'applicant', 'admin'])->default('applicant');
             $table->rememberToken();
+            $table->enum('status', ['0', '1'])->default('1');
             $table->timestamps();
         });
 

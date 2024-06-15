@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2024 at 10:46 AM
+-- Generation Time: Jun 15, 2024 at 04:09 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -446,8 +446,8 @@ CREATE TABLE `employers` (
 --
 
 INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
-(1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'regular', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
-(2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37');
+(1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100, 'regular', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
+(2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 250, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37');
 
 -- --------------------------------------------------------
 
@@ -784,25 +784,24 @@ CREATE TABLE `posts` (
   `functional_id` bigint(20) UNSIGNED DEFAULT NULL,
   `industrial_id` bigint(20) UNSIGNED DEFAULT NULL,
   `special_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `job_type` set('full-time','part-time','contract','internship','freelance') NOT NULL DEFAULT 'full-time',
-  `job_status` set('Open','Closed','Cancelled') NOT NULL,
+  `type` set('full-time','part-time','contract','internship','freelance') NOT NULL DEFAULT 'full-time',
+  `status` set('open','closed','cancelled','progress','pending','promoted') NOT NULL DEFAULT 'open',
   `country_id` bigint(20) UNSIGNED DEFAULT NULL,
   `state_id` bigint(20) UNSIGNED DEFAULT NULL,
   `title` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `salary` int(11) NOT NULL,
+  `description` text DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `salary` int(11) DEFAULT NULL,
   `deadline` date NOT NULL,
-  `experience` varchar(255) NOT NULL,
-  `qualification` varchar(255) NOT NULL,
+  `experience` varchar(255) DEFAULT NULL,
+  `qualification` varchar(255) DEFAULT NULL,
   `contact` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `website` varchar(255) NOT NULL,
+  `website` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `file` varchar(255) DEFAULT NULL,
   `expires` date NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `points` int(11) NOT NULL,
+  `points` int(11) DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -972,7 +971,10 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('joKOOZ1g5zRakODt7PW24QJMloXtDMiDMkDRQjD6', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQ2F5cTk2SnhMSnVPOXFKNVhSU0VXNmdwVE5tM1BtRmlBVnllMm14YSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lbXBsb3llci9wb3N0cy9jcmVhdGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNDt9', 1718354186);
+('cSoPOcz1NtHg4xn0MYLw2tkB7Abd7PEABlDsI1Lr', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQm5WTDlaWGt5dlAzeWo2NTJmWjQzT3lBUWpJcWtjalg3Nm9lOUNzMSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTY7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718459846),
+('FnCgYct9VuCfo7e0qphpNe40XERwws8nKU65W6AT', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMm02YW9ndlhCbzVyVG53c3VqZUlNZGpzdVp4T3lKTEdjaGdhaXJzNyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcHBsaWNhbnQvZXhhbSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1718460489),
+('liwuzjJGG4cFsnSk7pPp756iscsUnv9O1NUtaOfU', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibG5vNjM1Sm5aOEpneUwwVDlJMmgzT0hTQkxMd0dHVWN4RjFPZ1F6YSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNjt9', 1718444563),
+('oFqIYRbAfHk9VpmAYzve1abJrdg3XxqJwDLI5TN4', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWFpkemRpbE1VeTBXcEJpR1JQQTZnRTNHWVZQbmlGWmYwVFpjZUZGSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lbXBsb3llci9wb3N0cy9jcmVhdGUiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNDt9', 1718415684);
 
 -- --------------------------------------------------------
 
@@ -6185,6 +6187,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `roles` enum('employer','applicant','admin') NOT NULL DEFAULT 'applicant',
   `remember_token` varchar(100) DEFAULT NULL,
+  `status` enum('0','1') DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -6193,10 +6196,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `created_at`, `updated_at`) VALUES
-(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'QrLxDsCqij38DJkXDqbdHPbEFLX6BmVK6CiGE2oGNIO6NOmsnFOpgKbErLUB', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
-(15, 'applicant', 'img/1718173222.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'qljBEgZcbp0eKYeYfEL3jqvOBWJKqSm8JF7iV70LgHweLfG2csBzGXvjlvnp', '2024-06-11 21:17:47', '2024-06-12 00:20:22'),
-(16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'yM7dL0lccRpjQPFk7IGPDy3dryA8bMi0axf9YM7KT25lgHBV4HT4SSgse243', '2024-06-11 21:20:37', '2024-06-11 21:20:37');
+INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `created_at`, `updated_at`) VALUES
+(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'Ra0wJ0QY2roJ8a8rdqxMSaAYH5ZcPSa5NEWR9kAuCH6b0Ap8ugd3RyCguEHx', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'applicant', 'img/1718173222.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'nlnH7ylCbNgXqlxiyPLYXUq2hJoo0jr17MBMdt5brd2IZevh4zj878xoX9DR', '0', '2024-06-11 21:17:47', '2024-06-15 03:33:04'),
+(16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '3JV3VyfuDIqfXEVuTPWVaYz9Fsoz1RUeG6H0XS5bfbgebvSK8ieLINTpKvjr', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04');
 
 -- --------------------------------------------------------
 

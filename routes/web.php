@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FunctionalController;
 use App\Http\Controllers\Admin\IndustrialController;
 use App\Http\Controllers\Admin\SpecialController;
 use App\Http\Controllers\Admin\PostTypeController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\employer\DashboardController as EmployerDashboardController;
 use App\Http\Controllers\employer\PostController;
 use App\Http\Controllers\Applicant\ProfileController as ApplicantProfileController;
@@ -13,9 +15,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Applicant\ExperienceController;
+use App\Http\Controllers\Applicant\ExamController;
+use App\Http\Controllers\CkeditorController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
 use App\Http\Middleware\Employer;
+use App\Http\Middleware\PostCheck;
+use App\Http\Middleware\ExamCheck;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -46,13 +52,15 @@ Route::middleware([Admin::class])->prefix('admin')->group(function () {
 });
 Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('employer.dashboard');
-    Route::resource('posts', PostController::class);
+    Route::resource('posts', PostController::class)->only(['create'])->middleware(PostCheck::class);
+    Route::resource('posts', PostController::class)->except(['create']);
 });
 Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     Route::get('/profile', [ApplicantProfileController::class, 'index'])->name('applicant.profile');
     Route::put('/update/image', [ApplicantProfileController::class, 'imageUpdate'])->name('applicant.update.image');
     Route::put('/update', [ApplicantProfileController::class, 'update'])->name('applicant.update');
     Route::resource('experience', ExperienceController::class);
+	Route::get('exam', [ExamController::class, 'examPage'])->middleware(ExamCheck::class);
 });
 
 
@@ -76,5 +84,8 @@ Route::prefix('ajax')->group(function(){
     Route::get('/state/{country_id}', [AjaxController::class, 'stateAjax']);
 });
 
+#Ckeditor
+Route::get('ckeditor', [CkeditorController::class, 'index']);
+Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
 
 require __DIR__.'/auth.php';

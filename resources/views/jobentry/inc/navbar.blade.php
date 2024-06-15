@@ -43,7 +43,14 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
                 <div class="dropdown-menu rounded-0 m-0">
-                    <a href="{{ route('applicant.profile') }}" class="dropdown-item">Profile</a>
+                    @if(auth()->user()->roles == 'admin')
+                        <a href="{{ url('admin/dashboard') }}" class="dropdown-item">Dashboard</a>
+                    @elseif(auth()->user()->roles == 'employer')
+                        <a href="{{ url('employer/dashboard') }}" class="dropdown-item">Dashboard</a>
+                    @else
+						<a href="{{ url('applicant/exam') }}" class="dropdown-item">Online Exam</a>
+                        <a href="{{ route('applicant.profile') }}" class="dropdown-item">Profile Edit</a>
+                    @endif
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button type="submit" class="dropdown-item">Logout</button>
@@ -53,7 +60,11 @@
             @endif
 
         </div>
+        @if(auth()->user() && auth()->user()->roles == 'employer')
         <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
+        @else
+        <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Find A Job<i class="fa fa-arrow-right ms-3"></i></a>
+        @endif
     </div>
 </nav>
 <!-- Navbar End -->

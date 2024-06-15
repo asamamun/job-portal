@@ -14,10 +14,10 @@
 
     <!-- App css -->
 
-    <link href="{{ asset('adminto/assets/css/app.min.css ') }}" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="{{ asset('adminto/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- icons -->
-    <link href="{{ asset('adminto/assets/css/icons.min.css ') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('adminto/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     @yield('head')
 </head>
