@@ -18,8 +18,8 @@ return new class extends Migration
 			$table->text('question');
 			$table->text('option_one');
 			$table->text('option_two');
-			$table->text('option_three');
-			$table->text('option_four');
+			$table->text('option_three')->nullable();
+			$table->text('option_four')->nullable();
 			$table->text('answer');
             $table->timestamps();
         });

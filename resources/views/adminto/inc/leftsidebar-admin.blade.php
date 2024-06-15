@@ -176,10 +176,10 @@
                     <div class="collapse" id="sidebarTables45355322345">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#"> Create</a>
+                                <a href="{{route('category.create')}}"> Create</a>
                             </li>
                             <li>
-                                <a href="#"> Show </a>
+                                <a href="{{route('category.index')}}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -193,10 +193,10 @@
                     <div class="collapse" id="sidebarTables453532422345">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#"> Create</a>
+                                <a href="{{route('question.create')}}"> Create</a>
                             </li>
                             <li>
-                                <a href="#"> Show </a>
+                                <a href="{{route('question.create')}}"> Show </a>
                             </li>
                         </ul>
                     </div>

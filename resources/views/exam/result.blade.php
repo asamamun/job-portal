@@ -1,0 +1,1 @@
+Your result is {{$result}} out of {{$total}}. You are {{$status}}.

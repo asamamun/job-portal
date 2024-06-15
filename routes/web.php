@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FunctionalController;
 use App\Http\Controllers\Admin\IndustrialController;
 use App\Http\Controllers\Admin\SpecialController;
 use App\Http\Controllers\Admin\PostTypeController;
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\employer\DashboardController as EmployerDashboardController;
@@ -49,6 +51,8 @@ Route::middleware([Admin::class])->prefix('admin')->group(function () {
     Route::resource('post_type', PostTypeController::class);
     Route::resource('country', CountryController::class);
     Route::resource('state', StateController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('question', QuestionController::class);
 });
 Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('employer.dashboard');
@@ -61,6 +65,7 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     Route::put('/update', [ApplicantProfileController::class, 'update'])->name('applicant.update');
     Route::resource('experience', ExperienceController::class);
 	Route::get('exam', [ExamController::class, 'examPage'])->middleware(ExamCheck::class);
+	Route::post('exam/result', [ExamController::class, 'examResult']);
 });
 
 
