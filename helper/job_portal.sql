@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2024 at 04:09 PM
+-- Generation Time: Jun 16, 2024 at 07:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -49,7 +49,7 @@ CREATE TABLE `applicants` (
 --
 
 INSERT INTO `applicants` (`id`, `user_id`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
-(1, 15, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 100, '1', '2024-06-11 21:17:47', '2024-06-11 21:17:47');
+(1, 15, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 55, '1', '2024-06-11 21:17:47', '2024-06-15 23:50:17');
 
 -- --------------------------------------------------------
 
@@ -118,6 +118,21 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `icon`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'php', 'fa fa-2x fa-route', '1', '2024-06-15 08:36:17', '2024-06-15 08:36:17'),
+(2, 'html', 'fa fa-2x fa-route', '1', '2024-06-15 08:38:55', '2024-06-15 08:38:55'),
+(3, 'css', 'fa fa-2x fa-route', '1', '2024-06-15 08:39:15', '2024-06-15 08:39:15'),
+(4, 'english', 'fa fa-2x fa-route', '1', '2024-06-15 08:39:34', '2024-06-15 08:39:34'),
+(5, 'bangla', 'fa fa-2x fa-route', '1', '2024-06-15 08:39:55', '2024-06-15 08:39:55'),
+(6, 'math', 'fa fa-2x fa-route', '1', '2024-06-15 08:40:15', '2024-06-15 08:40:15'),
+(7, 'gk', 'fa fa-2x fa-route', '1', '2024-06-15 08:40:32', '2024-06-15 08:40:32'),
+(8, 'javascript', 'fa fa-2x fa-route', '1', '2024-06-15 08:41:27', '2024-06-15 08:41:27'),
+(9, 'laravel', 'fa fa-2x fa-route', '1', '2024-06-15 10:03:45', '2024-06-15 10:03:45');
 
 -- --------------------------------------------------------
 
@@ -447,7 +462,8 @@ CREATE TABLE `employers` (
 
 INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
 (1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100, 'regular', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
-(2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 250, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37');
+(2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 250, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37'),
+(3, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29');
 
 -- --------------------------------------------------------
 
@@ -554,9 +570,19 @@ CREATE TABLE `incomes` (
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `points` int(11) NOT NULL,
   `description` text DEFAULT NULL,
+  `type` set('income','expense') NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `incomes`
+--
+
+INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `created_at`, `updated_at`) VALUES
+(3, 15, 5, 'Exam Fees', 'income', '2024-06-15 23:07:44', '2024-06-15 23:07:44'),
+(4, 15, 5, 'Exam Fees', 'income', '2024-06-15 23:50:18', '2024-06-15 23:50:18'),
+(5, 17, 200, 'Employer Account', 'expense', '2024-06-15 23:52:29', '2024-06-15 23:52:29');
 
 -- --------------------------------------------------------
 
@@ -784,7 +810,7 @@ CREATE TABLE `posts` (
   `functional_id` bigint(20) UNSIGNED DEFAULT NULL,
   `industrial_id` bigint(20) UNSIGNED DEFAULT NULL,
   `special_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `type` set('full-time','part-time','contract','internship','freelance') NOT NULL DEFAULT 'full-time',
+  `type` set('full-time','part-time','contract','internship','freelance','other') NOT NULL DEFAULT 'other',
   `status` set('open','closed','cancelled','progress','pending','promoted') NOT NULL DEFAULT 'open',
   `country_id` bigint(20) UNSIGNED DEFAULT NULL,
   `state_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -792,6 +818,7 @@ CREATE TABLE `posts` (
   `description` text DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `salary` int(11) DEFAULT NULL,
+  `vacancy` int(11) DEFAULT NULL,
   `deadline` date NOT NULL,
   `experience` varchar(255) DEFAULT NULL,
   `qualification` varchar(255) DEFAULT NULL,
@@ -806,6 +833,18 @@ CREATE TABLE `posts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `employer_id`, `functional_id`, `industrial_id`, `special_id`, `type`, `status`, `country_id`, `state_id`, `title`, `description`, `address`, `salary`, `vacancy`, `deadline`, `experience`, `qualification`, `contact`, `email`, `website`, `image`, `file`, `expires`, `points`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 18, 16, 19, 'contract', 'open', 18, 1994, 'It helps you provide your users with feedback on their form submissio', '<p>It helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissioIt helps you provide your users with feedback on their form submissio</p>', 'dfvdvc', 40000, 4, '2024-06-18', '5', 'HSC', '01557767493', 'gdskjfh@gmail.com', 'coders24x7.com', 'img/1718555823.webp', NULL, '2024-06-06', NULL, NULL, '2024-06-16 10:37:07', '2024-06-16 10:37:07'),
+(2, 1, 19, 18, 19, 'contract', 'open', 19, 767, 'Parsley is a javascript form validation library. It helps you provide your', '<p>Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;Parsley is a javascript form validation library. It helps you provide your&nbsp;</p>', 'dfvdvc', 6000, 4, '2024-06-26', '5', 'HSC', '01557767493', 'gdskjfh@gmail.com', 'coders24x7.com', 'img/1718555984.jpg', 'file/1718555984.pdf', '2024-06-25', NULL, NULL, '2024-06-16 10:39:44', '2024-06-16 10:39:44'),
+(3, 1, 16, 18, 11, 'internship', 'open', 17, 3609, '. It helps you provide y', '<p>. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y</p>', 'dgfdsg', 499, 4, '2024-06-18', '4', 'HSC', '01557767493', 'onik@gmail.com', 'coders24x7.com', 'img/1718558937.png', NULL, '2024-06-26', NULL, NULL, '2024-06-16 11:28:57', '2024-06-16 11:28:57'),
+(4, 1, 18, 16, 14, 'contract', 'open', 18, 1993, '. It helps you provide y. It helps you provide y', '<p>. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y</p>', 'dfvdvc', 60000, 4, '2024-06-20', '4', 'HSC', '01557767493', 'gdskjfh@gmail.com', 'coders24x7.com', 'img/1718558995.png', NULL, '2024-06-20', NULL, NULL, '2024-06-16 11:29:55', '2024-06-16 11:29:55'),
+(5, 1, 17, 16, 19, 'internship', 'open', 18, 1992, 'Parsley is a javascript form validation library. It helps you provide your users', '<p>&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>', 'dfvdvc', 40000, 4, '2024-06-04', '4', 'HSC', '01557767493', 'gdskjfh@gmail.com', 'coders24x7.com', 'img/1718559051.png', NULL, '2024-06-21', NULL, NULL, '2024-06-16 11:30:51', '2024-06-16 11:30:51'),
+(6, 1, 19, 18, 20, 'contract', 'open', 16, 534, 'you provide your users with feedback on their form submission before sending it to your server.', '<p>you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.</p>', 'dfvdvc', 20000, 1, '2024-06-13', '45', 'HSC', '01557767493', 'gdskjfh@gmail.com', 'coders24x7.com', 'img/1718559113.jpg', NULL, '2024-06-12', NULL, NULL, '2024-06-16 11:31:53', '2024-06-16 11:31:53');
 
 -- --------------------------------------------------------
 
@@ -851,12 +890,29 @@ CREATE TABLE `questions` (
   `question` text NOT NULL,
   `option_one` text NOT NULL,
   `option_two` text NOT NULL,
-  `option_three` text NOT NULL,
-  `option_four` text NOT NULL,
+  `option_three` text DEFAULT NULL,
+  `option_four` text DEFAULT NULL,
   `answer` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `category_id`, `question`, `option_one`, `option_two`, `option_three`, `option_four`, `answer`, `created_at`, `updated_at`) VALUES
+(3, 9, 'Which of the following functions is called accessors?', 'Getter Functions', 'Member Functions', 'Setter functions', 'None', 'Getter Functions', '2024-06-15 10:07:27', '2024-06-15 10:07:27'),
+(4, 9, 'Which method is used to modify the value of an attribute in laravel?', 'Getter', 'mutator', 'accessor', 'None', 'mutator', '2024-06-15 10:09:00', '2024-06-15 10:09:00'),
+(5, 9, 'Laravel supports which of the following design patterns?', 'Singleton Design Pattern', 'MVVM Design Pattern', 'Composite Design Pattern', 'MVC Design Pattern', 'Singleton Design Pattern', '2024-06-15 10:10:14', '2024-06-15 10:10:14'),
+(6, 9, 'Which laravel property identifies  the columns that can be inserted/updated by way of mass assignment?', '$hidden', '$component', '$fillable', '$table', '$fillable', '2024-06-15 10:11:38', '2024-06-15 10:11:38'),
+(7, 9, 'What is HTTP status Code?', '203', '670', '540', '750', '203', '2024-06-15 10:12:30', '2024-06-15 10:12:30'),
+(8, 9, 'Which option do  you have to change to manage cache and session data in laravel?', 'fetch', 'Migrations', 'connections', 'radis', 'radis', '2024-06-15 10:14:06', '2024-06-15 10:14:06'),
+(9, 9, 'Where do we get controller files in laravel?', 'App/controllers', 'Controllers', 'App/Http/controllers', 'Resources/controllers', 'App/Http/controllers', '2024-06-15 10:15:33', '2024-06-15 10:15:33'),
+(10, 9, 'Where do we get log files in laravel?', 'App\\logs', 'Public\\Logs', 'Resources\\Logs', 'Storage\\logs', 'Storage\\logs', '2024-06-15 10:16:50', '2024-06-15 10:16:50'),
+(11, 9, 'Which is the default location of your project\'s view?', 'mail.php', 'view.php', 'config.php', 'filesystems.php', 'view.php', '2024-06-15 10:18:20', '2024-06-15 10:18:20'),
+(12, 9, 'Which is used in laravel to create a large amount of sample data?', 'Fake package', 'Faker Package', 'Migration', 'Seedin', 'Faker Package', '2024-06-15 10:19:38', '2024-06-15 10:19:38'),
+(13, 9, 'What do you mean by Heroku?', 'Cloud based hosting solution', 'Laravel Package', 'Web hosting solution', 'MVC Design Pattern', 'Web hosting solution', '2024-06-15 10:21:15', '2024-06-15 10:21:15');
 
 -- --------------------------------------------------------
 
@@ -919,6 +975,13 @@ CREATE TABLE `results` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `results`
+--
+
+INSERT INTO `results` (`id`, `applicant_id`, `marks`, `marks_outof`, `status`, `created_at`, `updated_at`) VALUES
+(3, 1, 4, 10, 'fail', '2024-06-15 23:08:09', '2024-06-15 23:08:09');
+
 -- --------------------------------------------------------
 
 --
@@ -971,10 +1034,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('cSoPOcz1NtHg4xn0MYLw2tkB7Abd7PEABlDsI1Lr', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQm5WTDlaWGt5dlAzeWo2NTJmWjQzT3lBUWpJcWtjalg3Nm9lOUNzMSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTY7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718459846),
-('FnCgYct9VuCfo7e0qphpNe40XERwws8nKU65W6AT', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMm02YW9ndlhCbzVyVG53c3VqZUlNZGpzdVp4T3lKTEdjaGdhaXJzNyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcHBsaWNhbnQvZXhhbSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1718460489),
-('liwuzjJGG4cFsnSk7pPp756iscsUnv9O1NUtaOfU', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibG5vNjM1Sm5aOEpneUwwVDlJMmgzT0hTQkxMd0dHVWN4RjFPZ1F6YSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNjt9', 1718444563),
-('oFqIYRbAfHk9VpmAYzve1abJrdg3XxqJwDLI5TN4', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWFpkemRpbE1VeTBXcEJpR1JQQTZnRTNHWVZQbmlGWmYwVFpjZUZGSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lbXBsb3llci9wb3N0cy9jcmVhdGUiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNDt9', 1718415684);
+('fKCbM64BKfIhTjZpclyar1IzPMAcybRulnTFDdOA', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoic1RNN3J0RlV3VDRHbW5LVDd1RXVkbG9XYWYzUzh1d0pxT2FyYWswbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wb3N0L2FsbCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1718559174);
 
 -- --------------------------------------------------------
 
@@ -6197,9 +6257,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `created_at`, `updated_at`) VALUES
-(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'Ra0wJ0QY2roJ8a8rdqxMSaAYH5ZcPSa5NEWR9kAuCH6b0Ap8ugd3RyCguEHx', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'applicant', 'img/1718173222.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'nlnH7ylCbNgXqlxiyPLYXUq2hJoo0jr17MBMdt5brd2IZevh4zj878xoX9DR', '0', '2024-06-11 21:17:47', '2024-06-15 03:33:04'),
-(16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '3JV3VyfuDIqfXEVuTPWVaYz9Fsoz1RUeG6H0XS5bfbgebvSK8ieLINTpKvjr', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04');
+(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'mHCsyJdNABbSwNj5LWnpgqGiS5wBcCrQ2703NXgCWA0ptmHcMkxQfOFfGpDx', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'applicant', 'img/1718558300.jpg', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'T7CWL28E0Wr2vPTNzCBJ1HiQiRehn99q1KTxqOg3FmDzhBWzcqaVNZpzi0Wu', '0', '2024-06-11 21:17:47', '2024-06-16 11:18:20'),
+(16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '2qrafBS82nJcX1Tscd9ir3d1QxsNwUjV7HjeiqZuJEMjBdudlmJMxsXJmxKg', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
+(17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', '2024-06-15 23:52:28', '2024-06-15 23:52:28');
 
 -- --------------------------------------------------------
 
@@ -6525,7 +6586,7 @@ ALTER TABLE `applicant_post_types`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -6543,7 +6604,7 @@ ALTER TABLE `education`
 -- AUTO_INCREMENT for table `employers`
 --
 ALTER TABLE `employers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `experiences`
@@ -6567,7 +6628,7 @@ ALTER TABLE `functionals`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `industrials`
@@ -6615,7 +6676,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `post_types`
@@ -6633,7 +6694,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `recharges`
@@ -6651,7 +6712,7 @@ ALTER TABLE `references`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -6699,7 +6760,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `withdraws`
