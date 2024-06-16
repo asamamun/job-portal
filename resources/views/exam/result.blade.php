@@ -1,1 +1,1 @@
-Your result is {{$result}} out of {{$total}}. You are {{$status}}.
+Your result is {{$marks}} out of {{$total}}. You are {{$status}}.

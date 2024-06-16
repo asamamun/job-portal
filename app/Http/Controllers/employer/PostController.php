@@ -39,16 +39,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             "title" => "required",
+            "description" => "required",
             "functional_id" => "required",
             "industrial_id" => "required",
             "special_id" => "required",
-            "country_id" => "required",
-
-            "description" => "required",
-            
-            "image" => "required|image"
+            "image" => "required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048",
+            "address" => "required",
+            "contact" => "required",
+            "deadline" => "required",
+            "expires" => "required",
         ]);
         $post = new Post();
         $post->employer_id = auth()->user()->employer->id;
@@ -58,7 +60,31 @@ class PostController extends Controller
         $post->functional_id = $request->functional_id;
         $post->industrial_id = $request->industrial_id;
         $post->special_id = $request->special_id;
+        $post->type = $request->type;
+        $post->salary = $request->salary;
+        $post->experience = $request->experience;
+        $post->qualification = $request->qualification;
+        $post->vacancy = $request->vacancy;
         $post->country_id = $request->country_id;
+        $post->state_id = $request->state_id;
+        $post->address = $request->address;
+        $post->contact = $request->contact;
+        $post->email = $request->email;
+        $post->website = $request->website;
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->storeAs('public/img', $imageName);
+        $post->image = "img/".$imageName;
+        
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $file->storeAs('public/file', $filename);
+            $post->file = "file/".$filename;
+        }
+
+        $post->deadline = $request->deadline;
+        $post->expires = $request->expires;
         $post->save();
         return redirect()->back()->with("success", "Post added successfully");
 

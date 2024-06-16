@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Employer;
 use App\Models\Applicant;
+use App\Models\Income;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -63,6 +64,14 @@ class RegisteredUserController extends Controller
                 'user_id'=> $id,
                 'points' => 200
             ]);
+			
+			$income = new Income();
+			$income->user_id = auth()->user()->id;
+			$income->points = 200;
+			$income->description = 'Employer Account';
+			$income->type = 'expense';
+			$income->save();
+			
             return redirect()->intended(route('employer.dashboard', absolute: false));
         }
         if($role == 'applicant'){
@@ -73,6 +82,14 @@ class RegisteredUserController extends Controller
                 'user_id'=> $id,
                 'points' => 20
             ]);
+			
+			$income = new Income();
+			$income->user_id = auth()->user()->id;
+			$income->points = 20;
+			$income->description = 'Applicant Account';
+			$income->type = 'expense';
+			$income->save();
+			
             return redirect()->intended(route('home', absolute: false));
         } 
         return redirect()->intended(route('home', absolute: false));

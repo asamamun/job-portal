@@ -19,6 +19,7 @@ use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Applicant\ExperienceController;
 use App\Http\Controllers\Applicant\ExamController;
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
 use App\Http\Middleware\Employer;
@@ -26,10 +27,10 @@ use App\Http\Middleware\PostCheck;
 use App\Http\Middleware\ExamCheck;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    //return view('welcome');
-    return view('jobentry.index');
-})->name('home');
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::prefix('post')->group(function () {
+    Route::get('/all', [FrontendController::class, 'all'])->name('post.all');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

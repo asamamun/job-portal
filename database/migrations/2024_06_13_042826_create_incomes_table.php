@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->integer('points');
 			$table->text('description')->nullable();
+            $table->set('type', ['income', 'expense']);
             $table->timestamps();
         });
     }
