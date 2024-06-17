@@ -62,16 +62,18 @@ Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::resource('posts', PostController::class)->only(['create'])->middleware(PostCheck::class);
     Route::resource('posts', PostController::class)->except(['create']);
 });
+
 Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     Route::get('/profile', [ApplicantProfileController::class, 'index'])->name('applicant.profile');
     Route::put('/update/image', [ApplicantProfileController::class, 'imageUpdate'])->name('applicant.update.image');
     Route::put('/update', [ApplicantProfileController::class, 'update'])->name('applicant.update');
     Route::resource('experience', ExperienceController::class);
 	Route::get('exam', [ExamController::class, 'examPage'])->middleware(ExamCheck::class);
-	Route::post('exam/result', [ExamController::class, 'examResult']);
+	Route::post('result', [ExamController::class, 'examResult']);
 	Route::get('apply/{id}', [ApplyController::class, 'apply'])->middleware(ApplyCheck::class);
 });
 
+Route::get('result/page/{id}', [ExamController::class, 'resultPage'])->name('result.page');
 
 
 // SSLCOMMERZ Start

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Result;
 use App\Models\Income;
+use App\Models\User;
 
 class ExamController extends Controller
 {
@@ -62,10 +63,15 @@ class ExamController extends Controller
         $result->status = $status;
         $result->save();
 
+		return redirect()->route('result.page', $result->id);
+	}
+	public function resultPage($id)
+    {
+		$result = Result::with('applicant')->find($id);
+		$user = User::find($result->applicant->user_id);
 		return view('exam.result', [
-			'total' => $total,
-			'marks' => $marks,
-			'status' => $status,
+			'result' => $result,
+			'user' => $user
 		]);
 	}
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\Functional;
+use App\Models\Income;
 use App\Models\Industrial;
 use App\Models\Special;
 
@@ -25,7 +26,17 @@ class PostController extends Controller
      */
     public function create()
     {
-        
+        $points = auth()->user()->employer->points - 100;
+        auth()->user()->employer->points = $points;
+        auth()->user()->employer->save();
+
+        $income = new Income();
+        $income->user_id = auth()->user()->id;
+        $income->points = 100;
+        $income->description = 'Job Post Created';
+        $income->type = 'income';
+        $income->save();
+
         return view("adminto.posts.create", [
             "functionals" => Functional::all(),
             "industrials" => Industrial::all(),
@@ -39,7 +50,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
             "title" => "required",
             "description" => "required",
@@ -72,22 +83,21 @@ class PostController extends Controller
         $post->email = $request->email;
         $post->website = $request->website;
 
-        $imageName = time().'.'.$request->image->extension();
+        $imageName = time() . '.' . $request->image->extension();
         $request->image->storeAs('public/img', $imageName);
-        $post->image = "img/".$imageName;
-        
-        if($request->hasFile('file')) {
+        $post->image = "img/" . $imageName;
+
+        if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $filename = time().'.'.$file->getClientOriginalExtension();
+            $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/file', $filename);
-            $post->file = "file/".$filename;
+            $post->file = "file/" . $filename;
         }
 
         $post->deadline = $request->deadline;
         $post->expires = $request->expires;
         $post->save();
         return redirect()->back()->with("success", "Post added successfully");
-
     }
 
     /**
