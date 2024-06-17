@@ -21,6 +21,7 @@ use App\Http\Controllers\Applicant\ExperienceController;
 use App\Http\Controllers\Applicant\ExamController;
 use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\WithdrawController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
 use App\Http\Middleware\Employer;
@@ -56,6 +57,9 @@ Route::middleware([Admin::class])->prefix('admin')->group(function () {
     Route::resource('state', StateController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('question', QuestionController::class);
+
+    // Withdraw
+    Route::post('/withdraw/reject', [WithdrawController::class, 'reject'])->name('withdraw.reject');
 });
 Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('employer.dashboard');
@@ -69,12 +73,18 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     Route::put('/update', [ApplicantProfileController::class, 'update'])->name('applicant.update');
     Route::resource('experience', ExperienceController::class);
 	Route::get('exam', [ExamController::class, 'examPage'])->middleware(ExamCheck::class);
+
+    //result
 	Route::post('result', [ExamController::class, 'examResult']);
 	Route::get('apply/{id}', [ApplyController::class, 'apply'])->middleware(ApplyCheck::class);
 });
 
+//result
 Route::get('result/page/{id}', [ExamController::class, 'resultPage'])->name('result.page');
 
+//Withdraw
+Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw');
+Route::post('/withdraw/store', [WithdrawController::class, 'store'])->name('withdraw.store');
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);

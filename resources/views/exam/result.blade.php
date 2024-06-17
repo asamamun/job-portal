@@ -35,6 +35,7 @@
 </head>
 
 <body>
+    @include('inc.alert')
     <!-- Your page content -->
     <div class="center-screen">
         <div class="card mb-3" style="max-width: 540px;">

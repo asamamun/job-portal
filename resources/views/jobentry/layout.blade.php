@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    @include('inc.alert')
+    @include('inc.sweetAlert2')
     <div class="container-xxl bg-white p-0">
         
         @include('jobentry.inc.navbar')

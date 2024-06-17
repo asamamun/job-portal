@@ -51,6 +51,7 @@
 </head>
 
 <body>
+    @include('inc.alert')
     <div class="album py-2 bg-light">
         <div class="container">
             <div class="row">

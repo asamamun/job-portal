@@ -24,7 +24,7 @@
 </head>
 
 <body class="loading" data-layout-color="light" data-layout-mode="default" data-layout-size="fluid" data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
-    @include('inc.alert')
+    @include('inc.sweetAlert2')
     <div id="wrapper">
 
         @include('adminto.inc.topbar')

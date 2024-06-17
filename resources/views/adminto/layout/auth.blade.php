@@ -22,7 +22,7 @@
 </head>
 
 <body class="loading authentication-bg authentication-bg-pattern">
-    @include('inc.alert')
+    @include('inc.sweetAlert2')
     @yield('content')
 
     <script src="{{ asset('adminto/assets/libs/jquery/jquery.min.js') }}"></script>

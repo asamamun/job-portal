@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
 			$table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-			$table->set('types',['mobile banking', 'bank', 'cash']);
-			$table->string('account_name')->nullable();
+			$table->set('types',['mobile banking', 'bank account', 'cash', 'other']);
+			$table->string('account')->nullable();
 			$table->string('account_number')->nullable();
 			$table->integer('points');
 			$table->string('transaction_id')->nullable();
-			$table->set('status', ['done', 'fail', 'processing'])->default('processing');
+			$table->set('status', ['request', 'approved', 'rejected', 'processing'])->default('request');
 			$table->text('description')->nullable();
             $table->timestamps();
         });
