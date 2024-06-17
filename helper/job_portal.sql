@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2024 at 07:41 PM
+-- Generation Time: Jun 17, 2024 at 05:18 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -49,7 +49,9 @@ CREATE TABLE `applicants` (
 --
 
 INSERT INTO `applicants` (`id`, `user_id`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
-(1, 15, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 55, '1', '2024-06-11 21:17:47', '2024-06-15 23:50:17');
+(1, 15, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 40, '1', '2024-06-11 21:17:47', '2024-06-17 00:19:22'),
+(2, 18, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
+(3, 19, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58');
 
 -- --------------------------------------------------------
 
@@ -65,6 +67,13 @@ CREATE TABLE `applicant_post` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `applicant_post`
+--
+
+INSERT INTO `applicant_post` (`id`, `post_id`, `applicant_id`, `status`, `created_at`, `updated_at`) VALUES
+(11, 4, 1, 'applied', '2024-06-17 00:19:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -461,9 +470,9 @@ CREATE TABLE `employers` (
 --
 
 INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
-(1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100, 'regular', '2024-06-11 21:12:46', '2024-06-11 21:12:46'),
-(2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 250, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37'),
-(3, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29');
+(1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 300, 'regular', '2024-06-11 21:12:46', '2024-06-17 08:44:52'),
+(2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37'),
+(3, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29');
 
 -- --------------------------------------------------------
 
@@ -582,7 +591,70 @@ CREATE TABLE `incomes` (
 INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `created_at`, `updated_at`) VALUES
 (3, 15, 5, 'Exam Fees', 'income', '2024-06-15 23:07:44', '2024-06-15 23:07:44'),
 (4, 15, 5, 'Exam Fees', 'income', '2024-06-15 23:50:18', '2024-06-15 23:50:18'),
-(5, 17, 200, 'Employer Account', 'expense', '2024-06-15 23:52:29', '2024-06-15 23:52:29');
+(5, 17, 200, 'Employer Account', 'expense', '2024-06-15 23:52:29', '2024-06-15 23:52:29'),
+(6, 15, 10, 'Job Applyed', 'income', '2024-06-17 00:10:10', '2024-06-17 00:10:10'),
+(7, 15, 10, 'Job Applyed', 'income', '2024-06-17 00:11:00', '2024-06-17 00:11:00'),
+(8, 15, 10, 'Job Applyed', 'income', '2024-06-17 00:11:10', '2024-06-17 00:11:10'),
+(9, 15, 5, 'Job Applyed', 'income', '2024-06-17 00:19:23', '2024-06-17 00:19:23'),
+(10, 14, 100, 'Job Post Created', 'income', '2024-06-17 00:28:58', '2024-06-17 00:28:58'),
+(11, 18, 20, 'Applicant Account', 'expense', '2024-06-17 00:30:49', '2024-06-17 00:30:49'),
+(12, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:32:04', '2024-06-17 00:32:04'),
+(13, 18, 10, 'Exam Pass Award', 'expense', '2024-06-17 00:32:39', '2024-06-17 00:32:39'),
+(14, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:33:26', '2024-06-17 00:33:26'),
+(15, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:34:06', '2024-06-17 00:34:06'),
+(16, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:38:15', '2024-06-17 00:38:15'),
+(17, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:39:04', '2024-06-17 00:39:04'),
+(18, 18, 10, 'Exam Pass Award', 'expense', '2024-06-17 00:39:34', '2024-06-17 00:39:34'),
+(19, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:43:34', '2024-06-17 00:43:34'),
+(20, 18, 5, 'Exam Fees', 'income', '2024-06-17 01:22:01', '2024-06-17 01:22:01'),
+(21, 18, 5, 'Exam Fees', 'income', '2024-06-17 01:23:19', '2024-06-17 01:23:19'),
+(22, 18, 5, 'Exam Fees', 'income', '2024-06-17 01:39:19', '2024-06-17 01:39:19'),
+(23, 19, 20, 'Applicant Account', 'expense', '2024-06-17 01:41:24', '2024-06-17 01:41:24'),
+(24, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 01:43:43', '2024-06-17 01:43:43'),
+(25, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 01:44:20', '2024-06-17 01:44:20'),
+(26, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 01:45:05', '2024-06-17 01:45:05'),
+(27, 19, 5, 'Exam Fees', 'income', '2024-06-17 01:56:19', '2024-06-17 01:56:19'),
+(28, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 01:56:56', '2024-06-17 01:56:56'),
+(29, 19, 5, 'Exam Fees', 'income', '2024-06-17 01:56:58', '2024-06-17 01:56:58'),
+(30, 19, 5, 'Exam Fees', 'income', '2024-06-17 01:57:53', '2024-06-17 01:57:53'),
+(31, 19, 5, 'Exam Fees', 'income', '2024-06-17 01:58:15', '2024-06-17 01:58:15'),
+(32, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:00:04', '2024-06-17 02:00:04'),
+(33, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:00:53', '2024-06-17 02:00:53'),
+(34, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:02:15', '2024-06-17 02:02:15'),
+(35, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:02:36', '2024-06-17 02:02:36'),
+(36, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:04:59', '2024-06-17 02:04:59'),
+(37, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 02:05:51', '2024-06-17 02:05:51'),
+(38, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:05:56', '2024-06-17 02:05:56'),
+(39, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:07:31', '2024-06-17 02:07:31'),
+(40, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:07:50', '2024-06-17 02:07:50'),
+(41, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:10:36', '2024-06-17 02:10:36'),
+(42, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 02:10:49', '2024-06-17 02:10:49'),
+(43, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:10:50', '2024-06-17 02:10:50'),
+(44, 19, 5, 'Exam Fees', 'income', '2024-06-17 02:11:32', '2024-06-17 02:11:32'),
+(45, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:20:20', '2024-06-17 05:20:20'),
+(46, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:21:18', '2024-06-17 05:21:18'),
+(47, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:21:42', '2024-06-17 05:21:42'),
+(48, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:22:01', '2024-06-17 05:22:01'),
+(49, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:22:23', '2024-06-17 05:22:23'),
+(50, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:23:16', '2024-06-17 05:23:16'),
+(51, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:24:07', '2024-06-17 05:24:07'),
+(52, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:27:27', '2024-06-17 05:27:27'),
+(53, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:27:47', '2024-06-17 05:27:47'),
+(54, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:28:14', '2024-06-17 05:28:14'),
+(55, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:34:15', '2024-06-17 05:34:15'),
+(56, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:35:11', '2024-06-17 05:35:11'),
+(57, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:35:19', '2024-06-17 05:35:19'),
+(58, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:35:28', '2024-06-17 05:35:28'),
+(59, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:35:55', '2024-06-17 05:35:55'),
+(60, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:36:12', '2024-06-17 05:36:12'),
+(61, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:36:29', '2024-06-17 05:36:29'),
+(62, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:43:38', '2024-06-17 05:43:38'),
+(63, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:48:33', '2024-06-17 05:48:33'),
+(64, 19, 5, 'Exam Fees', 'income', '2024-06-17 05:51:43', '2024-06-17 05:51:43'),
+(65, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 05:52:04', '2024-06-17 05:52:04'),
+(66, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 05:52:58', '2024-06-17 05:52:58'),
+(67, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 05:53:04', '2024-06-17 05:53:04'),
+(68, 19, 5, 'Exam Fees', 'income', '2024-06-17 07:14:58', '2024-06-17 07:14:58');
 
 -- --------------------------------------------------------
 
@@ -980,7 +1052,63 @@ CREATE TABLE `results` (
 --
 
 INSERT INTO `results` (`id`, `applicant_id`, `marks`, `marks_outof`, `status`, `created_at`, `updated_at`) VALUES
-(3, 1, 4, 10, 'fail', '2024-06-15 23:08:09', '2024-06-15 23:08:09');
+(3, 1, 4, 10, 'fail', '2024-06-15 23:08:09', '2024-06-15 23:08:09'),
+(4, 2, 5, 10, 'fail', '2024-06-17 00:31:58', '2024-06-17 00:31:58'),
+(5, 2, 7, 9, 'pass', '2024-06-17 00:32:39', '2024-06-17 00:32:39'),
+(6, 2, 2, 9, 'fail', '2024-06-17 00:33:44', '2024-06-17 00:33:44'),
+(7, 2, 3, 10, 'fail', '2024-06-17 00:38:34', '2024-06-17 00:38:34'),
+(8, 2, 7, 10, 'pass', '2024-06-17 00:39:34', '2024-06-17 00:39:34'),
+(9, 2, 3, 10, 'fail', '2024-06-17 00:44:10', '2024-06-17 00:44:10'),
+(10, 2, 3, 10, 'fail', '2024-06-17 00:47:02', '2024-06-17 00:47:02'),
+(11, 2, 3, 10, 'fail', '2024-06-17 00:50:19', '2024-06-17 00:50:19'),
+(12, 2, 3, 10, 'fail', '2024-06-17 00:50:49', '2024-06-17 00:50:49'),
+(13, 2, 3, 10, 'fail', '2024-06-17 00:51:52', '2024-06-17 00:51:52'),
+(14, 2, 3, 10, 'fail', '2024-06-17 00:54:08', '2024-06-17 00:54:08'),
+(15, 2, 3, 10, 'fail', '2024-06-17 00:55:01', '2024-06-17 00:55:01'),
+(16, 2, 3, 10, 'fail', '2024-06-17 00:56:30', '2024-06-17 00:56:30'),
+(17, 2, 3, 10, 'fail', '2024-06-17 00:57:49', '2024-06-17 00:57:49'),
+(18, 2, 3, 10, 'fail', '2024-06-17 00:58:35', '2024-06-17 00:58:35'),
+(19, 2, 3, 10, 'fail', '2024-06-17 00:58:57', '2024-06-17 00:58:57'),
+(20, 2, 3, 10, 'fail', '2024-06-17 01:00:45', '2024-06-17 01:00:45'),
+(21, 2, 3, 10, 'fail', '2024-06-17 01:01:34', '2024-06-17 01:01:34'),
+(22, 2, 3, 10, 'fail', '2024-06-17 01:09:15', '2024-06-17 01:09:15'),
+(23, 2, 3, 10, 'fail', '2024-06-17 01:09:43', '2024-06-17 01:09:43'),
+(24, 2, 3, 10, 'fail', '2024-06-17 01:10:42', '2024-06-17 01:10:42'),
+(25, 2, 3, 10, 'fail', '2024-06-17 01:12:14', '2024-06-17 01:12:14'),
+(26, 2, 3, 10, 'fail', '2024-06-17 01:12:53', '2024-06-17 01:12:53'),
+(27, 2, 3, 10, 'fail', '2024-06-17 01:14:36', '2024-06-17 01:14:36'),
+(28, 2, 3, 10, 'fail', '2024-06-17 01:16:02', '2024-06-17 01:16:02'),
+(29, 2, 3, 10, 'fail', '2024-06-17 01:16:33', '2024-06-17 01:16:33'),
+(30, 2, 3, 10, 'fail', '2024-06-17 01:23:30', '2024-06-17 01:23:30'),
+(31, 2, 3, 10, 'fail', '2024-06-17 01:26:18', '2024-06-17 01:26:18'),
+(32, 2, 3, 10, 'fail', '2024-06-17 01:28:25', '2024-06-17 01:28:25'),
+(33, 2, 3, 10, 'fail', '2024-06-17 01:28:43', '2024-06-17 01:28:43'),
+(34, 2, 3, 10, 'fail', '2024-06-17 01:29:32', '2024-06-17 01:29:32'),
+(35, 2, 3, 10, 'fail', '2024-06-17 01:32:02', '2024-06-17 01:32:02'),
+(36, 2, 3, 10, 'fail', '2024-06-17 01:34:01', '2024-06-17 01:34:01'),
+(37, 2, 3, 10, 'fail', '2024-06-17 01:37:16', '2024-06-17 01:37:16'),
+(38, 2, 3, 10, 'fail', '2024-06-17 01:37:44', '2024-06-17 01:37:44'),
+(39, 2, 3, 10, 'fail', '2024-06-17 01:38:06', '2024-06-17 01:38:06'),
+(40, 2, 3, 10, 'fail', '2024-06-17 01:38:34', '2024-06-17 01:38:34'),
+(41, 2, 3, 10, 'fail', '2024-06-17 01:39:13', '2024-06-17 01:39:13'),
+(42, 2, 5, 10, 'fail', '2024-06-17 01:39:39', '2024-06-17 01:39:39'),
+(43, 2, 5, 10, 'fail', '2024-06-17 01:40:29', '2024-06-17 01:40:29'),
+(44, 3, 6, 10, 'pass', '2024-06-17 01:43:43', '2024-06-17 01:43:43'),
+(45, 3, 6, 10, 'pass', '2024-06-17 01:44:21', '2024-06-17 01:44:21'),
+(46, 3, 6, 10, 'pass', '2024-06-17 01:45:05', '2024-06-17 01:45:05'),
+(47, 3, 6, 10, 'pass', '2024-06-17 01:56:56', '2024-06-17 01:56:56'),
+(48, 3, 3, 10, 'fail', '2024-06-17 01:58:15', '2024-06-17 01:58:15'),
+(49, 3, 1, 10, 'fail', '2024-06-17 02:00:03', '2024-06-17 02:00:03'),
+(50, 3, 4, 10, 'fail', '2024-06-17 02:02:35', '2024-06-17 02:02:35'),
+(51, 3, 2, 10, 'fail', '2024-06-17 02:04:57', '2024-06-17 02:04:57'),
+(52, 3, 7, 10, 'pass', '2024-06-17 02:05:51', '2024-06-17 02:05:51'),
+(53, 3, 5, 10, 'fail', '2024-06-17 02:07:45', '2024-06-17 02:07:45'),
+(54, 3, 4, 10, 'fail', '2024-06-17 02:10:35', '2024-06-17 02:10:35'),
+(55, 3, 6, 10, 'pass', '2024-06-17 02:10:49', '2024-06-17 02:10:49'),
+(56, 3, 5, 10, 'fail', '2024-06-17 05:25:31', '2024-06-17 05:25:31'),
+(57, 3, 9, 10, 'pass', '2024-06-17 05:52:04', '2024-06-17 05:52:04'),
+(58, 3, 9, 10, 'pass', '2024-06-17 05:52:58', '2024-06-17 05:52:58'),
+(59, 3, 8, 10, 'pass', '2024-06-17 05:53:04', '2024-06-17 05:53:04');
 
 -- --------------------------------------------------------
 
@@ -1034,7 +1162,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('fKCbM64BKfIhTjZpclyar1IzPMAcybRulnTFDdOA', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoic1RNN3J0RlV3VDRHbW5LVDd1RXVkbG9XYWYzUzh1d0pxT2FyYWswbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wb3N0L2FsbCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1718559174);
+('gMtrVbBji0Ck6Hc0GQHkpCPrPHt4lhG2YeWIWpDc', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTXZWY2t4enRscDE1QWNUUllVU2VnUTRPYzhxTTVaQkRlZ0JTZEtXUyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC93aXRoZHJhdyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE0O30=', 1718637152);
 
 -- --------------------------------------------------------
 
@@ -6257,10 +6385,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `created_at`, `updated_at`) VALUES
-(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'mHCsyJdNABbSwNj5LWnpgqGiS5wBcCrQ2703NXgCWA0ptmHcMkxQfOFfGpDx', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'applicant', 'img/1718558300.jpg', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'T7CWL28E0Wr2vPTNzCBJ1HiQiRehn99q1KTxqOg3FmDzhBWzcqaVNZpzi0Wu', '0', '2024-06-11 21:17:47', '2024-06-16 11:18:20'),
+(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'FPulamBUOy1hHRiI03gGBoeJned0YiV7MNFuvo8QnJeMUR3C2GSmdbmoDYxA', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'applicant', 'img/1718558300.jpg', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'pVyFadVpo4d7B9PAolSArnb9tbmdqRL5pNP26tVDTtNKiyBeRgTfprXQsJRj', '0', '2024-06-11 21:17:47', '2024-06-16 11:18:20'),
 (16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '2qrafBS82nJcX1Tscd9ir3d1QxsNwUjV7HjeiqZuJEMjBdudlmJMxsXJmxKg', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
-(17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', '2024-06-15 23:52:28', '2024-06-15 23:52:28');
+(17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
+(18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
+(19, 'Tanima Hasan', 'img/1718610121.png', 'tanima@gmail.com', NULL, '$2y$12$46On/z8GpU52yWqj0QK6/OTZvyGZex6N1tw4Mr//ctUyNWUILbOXW', 'applicant', 'jmViMfctjYJU9olsIzpwb46qZVxXF8bqCWgxW1qIn2ZNjTyYEUcJn8GpAqKF', '0', '2024-06-17 01:41:24', '2024-06-17 01:43:31');
 
 -- --------------------------------------------------------
 
@@ -6271,16 +6401,23 @@ INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `passw
 CREATE TABLE `withdraws` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `types` set('mobile banking','bank','cash') NOT NULL,
-  `account_name` varchar(255) DEFAULT NULL,
+  `types` set('mobile banking','bank account','cash','other') NOT NULL,
+  `account` varchar(255) DEFAULT NULL,
   `account_number` varchar(255) DEFAULT NULL,
   `points` int(11) NOT NULL,
   `transaction_id` varchar(255) DEFAULT NULL,
-  `status` set('done','fail','processing') NOT NULL DEFAULT 'processing',
+  `status` set('request','approved','rejected','processing') NOT NULL DEFAULT 'request',
   `description` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `withdraws`
+--
+
+INSERT INTO `withdraws` (`id`, `user_id`, `types`, `account`, `account_number`, `points`, `transaction_id`, `status`, `description`, `created_at`, `updated_at`) VALUES
+(3, 14, 'mobile banking', 'bikash', '01775567493', 200, NULL, 'request', NULL, '2024-06-17 08:44:21', '2024-06-17 08:44:21');
 
 --
 -- Indexes for dumped tables
@@ -6568,13 +6705,13 @@ ALTER TABLE `withdraws`
 -- AUTO_INCREMENT for table `applicants`
 --
 ALTER TABLE `applicants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `applicant_post`
 --
 ALTER TABLE `applicant_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `applicant_post_types`
@@ -6628,7 +6765,7 @@ ALTER TABLE `functionals`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `industrials`
@@ -6712,7 +6849,7 @@ ALTER TABLE `references`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -6760,13 +6897,13 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `withdraws`
 --
 ALTER TABLE `withdraws`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
