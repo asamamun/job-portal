@@ -19,6 +19,7 @@
     <!-- icons -->
     <link href="{{ asset('adminto/assets/css/icons.min.css ') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('head')
 </head>
 
@@ -55,13 +56,15 @@
     <script src="{{ asset('adminto/assets/libs/jquery-knob/jquery.knob.min.js ') }}"></script>
 
     <!--Morris Chart-->
-    <!-- <script src="{{ asset('adminto/assets/libs/morris.js06/morris.min.js ') }}"></script>
-    <script src="{{ asset('adminto/assets/libs/raphael/raphael.min.js ') }}"></script> -->
+    <script src="{{ asset('adminto/assets/libs/morris.js06/morris.min.js ') }}"></script>
+    <script src="{{ asset('adminto/assets/libs/raphael/raphael.min.js ') }}"></script>
 
     <!-- Dashboar init js-->
-    <!-- <script src="{{ asset('adminto/assets/js/pages/dashboard.init.js ') }}"></script> -->
+    <script src="{{ asset('adminto/assets/js/pages/dashboard.init.js ') }}"></script>
 
-    <!-- App js-->
+    
+	
+	<!-- App js-->
     <script src="{{ asset('adminto/assets/js/app.min.js ') }}"></script>
     @yield('scripts')
 

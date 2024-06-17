@@ -15,6 +15,7 @@ use App\Http\Controllers\employer\PostController;
 use App\Http\Controllers\Applicant\ProfileController as ApplicantProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\applicant\ApplyController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Applicant\ExperienceController;
 use App\Http\Controllers\Applicant\ExamController;
@@ -25,6 +26,7 @@ use App\Http\Middleware\Applicant;
 use App\Http\Middleware\Employer;
 use App\Http\Middleware\PostCheck;
 use App\Http\Middleware\ExamCheck;
+use App\Http\Middleware\ApplyCheck;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -67,6 +69,7 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     Route::resource('experience', ExperienceController::class);
 	Route::get('exam', [ExamController::class, 'examPage'])->middleware(ExamCheck::class);
 	Route::post('exam/result', [ExamController::class, 'examResult']);
+	Route::get('apply/{id}', [ApplyController::class, 'apply'])->middleware(ApplyCheck::class);
 });
 
 

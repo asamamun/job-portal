@@ -16,7 +16,7 @@
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <p class="card-text">{{ Str::limit($post->description, 100) }}</p>
                     <a href="" class="btn btn-primary">View Details</a>
-                    <a href="" class="btn btn-primary">Apply Now</a>
+                    <a href="{{url('applicant/apply/'.$post->id)}}" class="btn btn-primary">Apply Now</a>
                 </div>
             </div>
         </div>

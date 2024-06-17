@@ -1,12 +1,31 @@
 @if($errors->any())
+	{{$msg}}
 	@foreach($errors->all() as $error)
-		<scritp>alert("{{ $error }}")</scritp>
+		{{$msg += $error}}
 	@endforeach
+	<scritp>alert("{{ $msg }}")</scritp>
 @endif
-@if(session('error'))
-	<script>alert("{{ session('error') }}")</script>
 
+
+@if(session('error'))
+<script>
+Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "{{ session('error') }}"
+});
+</script>
 @endif
+
+
 @if(session('success'))
-	<script>alert("{{ session('success') }}")</script>
+<script>
+Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "{{ session('success') }}",
+  showConfirmButton: false,
+  timer: 1500
+});
+</script>
 @endif

@@ -18,6 +18,7 @@
     <!-- icons -->
     <link href="{{ asset('adminto/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="loading authentication-bg authentication-bg-pattern">
@@ -31,7 +32,8 @@
     <script src="{{ asset('adminto/assets/libs/waypoints/lib/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('adminto/assets/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('adminto/assets/libs/feather-icons/feather.min.js') }}"></script>
-
+	
+	
     <!-- App js -->
     <script src="{{ asset('adminto/assets/js/app.min.js') }}"></script>
 
