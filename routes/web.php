@@ -30,10 +30,25 @@ use App\Http\Middleware\ExamCheck;
 use App\Http\Middleware\ApplyCheck;
 use Illuminate\Support\Facades\Route;
 
+
+//every on access this link
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::prefix('post')->group(function () {
     Route::get('/all', [FrontendController::class, 'all'])->name('post.all');
+    Route::get('/single/{id}', [FrontendController::class, 'single'])->name('post.single');
 });
+//result
+Route::get('result/page/{id}', [ExamController::class, 'resultPage'])->name('result.page');
+
+//Withdraw
+Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw');
+Route::post('/withdraw/store', [WithdrawController::class, 'store'])->name('withdraw.store');
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -79,12 +94,6 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
 	Route::get('apply/{id}', [ApplyController::class, 'apply'])->middleware(ApplyCheck::class);
 });
 
-//result
-Route::get('result/page/{id}', [ExamController::class, 'resultPage'])->name('result.page');
-
-//Withdraw
-Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw');
-Route::post('/withdraw/store', [WithdrawController::class, 'store'])->name('withdraw.store');
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);

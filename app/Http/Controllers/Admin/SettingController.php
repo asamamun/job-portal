@@ -13,7 +13,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        return view('adminto.settings');
     }
 
     /**
@@ -45,7 +45,7 @@ class SettingController extends Controller
      */
     public function edit(Setting $setting)
     {
-        //
+        return view('adminto.settings');
     }
 
     /**
