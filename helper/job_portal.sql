@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2024 at 05:18 PM
+-- Generation Time: Jun 20, 2024 at 09:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `job_portal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `advertisements`
+--
+
+CREATE TABLE `advertisements` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `advertisements`
+--
+
+INSERT INTO `advertisements` (`id`, `title`, `file`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'img/1718811957.webp', '2024-06-19 09:46:00', '2024-06-19 09:46:00');
 
 -- --------------------------------------------------------
 
@@ -837,7 +858,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (30, '2024_06_13_043237_create_categories_table', 2),
 (31, '2024_06_13_043244_create_questions_table', 2),
 (32, '2024_06_13_043314_create_results_table', 2),
-(33, '2024_06_14_084222_create_personal_access_tokens_table', 3);
+(33, '2024_06_14_084222_create_personal_access_tokens_table', 3),
+(34, '2024_06_18_123424_create_advertisements_table', 4);
 
 -- --------------------------------------------------------
 
@@ -1162,7 +1184,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('gMtrVbBji0Ck6Hc0GQHkpCPrPHt4lhG2YeWIWpDc', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTXZWY2t4enRscDE1QWNUUllVU2VnUTRPYzhxTTVaQkRlZ0JTZEtXUyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC93aXRoZHJhdyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE0O30=', 1718637152);
+('zB1QYwxU97WvcDhoh2SwXNM6ukDpK1ciyh4K3vEY', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVlhJdzk3aE5iZUlJanc5Nkhib29vWUZxd1JmSkZlV0FKRWJHT25sOSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTY7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9hZHZlcnRpc2VtZW50Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1718811969);
 
 -- --------------------------------------------------------
 
@@ -1172,9 +1194,18 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `name`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'default', 'What are named routes in Laravel and How can specify route names for controller actions', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -6385,8 +6416,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `created_at`, `updated_at`) VALUES
-(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'FPulamBUOy1hHRiI03gGBoeJned0YiV7MNFuvo8QnJeMUR3C2GSmdbmoDYxA', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'applicant', 'img/1718558300.jpg', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'pVyFadVpo4d7B9PAolSArnb9tbmdqRL5pNP26tVDTtNKiyBeRgTfprXQsJRj', '0', '2024-06-11 21:17:47', '2024-06-16 11:18:20'),
+(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', '3uoS6FfcwgFAhszl80PzeWeTahhLtSrX9u7AnTsmh0GNEzhyaZ93mAa0Jbjb', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'applicant', 'img/1718558300.jpg', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'SA9he6tvInmFonz0FUfWYmlUN0WR31ka8P1Y0OpxsxpZPULMKKBDGwFr0lWs', '0', '2024-06-11 21:17:47', '2024-06-16 11:18:20'),
 (16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '2qrafBS82nJcX1Tscd9ir3d1QxsNwUjV7HjeiqZuJEMjBdudlmJMxsXJmxKg', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
@@ -6422,6 +6453,12 @@ INSERT INTO `withdraws` (`id`, `user_id`, `types`, `account`, `account_number`, 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `advertisements`
+--
+ALTER TABLE `advertisements`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `applicants`
@@ -6702,6 +6739,12 @@ ALTER TABLE `withdraws`
 --
 
 --
+-- AUTO_INCREMENT for table `advertisements`
+--
+ALTER TABLE `advertisements`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `applicants`
 --
 ALTER TABLE `applicants`
@@ -6801,7 +6844,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -6867,7 +6910,7 @@ ALTER TABLE `save_posts`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `skills`
