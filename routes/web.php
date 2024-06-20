@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdvertisementController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\SpecialController;
 use App\Http\Controllers\Admin\PostTypeController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SkillTypeController;
 use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\employer\DashboardController as EmployerDashboardController;
 use App\Http\Controllers\employer\PostController;
@@ -21,6 +23,7 @@ use App\Http\Controllers\Applicant\ExperienceController;
 use App\Http\Controllers\Applicant\ExamController;
 use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
@@ -67,11 +70,13 @@ Route::middleware([Admin::class])->prefix('admin')->group(function () {
     Route::resource('functional', FunctionalController::class);
     Route::resource('industrial', IndustrialController::class);
     Route::resource('special', SpecialController::class);
+    Route::resource('skill_type', SkillTypeController::class);
     Route::resource('post_type', PostTypeController::class);
     Route::resource('country', CountryController::class);
     Route::resource('state', StateController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('question', QuestionController::class);
+    Route::resource('advertisement', AdvertisementController::class);
 
     // Withdraw
     Route::post('/withdraw/reject', [WithdrawController::class, 'reject'])->name('withdraw.reject');
@@ -108,6 +113,11 @@ Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 //SSLCOMMERZ END
+
+#invoice
+Route::get('/invoice/{tid}', [InvoiceController::class, 'invoice'])->name('invoice');
+
+
 
 #Ajax
 Route::prefix('ajax')->group(function(){

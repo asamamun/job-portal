@@ -20,16 +20,33 @@
                     </a>
                 </li>
                 <li>
+                    <a href="#">
+                        <i class="mdi mdi-briefcase-variant-outline"></i>
+                        <span> Admin Profile </span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('settings.index')}}">
                         <i class="mdi mdi-briefcase-variant-outline"></i>
                         <span> Settings </span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="mdi mdi-briefcase-variant-outline"></i>
-                        <span> Admin Profile </span>
+                    <a href="#sidebarwerrTables45355322345" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Advertisement </span>
+                        <span class="menu-arrow"></span>
                     </a>
+                    <div class="collapse" id="sidebarwerrTables45355322345">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('advertisement.create')}}"> Create </a>
+                            </li>
+                            <li>
+                                <a href="{{route('advertisement.index')}}"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="menu-title mt-2">Applicants</li>
                 <li>
@@ -98,6 +115,23 @@
                             </li>
                             <li>
                                 <a href="{{route('special.index')}}"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebardfsdfTables4365" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Skill Type </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebardfsdfTables4365">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('skill_type.create')}}"> Create</a>
+                            </li>
+                            <li>
+                                <a href="{{route('skill_type.index')}}"> Show </a>
                             </li>
                         </ul>
                     </div>

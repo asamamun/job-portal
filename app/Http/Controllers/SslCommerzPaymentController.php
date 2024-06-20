@@ -189,20 +189,22 @@ class SslCommerzPaymentController extends Controller
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
             //echo "Transaction is successfully Completed";
+
             $points = $order_details->amount * 2;
+
             if(Auth::user()->roles == 'employer'){
                 $employer = Employer::where('user_id', Auth::user()->id);
                 $employer->points = Auth::user()->employer->points + $points;
                 $employer->save();
-                return redirect()->intended(route('employer.dashboard', absolute: false))->with('success', 'Transaction is successfully Completed');
             }
+
             if(Auth::user()->roles == 'applicant'){
                 $applicant = Applicant::where('user_id', Auth::user()->id);
                 $applicant->points = Auth::user()->applicant->points + $points;
                 $applicant->save();
-                return redirect()->intended(route('applicant.profile', absolute: false))->with('success', 'Transaction is successfully Completed');;
             }
-            return redirect()->intended(route('home', absolute: false))->with('success', 'Transaction is successfully Completed');;
+            return redirect()->route('invoice', $order_details->transaction_id);
+
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";

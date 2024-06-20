@@ -1,7 +1,7 @@
 @if($errors->any())
-	{{$msg}}
+	{{$msg = ""}}
 	@foreach($errors->all() as $error)
-		{{$msg += $error}}
+		{{$msg .= $error}}
 	@endforeach
 	<script>alert("{{ $msg }}")</script>
 @endif

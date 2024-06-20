@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Applicant;
 
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SkillController extends Controller
 {
