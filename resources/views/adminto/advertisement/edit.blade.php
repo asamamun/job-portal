@@ -18,7 +18,7 @@
             </div>
             <div class="mb-3">
                 <label for="iconName" class="form-label">File<span class="text-danger">*</span></label>
-                <input type="file" name="file" required="" value="{{ $advertisement->file }}" class="form-control" id="iconName">
+                <input type="file" name="file" value="{{ $advertisement->file }}" class="form-control" id="iconName">
             </div>
             <div class="text-end">
                 <button class="btn btn-primary waves-effect waves-light" type="submit">Update</button>

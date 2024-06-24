@@ -31,7 +31,7 @@
         },
         "files": [
           "App/Helper/Basic.php",
-		  "App/Helper/Advertisement.php",
+		  "App/Helper/ads.php",
 		  "App/Helper/Settings.php"
         ]
     },

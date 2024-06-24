@@ -221,6 +221,9 @@
                     </ul>
                 </div>
             </li>
+            <li class="mb-1">
+                <img src="{{ ads::get('rightside') }}" alt="" width="100%">
+            </li>
         </ul>
     </div>
 
