@@ -14,6 +14,8 @@ class SkillTypeController extends Controller
     public function index()
     {
         return view("adminto.skill_type.index",["skill_types" => SkillType::all()]);
+        // $skill_types = SkillType::all(); // Fetch all skill types
+        // return view("adminto.skill_type.index", compact('skill_types'));
     }
 
     /**

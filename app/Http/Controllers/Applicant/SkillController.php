@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Applicant;
 use App\Models\Skill;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\SkillType;
 
 class SkillController extends Controller
 {
@@ -13,7 +14,10 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        // Fetch skills associated with the authenticated user's applicant profile
+        $skills = Skill::where('applicant_id', auth()->user()->applicant->id)->get();
+        
+        return view("jobentry.skill.index", compact('skills'));
     }
 
     /**
@@ -21,7 +25,10 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        // Fetch all skill types
+        $skilltypes = SkillType::all();
+
+        return view("jobentry.skill.create", compact('skilltypes'));
     }
 
     /**
@@ -29,15 +36,19 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'skill_type_id' => 'required',
+            'level' => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Skill $skill)
-    {
-        //
+        // Create a new skill instance
+        $skill = new Skill();
+        $skill->applicant_id = auth()->user()->applicant->id;
+        $skill->skill_type_id = $request->skill_type_id;
+        $skill->level = $request->level;
+        $skill->save();
+
+        return redirect()->route('skill.index')->with('success', 'Skill created successfully');
     }
 
     /**
@@ -45,7 +56,10 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        //
+        // Fetch all skill types
+        $skilltypes = SkillType::all();
+
+        return view("jobentry.skill.edit", compact('skill', 'skilltypes'));
     }
 
     /**
@@ -53,7 +67,17 @@ class SkillController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
-        //
+        $request->validate([
+            'skill_type_id' => 'required',
+            'level' => 'required',
+        ]);
+
+        // Update skill details
+        $skill->skill_type_id = $request->skill_type_id;
+        $skill->level = $request->level;
+        $skill->save();
+
+        return redirect()->route('skill.index')->with('success', 'Skill updated successfully');
     }
 
     /**
@@ -61,6 +85,8 @@ class SkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        $skill->delete();
+
+        return redirect()->route('skill.index')->with('success', 'Skill deleted successfully');
     }
 }

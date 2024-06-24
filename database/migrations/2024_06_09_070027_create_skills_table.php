@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('applicant_id')->references('id')->on('applicants')->onDelete('cascade');
             $table->bigInteger('skill_type_id')->unsigned()->nullable();
             $table->foreign('skill_type_id')->references('id')->on('skill_types')->onDelete('cascade');            
+            $table->set('level', ['beginner', 'intermediate', 'advanced']);
             $table->timestamps();
     
         });

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2024 at 09:40 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 24, 2024 at 10:07 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,6 +51,7 @@ INSERT INTO `advertisements` (`id`, `title`, `file`, `created_at`, `updated_at`)
 CREATE TABLE `applicants` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `objective` text DEFAULT NULL,
   `nid` varchar(255) DEFAULT NULL,
   `file` varchar(255) DEFAULT NULL,
   `cv` varchar(255) DEFAULT NULL,
@@ -69,10 +70,10 @@ CREATE TABLE `applicants` (
 -- Dumping data for table `applicants`
 --
 
-INSERT INTO `applicants` (`id`, `user_id`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
-(1, 15, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 40, '1', '2024-06-11 21:17:47', '2024-06-17 00:19:22'),
-(2, 18, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
-(3, 19, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58');
+INSERT INTO `applicants` (`id`, `user_id`, `objective`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
+(1, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 10, '1', '2024-06-11 21:17:47', '2024-06-23 00:40:40'),
+(2, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
+(3, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,8 @@ CREATE TABLE `applicant_post` (
 --
 
 INSERT INTO `applicant_post` (`id`, `post_id`, `applicant_id`, `status`, `created_at`, `updated_at`) VALUES
-(11, 4, 1, 'applied', '2024-06-17 00:19:23', NULL);
+(11, 4, 1, 'applied', '2024-06-17 00:19:23', NULL),
+(12, 2, 1, 'applied', '2024-06-23 00:40:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -491,7 +493,7 @@ CREATE TABLE `employers` (
 --
 
 INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
-(1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 300, 'regular', '2024-06-11 21:12:46', '2024-06-17 08:44:52'),
+(1, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 305, 'regular', '2024-06-11 21:12:46', '2024-06-23 00:40:40'),
 (2, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37'),
 (3, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29');
 
@@ -675,7 +677,12 @@ INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `create
 (65, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 05:52:04', '2024-06-17 05:52:04'),
 (66, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 05:52:58', '2024-06-17 05:52:58'),
 (67, 19, 10, 'Exam Pass Award', 'expense', '2024-06-17 05:53:04', '2024-06-17 05:53:04'),
-(68, 19, 5, 'Exam Fees', 'income', '2024-06-17 07:14:58', '2024-06-17 07:14:58');
+(68, 19, 5, 'Exam Fees', 'income', '2024-06-17 07:14:58', '2024-06-17 07:14:58'),
+(69, 15, 5, 'Exam Fees', 'income', '2024-06-23 00:31:04', '2024-06-23 00:31:04'),
+(70, 15, 5, 'Exam Fees', 'income', '2024-06-23 00:31:44', '2024-06-23 00:31:44'),
+(71, 15, 5, 'Exam Fees', 'income', '2024-06-23 00:31:54', '2024-06-23 00:31:54'),
+(72, 15, 5, 'Exam Fees', 'income', '2024-06-23 00:34:52', '2024-06-23 00:34:52'),
+(73, 15, 5, 'Job Applyed', 'income', '2024-06-23 00:40:40', '2024-06-23 00:40:40');
 
 -- --------------------------------------------------------
 
@@ -1130,7 +1137,9 @@ INSERT INTO `results` (`id`, `applicant_id`, `marks`, `marks_outof`, `status`, `
 (56, 3, 5, 10, 'fail', '2024-06-17 05:25:31', '2024-06-17 05:25:31'),
 (57, 3, 9, 10, 'pass', '2024-06-17 05:52:04', '2024-06-17 05:52:04'),
 (58, 3, 9, 10, 'pass', '2024-06-17 05:52:58', '2024-06-17 05:52:58'),
-(59, 3, 8, 10, 'pass', '2024-06-17 05:53:04', '2024-06-17 05:53:04');
+(59, 3, 8, 10, 'pass', '2024-06-17 05:53:04', '2024-06-17 05:53:04'),
+(60, 1, 3, 10, 'fail', '2024-06-23 00:32:45', '2024-06-23 00:32:45'),
+(61, 1, 3, 10, 'fail', '2024-06-23 00:35:05', '2024-06-23 00:35:05');
 
 -- --------------------------------------------------------
 
@@ -1184,6 +1193,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('BjG8BhgRPwPJHUnU6te2M3rq6NvWMyr6oSdQropg', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRDFnMUJtSWJWTDBDNFYwejluVW56c3ladlhFQXd2b0J5aEZ2eUFJViI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcHBsaWNhbnQvcHJvZmlsZSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719202003),
+('ljxezyJxSstRu14wWijqh6reumCXMIbJ6UOppGze', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQjRKcERVMmFLcmkyN2RQUTAyczZXQjE0Q2psSlhFUGpCOGMwYXJJMiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wb3N0L2FsbD9wYWdlPTIiO319', 1719126679),
 ('zB1QYwxU97WvcDhoh2SwXNM6ukDpK1ciyh4K3vEY', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVlhJdzk3aE5iZUlJanc5Nkhib29vWUZxd1JmSkZlV0FKRWJHT25sOSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTY7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9hZHZlcnRpc2VtZW50Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1718811969);
 
 -- --------------------------------------------------------
@@ -1217,9 +1228,17 @@ CREATE TABLE `skills` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `applicant_id` bigint(20) UNSIGNED DEFAULT NULL,
   `skill_type_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `level` set('beginner','intermediate','advanced') DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `skills`
+--
+
+INSERT INTO `skills` (`id`, `applicant_id`, `skill_type_id`, `level`, `created_at`, `updated_at`) VALUES
+(1, 1, 12, 'advanced', '2024-06-23 21:43:21', '2024-06-23 21:43:21');
 
 -- --------------------------------------------------------
 
@@ -1233,6 +1252,16 @@ CREATE TABLE `skill_types` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `skill_types`
+--
+
+INSERT INTO `skill_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(10, 'Laravel', NULL, NULL),
+(12, 'PHP', NULL, NULL),
+(14, 'HTML', NULL, NULL),
+(16, 'CSS', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -6417,7 +6446,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `created_at`, `updated_at`) VALUES
 (14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', '3uoS6FfcwgFAhszl80PzeWeTahhLtSrX9u7AnTsmh0GNEzhyaZ93mAa0Jbjb', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'applicant', 'img/1718558300.jpg', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'SA9he6tvInmFonz0FUfWYmlUN0WR31ka8P1Y0OpxsxpZPULMKKBDGwFr0lWs', '0', '2024-06-11 21:17:47', '2024-06-16 11:18:20'),
+(15, 'applicant', 'img/1719124487.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'MwYnS96FX9WbRlNt9lITUB3m2ugEPdtCLymrWbLuDZksV9Qdlr28PiOr2xEr', '0', '2024-06-11 21:17:47', '2024-06-23 00:34:47'),
 (16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '2qrafBS82nJcX1Tscd9ir3d1QxsNwUjV7HjeiqZuJEMjBdudlmJMxsXJmxKg', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
@@ -6754,7 +6783,7 @@ ALTER TABLE `applicants`
 -- AUTO_INCREMENT for table `applicant_post`
 --
 ALTER TABLE `applicant_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `applicant_post_types`
@@ -6808,7 +6837,7 @@ ALTER TABLE `functionals`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `industrials`
@@ -6892,7 +6921,7 @@ ALTER TABLE `references`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -6916,13 +6945,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `skill_types`
 --
 ALTER TABLE `skill_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `specials`

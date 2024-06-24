@@ -16,6 +16,7 @@ return new class extends Migration
             //user_id forengn key
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('objective')->nullable();
             $table->string('nid')->nullable();
             //file, cv, jobtypes
             $table->string('file')->nullable();

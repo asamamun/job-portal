@@ -18,4 +18,8 @@ class Skill extends Model
     {
         return $this->belongsTo(Applicant::class);
     }
+    public function skillType()
+    {
+        return $this->belongsTo(SkillType::class);
+    }
 }

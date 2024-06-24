@@ -18,13 +18,20 @@ use App\Http\Controllers\Applicant\ProfileController as ApplicantProfileControll
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\applicant\ApplyController;
-use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\Applicant\EducationController;
 use App\Http\Controllers\Applicant\ExperienceController;
 use App\Http\Controllers\Applicant\ExamController;
+use App\Http\Controllers\Applicant\LanguageController;
+use App\Http\Controllers\Applicant\LinkController;
+use App\Http\Controllers\Applicant\ProjectController;
+use App\Http\Controllers\Applicant\ReferenceController;
+use App\Http\Controllers\Applicant\SkillController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\WithdrawController;
+use App\Http\Controllers\ResumeController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
 use App\Http\Middleware\Employer;
@@ -47,6 +54,8 @@ Route::get('result/page/{id}', [ExamController::class, 'resultPage'])->name('res
 Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw');
 Route::post('/withdraw/store', [WithdrawController::class, 'store'])->name('withdraw.store');
 
+//cv
+Route::get('/cv/{id}', [ResumeController::class, 'cvDownload'])->name('cv');
 
 
 
@@ -93,6 +102,13 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     Route::put('/update', [ApplicantProfileController::class, 'update'])->name('applicant.update');
     Route::resource('experience', ExperienceController::class);
 	Route::get('exam', [ExamController::class, 'examPage'])->middleware(ExamCheck::class);
+    Route::resource('experience', ExperienceController::class);
+    Route::resource('education', EducationController::class);
+    Route::resource('reference', ReferenceController::class);
+    Route::resource('project', ProjectController::class);
+    Route::resource('language',LanguageController::class);
+    Route::resource('link',LinkController::class);
+    Route::resource('skill',SkillController::class);
 
     //result
 	Route::post('result', [ExamController::class, 'examResult']);
