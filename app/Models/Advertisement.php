@@ -9,7 +9,7 @@ class Advertisement extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'ttile',
+        'title',
         'file',
     ];
 }

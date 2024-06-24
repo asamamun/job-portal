@@ -56,8 +56,8 @@
                     <span><i class="bi bi-person-circle" style="font-size: 20px;"></i> Profile Edit </span>
                 </button>
                 <div class="collapse" id="home-collapse">
-                    <ul class="nav-second-level">
-                        <li><a href="#">Personel Details</a></li>
+                    <ul class="nav-second-level" style="list-style: none;">
+                        <li><a href="{{ url('applicant/profile') }}">Personel Details</a></li>
                        
                         <li>
                             <a href="#sidebarTables45345" data-bs-toggle="collapse">
@@ -189,7 +189,8 @@
                 </button>
                 <div class="collapse" id="dashboard-collapse">
                     <ul class="nav-second-level">
-                        <li><a href="#">view</a></li>
+                        <li><a href="{{route('cv', auth()->user()->id)}}">CV <span class="badge bg-secondary">classic</span></a></li>
+                        <li><a href="#">CV <span class="badge bg-secondary">pro</span></a></li>
                         <li><a href="#">Download</a></li>
                     </ul>
                 </div>

@@ -72,7 +72,7 @@ class AdvertisementController extends Controller
             'title' => 'required|max:255',
             "file" => "image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048",
         ]);
-        $advertisement->title = $request->name;
+        $advertisement->title = $request->title;
         if ($request->hasFile('file')) {
             $fileName = time() . '.' . $request->file->extension();
             $request->file->storeAs('public/img', $fileName);

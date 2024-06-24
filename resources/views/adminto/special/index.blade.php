@@ -10,18 +10,15 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <h4 class="mt-0 header-title">Default Example</h4>
-        <p class="text-muted font-14 mb-3">
-            DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>.
-        </p>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Default Example</h4>
-                        <p class="text-muted font-14 mb-3">
-                            DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>.
-                        </p>
+                        <h4 class="mt-0 header-title">Data Tables</h4>
+                         <!-- plus icon -->
+        <a href="{{ route('special.create') }}">
+                           <i class="bi bi-file-plus-fill fa-3x"></i>
+                        </a>
 
                         <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
                             <thead>

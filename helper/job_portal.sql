@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 10:07 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jun 24, 2024 at 09:45 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,7 @@ CREATE TABLE `advertisements` (
 --
 
 INSERT INTO `advertisements` (`id`, `title`, `file`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'img/1718811957.webp', '2024-06-19 09:46:00', '2024-06-19 09:46:00');
+(2, 'rrrrrr', 'img/1719214676.png', '2024-06-24 01:37:17', '2024-06-24 01:37:56');
 
 -- --------------------------------------------------------
 
@@ -52,12 +52,19 @@ CREATE TABLE `applicants` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `objective` text DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `father` varchar(50) NOT NULL,
+  `mother` varchar(50) NOT NULL,
   `nid` varchar(255) DEFAULT NULL,
   `file` varchar(255) DEFAULT NULL,
   `cv` varchar(255) DEFAULT NULL,
   `jobtype` varchar(255) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
   `dob` date DEFAULT NULL,
+  `gender` set('male','female','others') DEFAULT NULL,
+  `religion` varchar(255) NOT NULL DEFAULT 'islam',
+  `nationality` varchar(255) DEFAULT 'bangladeshi',
+  `marital` set('single','married','others') DEFAULT NULL,
   `type` set('0','1') NOT NULL DEFAULT '0',
   `available_for` set('part-time','full-time','both') NOT NULL DEFAULT 'both',
   `points` int(11) DEFAULT NULL,
@@ -70,10 +77,10 @@ CREATE TABLE `applicants` (
 -- Dumping data for table `applicants`
 --
 
-INSERT INTO `applicants` (`id`, `user_id`, `objective`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
-(1, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 10, '1', '2024-06-11 21:17:47', '2024-06-23 00:40:40'),
-(2, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
-(3, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58');
+INSERT INTO `applicants` (`id`, `user_id`, `objective`, `title`, `father`, `mother`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `gender`, `religion`, `nationality`, `marital`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
+(1, 15, NULL, 'web developer', '', '', NULL, NULL, NULL, NULL, NULL, '2024-06-12', 'male', 'islam', 'bangladeshi', 'married', '0', 'both', 10, '1', '2024-06-11 21:17:47', '2024-06-23 00:40:40'),
+(2, 18, NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
+(3, 19, NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58');
 
 -- --------------------------------------------------------
 
@@ -458,6 +465,13 @@ CREATE TABLE `education` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `education`
+--
+
+INSERT INTO `education` (`id`, `applicant_id`, `level`, `institute`, `board`, `duration`, `session`, `subject`, `group`, `division`, `grade`, `grade_out_of`, `passing_year`, `created_at`, `updated_at`) VALUES
+(1, 1, 'secondary', 'govt school', 'Dhaka', '2', '2008', 'english', 'scince', 'Dhaka', '3.6', '5', '2010', '2024-06-24 00:45:29', '2024-06-24 00:45:29');
 
 -- --------------------------------------------------------
 
@@ -1193,9 +1207,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('BjG8BhgRPwPJHUnU6te2M3rq6NvWMyr6oSdQropg', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRDFnMUJtSWJWTDBDNFYwejluVW56c3ladlhFQXd2b0J5aEZ2eUFJViI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcHBsaWNhbnQvcHJvZmlsZSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719202003),
-('ljxezyJxSstRu14wWijqh6reumCXMIbJ6UOppGze', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQjRKcERVMmFLcmkyN2RQUTAyczZXQjE0Q2psSlhFUGpCOGMwYXJJMiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wb3N0L2FsbD9wYWdlPTIiO319', 1719126679),
-('zB1QYwxU97WvcDhoh2SwXNM6ukDpK1ciyh4K3vEY', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVlhJdzk3aE5iZUlJanc5Nkhib29vWUZxd1JmSkZlV0FKRWJHT25sOSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTY7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9hZHZlcnRpc2VtZW50Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1718811969);
+('3qz6JYNmthLhYaNEJgbYhoi4jbM45Kf3hJtlja1P', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUTFBTnA5WlBPWVIzZUMwUWM3OFpUN0lBUUtxNTljY0lXc3VEWmNqcSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdi8xNSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719213425),
+('ndLqg89cLQIVStLdLXMcoRYHMntDAYbUcGen9tWo', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMXcxWkZvZ0NqYnBnNEU3VmlWdDRUdDcyV3hPWmREQno0T3F2UWg2cCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9hZHZlcnRpc2VtZW50Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTY7fQ==', 1719215080);
 
 -- --------------------------------------------------------
 
@@ -6445,9 +6458,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `created_at`, `updated_at`) VALUES
-(14, 'employer', '', 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', '3uoS6FfcwgFAhszl80PzeWeTahhLtSrX9u7AnTsmh0GNEzhyaZ93mAa0Jbjb', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'applicant', 'img/1719124487.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'MwYnS96FX9WbRlNt9lITUB3m2ugEPdtCLymrWbLuDZksV9Qdlr28PiOr2xEr', '0', '2024-06-11 21:17:47', '2024-06-23 00:34:47'),
-(16, 'admin', '', 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '2qrafBS82nJcX1Tscd9ir3d1QxsNwUjV7HjeiqZuJEMjBdudlmJMxsXJmxKg', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
+(14, 'employer', NULL, 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', '3uoS6FfcwgFAhszl80PzeWeTahhLtSrX9u7AnTsmh0GNEzhyaZ93mAa0Jbjb', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'applicant', 'img/1719209548.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'HPRRstm0MmXFnot2p6U74hgbZkNxoiATkJDsJx9XBrmbvP6tsqSQkjG2J1mf', '0', '2024-06-11 21:17:47', '2024-06-24 00:12:28'),
+(16, 'admin', NULL, 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'CVyyZy0gc0c9fYjZ5WRVXM9J4CSHEFwr8Kjkf53LlPQXEeZEnzlvI36huxJ6', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
 (19, 'Tanima Hasan', 'img/1718610121.png', 'tanima@gmail.com', NULL, '$2y$12$46On/z8GpU52yWqj0QK6/OTZvyGZex6N1tw4Mr//ctUyNWUILbOXW', 'applicant', 'jmViMfctjYJU9olsIzpwb46qZVxXF8bqCWgxW1qIn2ZNjTyYEUcJn8GpAqKF', '0', '2024-06-17 01:41:24', '2024-06-17 01:43:31');
@@ -6771,7 +6784,7 @@ ALTER TABLE `withdraws`
 -- AUTO_INCREMENT for table `advertisements`
 --
 ALTER TABLE `advertisements`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `applicants`
@@ -6807,7 +6820,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employers`
