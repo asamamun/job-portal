@@ -14,25 +14,24 @@
         <div class="photo-and-name">
             <img src="{{ $user->image != null ? asset("storage/".$user->image) : asset('no_image.png') }}" class="photo" alt="Profile Picture">
             <div class="contact-info-box">
-                <h1 class="name">{{$user->name}}</h1>
+                <h1 class="name">{{ucfirst($user->name)}}</h1>
                 <br>
                 <h3 class="job-title">{{strtoupper($applicant->title)}}</h3>
-                <p class="contact-details">Phone: +92-344-4XX3-1XX &nbsp; - &nbsp; Email: contact@muhammadovi.com</p>
+                <p class="contact-details">Phone: +92-344-4XX3-1XX &nbsp; - &nbsp; Email:{{$user->email}}</p>
             </div>
         </div>
         <div id="objective">
             <h3>Objective</h3>
             <p>
-                To take a challenging and managerial role in the field of Computer programming and implement the expertise and experience gained in this field to develop complex project with efficiency and quality.
-            </p>
+                {{$applicant->objective}} </p>
         </div>
         <div id="education">
             <h3>Education</h3>
             <table>
                 @foreach ($educations as $education)
-                <tr class="school-1">
-                    <td rowspan="2">2002 - 2015</td>
-                    <td><b>{{$education->level}}</b>: ABC School (Standard KG-VIII)</td>
+                <tr class="education-1">                             
+                    <td>{{ucfirst($education->level)}} :</td>
+                    <td>{{$education->institute}}, {{$education->board}}, {{$education->duration}} years, {{$education->subject}}, {{$education->grade}}</td>
                 </tr>
                 @endforeach
             </table>
@@ -43,7 +42,7 @@
                 @foreach ($experiences as $experience)
                 <tr class="work-1">
                     <td>{{ Carbon\Carbon::parse($experience->form)->format('m/y') }} - {{ $experience->to ? Carbon\Carbon::parse($experience->to)->format('m/y') : 'continuing' }}</td>
-                    <td><b>ABC Corp</b>: As an IT Manager and Call Service Representative</td>
+                    <td><b>{{ucfirst($experience->company)}}</b> : {{ucfirst($experience->position)}}</td>
                 </tr>
                 @endforeach
             </table>
@@ -64,8 +63,8 @@
                     <td>{{ Carbon\Carbon::parse($applicant->dob)->diffForHumans() }}</td>
                 </tr>
                 <tr>
-                    <td>CNIC:</td>
-                    <td><b>42401-XXXXXXX-7</b></td>
+                    <td>NID:</td>
+                    <td><b>{{ ucfirst($applicant->religion)}}</b></td>
                 </tr>
                 <tr>
                     <td>Religion:</td>
@@ -73,11 +72,11 @@
                 </tr>
                 <tr>
                     <td>Nationality:</td>
-                    <td><b>Pakistani</b></td>
+                    <td><b>{{ ucfirst($applicant->nationality)}}</b></td>
                 </tr>
                 <tr>
                     <td>Marital Status:</td>
-                    <td><b>Unmarried</b></td>
+                    <td><b>{{ ucfirst($applicant->marital)}}</b></td>
                 </tr>
             </table>
         </div>

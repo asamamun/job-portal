@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 12:10 PM
+-- Generation Time: Jun 24, 2024 at 10:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,7 +80,7 @@ CREATE TABLE `applicants` (
 --
 
 INSERT INTO `applicants` (`id`, `user_id`, `objective`, `title`, `father`, `mother`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `gender`, `religion`, `nationality`, `marital`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
-(1, 15, NULL, 'web developer', '', '', NULL, NULL, NULL, NULL, NULL, '2024-06-12', 'male', 'islam', 'bangladeshi', 'married', '0', 'both', 5, '1', '2024-06-11 21:17:47', '2024-06-24 03:34:34'),
+(1, 15, 'I want to make a place for me in this challenging industry  ', 'web developer', '', '', NULL, NULL, NULL, NULL, 'Dhaka', '2024-06-12', 'male', 'islam', 'bangladeshi', 'married', '0', 'both', 5, '1', '2024-06-11 21:17:47', '2024-06-24 03:34:34'),
 (2, 18, NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
 (3, 19, NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58');
 
@@ -473,7 +473,8 @@ CREATE TABLE `education` (
 --
 
 INSERT INTO `education` (`id`, `applicant_id`, `level`, `institute`, `board`, `duration`, `session`, `subject`, `group`, `division`, `grade`, `grade_out_of`, `passing_year`, `created_at`, `updated_at`) VALUES
-(1, 1, 'secondary', 'govt school', 'Dhaka', '2', '2008', 'english', 'scince', 'Dhaka', '3.6', '5', '2010', '2024-06-24 00:45:29', '2024-06-24 00:45:29');
+(1, 1, 'secondary', 'govt school', 'Dhaka', '2', '2008', 'english', 'scince', 'Dhaka', '3.6', '5', '2010', '2024-06-24 00:45:29', '2024-06-24 00:45:29'),
+(2, 1, 'bachelor', 'adamjee', 'dhaka', '4', '2013-2014', 'accounting', 'business', 'dhaka', '3.00', '4.00', '2019', '2024-06-24 13:06:28', '2024-06-24 13:06:28');
 
 -- --------------------------------------------------------
 
@@ -539,7 +540,8 @@ CREATE TABLE `experiences` (
 --
 
 INSERT INTO `experiences` (`id`, `applicant_id`, `company`, `address`, `phone`, `position`, `department`, `description`, `from`, `to`, `created_at`, `updated_at`) VALUES
-(2, 1, 'IsDB1', 'Agargaon Dhaka, Bangladesh', '01831587760', 'trainee', 'WDPF', 'HTML, CSS, JS, PHP, Lavavel', '2024-06-01', '2024-06-12', '2024-06-11 22:15:03', '2024-06-11 22:29:12');
+(2, 1, 'IsDB1', 'Agargaon Dhaka, Bangladesh', '01831587760', 'trainee', 'WDPF', 'HTML, CSS, JS, PHP, Lavavel', '2024-06-01', '2024-06-12', '2024-06-11 22:15:03', '2024-06-11 22:29:12'),
+(4, 1, 'gnsl', 'gnsl tower', '01234567890', 'trainee', 'wdpf', 'rhbjjkbvf', '2024-01-23', '2024-06-15', '2024-06-24 13:07:40', '2024-06-24 13:07:40');
 
 -- --------------------------------------------------------
 
@@ -1210,7 +1212,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Wso6LoqBtslxhwkB9gfNnSVh1yhaDOlANTm8FI6U', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiNjZTNHdSdXVOTzNGMU84S3ZPOTV2VzlvakVYRzVqUEhSQk8zM1UxVSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcHBsaWNhbnQvcHJvZmlsZSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719223730);
+('6EfmlDgvm2wtA3B1AErZDuHzAEtWbMvJIgVnJpBW', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWW9GSW83d2xkU3hFRnVHQTFwOTJLUmJlU29tVVZxS0hCRUtBVm1LQiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdi8xNSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719260817);
 
 -- --------------------------------------------------------
 
@@ -6461,7 +6463,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `created_at`, `updated_at`) VALUES
 (14, 'employer', NULL, 'employer@gmail.com', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', '3uoS6FfcwgFAhszl80PzeWeTahhLtSrX9u7AnTsmh0GNEzhyaZ93mAa0Jbjb', '0', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'applicant', 'img/1719209548.png', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'NspvUlnDgyOXRpjglJX9S1m8ie3AQXP0EnWmrhSh3t8nBR0e4G5JN1hmaZTo', '0', '2024-06-11 21:17:47', '2024-06-24 00:12:28'),
+(15, 'applicant', 'img/1719255891.jpg', 'applicant@gmail.com', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'NspvUlnDgyOXRpjglJX9S1m8ie3AQXP0EnWmrhSh3t8nBR0e4G5JN1hmaZTo', '0', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
 (16, 'admin', NULL, 'admin@gmail.com', NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '3LsaCJsq7YhP7ZuwQah1WpnBDmeBq7stYaHUqdYq1MmbUbTazzrOfrQg2ZgN', '1', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
@@ -6822,7 +6824,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employers`
@@ -6834,7 +6836,7 @@ ALTER TABLE `employers`
 -- AUTO_INCREMENT for table `experiences`
 --
 ALTER TABLE `experiences`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

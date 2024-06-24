@@ -11,7 +11,7 @@
         <div class="row g-5">
             @include('jobentry.inc.leftsidebar')
             <div class="col-md-9">
-                <form action="{{ route('applicant.update.image') }}" class="parsley-examples" method="POST" enctype="multipart/form-data">
+                {{-- <form action="{{ route('applicant.update.image') }}" class="parsley-examples" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <fieldset>
@@ -24,26 +24,56 @@
                             <button class="btn btn-primary waves-effect waves-light" type="submit">Add Image</button>
                         </div>
                     </fieldset>
-                </form>
+                </form> --}}
                 <form action="#" class="parsley-examples" novalidate="">
                     <fieldset>
                         <legend>Personel Details:</legend>
+
+
+                            
+                            <div class="mb-3">
+                                <label for="fathername" class="form-label">Father Name<span class="text-danger">*</span></label>
+                                <input type="text" name="fathername" required="" value="{{ old('father') }}" class="form-control" id="fathername">
+                            </div>
+                            <div class="mb-3">
+                                <label for="mothername" class="form-label"> Mother Name<span class="text-danger">*</span></label>
+                                <input type="text" name="mother" required="" value="{{ old('mother') }}" class="form-control" id="mothername">
+                            </div>
+                       
                         <div class="mb-3">
-                            <label for="userName" class="form-label">User Name<span class="text-danger">*</span></label>
-                            <input type="text" name="nick" parsley-trigger="change" required="" placeholder="Enter user name" class="form-control" id="userName">
+                            <label for="dobdate" class="form-label">Date of Birth<span class="text-danger">*</span></label>
+                            <input type="date" name="dob" required="" value="{{ old('dob') }}" class="form-control" id="dobdate">
                         </div>
+                        <label for="gendername" class="form-label">Gender<span class="text-danger">*</span></label>
+                        <select name="gendername" required=""  value="{{ old('gender') }}" class="form-control" id="gendername">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="others">others</option>
+                            <!-- Add other possible values here -->
+                        </select>
                         <div class="mb-3">
-                            <label for="emailAddress" class="form-label">Email address<span class="text-danger">*</span></label>
-                            <input type="email" name="email" parsley-trigger="change" required="" placeholder="Enter email" class="form-control" id="emailAddress">
+                            <label for="nidnum" class="form-label">NID No<span class="text-danger">*</span></label>
+                            <input type="number" name="nidnum" required="" value="{{ old('nid') }}" class="form-control" id="nidnum">
                         </div>
+
                         <div class="mb-3">
-                            <label for="pass1" class="form-label">Password<span class="text-danger">*</span></label>
-                            <input id="pass1" type="password" placeholder="Password" required="" class="form-control">
+                            <label for="religionname" class="form-label">Religion<span class="text-danger">*</span></label>
+                            <input type="text" name="religion" required="" value="{{ old('religion') }}" class="form-control" id="religionname">
                         </div>
+                       
+                            <label for="maritalstatus" class="form-label">Marital Status<span class="text-danger">*</span></label>
+                            <select name="maritalstatus" required=""  value="{{ old('marital') }}" class="form-control" id="maritalstatus">
+                                <option value="single">single</option>
+                                <option value="married">married</option>
+                                <option value="others">others</option>
+                                <!-- Add other possible values here -->
+                            </select>
                         <div class="mb-3">
-                            <label for="passWord2" class="form-label">Confirm Password <span class="text-danger">*</span></label>
-                            <input data-parsley-equalto="#pass1" type="password" required="" placeholder="Password" class="form-control" id="passWord2">
+                            <label for="nationalityname" class="form-label">Nationality<span class="text-danger">*</span></label>
+                            <input type="text" name="nationality" required="" value="{{ old('nationality') }}" class="form-control" id="nationalityname">
                         </div>
+
+
                         <div class="mb-3">
                             <div class="form-check ">
                                 <input id="checkbox6a" type="checkbox" class="form-check-input" data-parsley-multiple="checkbox6a">
@@ -58,35 +88,7 @@
                         </div>
                     </fieldset>
                 </form>
-                <table class="table mt-5">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+              
             </div>
         </div>
     </div>

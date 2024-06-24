@@ -57,7 +57,9 @@ Route::post('/withdraw/store', [WithdrawController::class, 'store'])->name('with
 //cv
 Route::get('/cv/{id}', [ResumeController::class, 'index'])->name('cv');
 Route::get('/cv/download/{id}', [ResumeController::class, 'download'])->name('cv.download');
-
+//cvpro
+Route::get('/cvpro/{id}', [ResumeController::class, 'indexcv'])->name('cvpro');
+Route::get('/cvpro/download/{id}', [ResumeController::class, 'download'])->name('cvpro.download');
 
 
 

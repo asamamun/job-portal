@@ -41,12 +41,13 @@
                 </div>
             </a>
         </div>
+  </div>
         <div class="pl-3 " style="margin-top: auto;">
-            <p class="mb-0" style="font-size: 16px; font-weight: bold">{{ auth()->user()->name }}</p>
-            <p class="mb-0" style="font-size: 14px">{{auth()->user()->applicant->points}}</p>
-            <p class="mb-0" style="font-size: 14px">{{auth()->user()->applicant->dob}}</p>
+            <p class="mb-0" style="font-size: 16px; font-weight: bold">Name :{{ auth()->user()->name }}</p>
+            <p class="mb-0" style="font-size: 14px">Points :{{auth()->user()->applicant->points}}</p>
+            <p class="mb-0" style="font-size: 14px">Date Of Birth :{{auth()->user()->applicant->dob}}</p>
         </div>
-    </div>
+  
 
     <hr style="clear: both;"/>
     <div>
@@ -190,7 +191,7 @@
                 <div class="collapse" id="dashboard-collapse">
                     <ul class="nav-second-level">
                         <li><a href="{{route('cv', auth()->user()->id)}}">CV <span class="badge bg-secondary">classic</span></a></li>
-                        <li><a href="#">CV <span class="badge bg-secondary">pro</span></a></li>
+                        <li><a href="{{route('cvpro', auth()->user()->id)}}">CV <span class="badge bg-secondary">pro</span></a></li>
                         <li><a href="#">Download</a></li>
                     </ul>
                 </div>
