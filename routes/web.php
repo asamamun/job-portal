@@ -49,6 +49,7 @@ Route::prefix('post')->group(function () {
     Route::get('/single/{id}', [FrontendController::class, 'single'])->name('post.single');
     Route::get('/functional/{id}', [FrontendController::class, 'functional'])->name('functional.category');
     Route::get('/industrial/{id}', [FrontendController::class, 'industrial'])->name('industrial.category');
+    Route::get('/special/{id}', [FrontendController::class, 'special'])->name('special.category');
     Route::get('/emp/all/{id}', [FrontendController::class, 'employer'])->name('emp.all');
     Route::post('search', [FrontendController::class, 'search'])->name('search');
 });

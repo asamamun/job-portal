@@ -35,6 +35,7 @@
                                 <p class="card-text" style="height: 100px;">{{ Str::limit(preg_replace("/&#?[a-z0-9]+;/i", "", strip_tags($post->description)), 100) }}</p>
                                 <a href="{{route('post.single', $post->id)}}" class="btn btn-primary">View Details</a>
                                 <a href="{{url('applicant/apply/'.$post->id)}}" class="btn btn-primary">Apply Now</a>
+                                <a href="{{url('applicant/apply/'.$post->id)}}" class="btn btn-primary">Save</a>
                             </div>
                         </div>
                     </div>
