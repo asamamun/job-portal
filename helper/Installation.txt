@@ -2,6 +2,7 @@
 2. cd job-portal
 3. npm i
 4. composer update
+5. extact storage.zip to root folder
 5. php artisan storage:link
 5. npm run build
 5. php artisan migrate -> php artisam db:seed / import job-portal.sql

@@ -74,5 +74,5 @@
     </div>
 </div>
 <!-- Job Detail End -->
-
+@include('jobentry.inc.footer')
 @endsection

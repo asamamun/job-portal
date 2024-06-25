@@ -6,6 +6,23 @@
     <title>{{$user->name}}</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('w3schools-cv/style.css') }}">
+    <style>
+        .progress {
+            width: 100%;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,13 +40,14 @@
         <div id="objective">
             <h3>Objective</h3>
             <p>
-                {{$applicant->objective}} </p>
+                {{$applicant->objective}}
+            </p>
         </div>
         <div id="education">
             <h3>Education</h3>
             <table>
                 @foreach ($educations as $education)
-                <tr class="education-1">                             
+                <tr class="education-1">
                     <td>{{ucfirst($education->level)}} :</td>
                     <td>{{$education->institute}}, {{$education->board}}, {{$education->duration}} years, {{$education->subject}}, {{$education->grade}}</td>
                 </tr>
@@ -43,6 +61,31 @@
                 <tr class="work-1">
                     <td>{{ Carbon\Carbon::parse($experience->form)->format('m/y') }} - {{ $experience->to ? Carbon\Carbon::parse($experience->to)->format('m/y') : 'continuing' }}</td>
                     <td><b>{{ucfirst($experience->company)}}</b> : {{ucfirst($experience->position)}}</td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+        <div id="work">
+            <h3>Skills</h3>
+            <table>
+                @foreach ($skills as $skill)
+                <tr class="work-1">
+                    <td>{{ $skill->SkillType->name }}</td>
+                    <td style="width: 80%;">
+                        @if ($skill->level == 'beginner')
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 10%;"></div>
+                            </div>
+                        @elseif ($skill->level == 'intermediate')
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 50%;"></div>
+                            </div>
+                        @elseif ($skill->level == 'advanced')
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 100%;"></div>
+                            </div>
+                        @endif
+                    </td>
                 </tr>
                 @endforeach
             </table>

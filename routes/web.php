@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdvertisementController;
+use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -46,6 +47,10 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::prefix('post')->group(function () {
     Route::get('/all', [FrontendController::class, 'all'])->name('post.all');
     Route::get('/single/{id}', [FrontendController::class, 'single'])->name('post.single');
+    Route::get('/functional/{id}', [FrontendController::class, 'functional'])->name('functional.category');
+    Route::get('/industrial/{id}', [FrontendController::class, 'industrial'])->name('industrial.category');
+    Route::get('/emp/all/{id}', [FrontendController::class, 'employer'])->name('emp.all');
+    Route::post('search', [FrontendController::class, 'search'])->name('search');
 });
 //result
 Route::get('result/page/{id}', [ExamController::class, 'resultPage'])->name('result.page');
@@ -89,6 +94,7 @@ Route::middleware([Admin::class])->prefix('admin')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('question', QuestionController::class);
     Route::resource('advertisement', AdvertisementController::class);
+    Route::resource('carousel', CarouselController::class);
 
     // Withdraw
     Route::post('/withdraw/reject', [WithdrawController::class, 'reject'])->name('withdraw.reject');

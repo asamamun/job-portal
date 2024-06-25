@@ -13,6 +13,7 @@ class Skill extends Model
     protected $fillable = [
         'applicant_id',
         'skill_type_id',
+        'level',
     ];
     public function applicant(): BelongsTo
     {

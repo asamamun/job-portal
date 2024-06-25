@@ -7,6 +7,7 @@ use PDF;
 use App\Models\Applicant;
 use App\Models\Education;
 use App\Models\Experience;
+use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,12 +20,13 @@ class ResumeController extends Controller
         $applicant_id = $applicant->id;
         $experiences = Experience::where("applicant_id", $applicant_id)->get();
         $educations = Education::where("applicant_id", $applicant_id)->get();
-        
+        $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
         return view("cv.w3schools.index", [
             "user" => $user,
             "applicant" => $applicant,
             "experiences"=> $experiences,
-            "educations"=> $educations
+            "educations"=> $educations,
+            "skills"=> $skills
         ]);
     }
    

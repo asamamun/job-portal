@@ -12,55 +12,47 @@
         </p>
         <hr class="mb-4">
 
-        <form action="" class="parsley-examples" method="POST" enctype="multipart/form-data">
-            {{Settings::title()}}
+        <form action="{{ route('settings.update', 1) }}" class="parsley-examples" method="POST" enctype="multipart/form-data">
+            
             @csrf
             @method('PUT')
             <fieldset>
-                <legend>Job Post</legend>
+                <legend>Meta Settings</legend>
                 <div class="mb-3">
                     <label for="iconNameAddresstitle" class="form-label">Title<span class="text-danger">*</span></label>
-                    <input type="text" name="title" value="{{ old('title') }}" required="" class="form-control" id="iconNameAddresstitle">
+                    <input type="text" name="title" value="{{Settings::get()->title}}" class="form-control" id="iconNameAddresstitle">
+                </div>
+                <div class="mb-3">
+                    <label for="iconNameAddrekeywords" class="form-label">Keywords<span class="text-danger">*</span></label>
+                    <input type="text" name="keywords" value="{{Settings::get()->keywords}}" class="form-control" id="iconNameAddrekeywords">
+                </div>
+                <div class="mb-3">
+                    <label for="iconNameAddreauthor" class="form-label">Author<span class="text-danger">*</span></label>
+                    <input type="text" name="author" value="{{Settings::get()->author}}" class="form-control" id="iconNameAddreauthor">
                 </div>
                 <div class="mb-3">
                     <label for="citySelectDescription" class="form-label">Description<span class="text-danger">*</span></label>
-                    <textarea name="description" class="form-control" id="citySelectDescription" rows="5">{{ old('description') }}</textarea>
+                    <textarea name="description" class="form-control" id="citySelectDescription" rows="5">{{Settings::get()->description}}</textarea>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Files Settings</legend>
+                <div class="mb-3">
+                    <label for="iconNameAddreiconsstitle" class="form-label">Icon</label>
+                    <input type="file" name="icon" value="" class="form-control" id="iconNameAddreiconsstitle">
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>Comunication</legend>
+                <legend>Page Settings</legend>
                 <div class="mb-3">
-                    <label for="contact" class="form-label">Contact<span class="text-danger">*</span></label>
-                    <input type="text" name="contact" value="{{ old('contact') }}" required="" class="form-control" id="contact">
-                </div>
-                <div class="mb-3">
-                    <label for="iconNameEmail" class="form-label">Email</label>
-                    <input type="email" name="email" value="{{ old('email') }}" required="" class="form-control" id="iconNameEmail">
-                </div>
-                <div class="mb-3">
-                    <label for="website" class="form-label">Website</label>
-                    <input type="text" name="website" value="{{ old('website') }}" required="" class="form-control" id="website">
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Files</legend>
-                <div class="mb-3">
-                    <label for="image" class="form-label">Image<span class="text-danger">*</span></label>
-                    <input type="file" name="image" class="form-control" id="image">
-                    <span>jpg,jpeg,png</span>
-                </div>
-                <div class="mb-3">
-                    <label for="filessdsfa" class="form-label">File</label>
-                    <input type="file" name="file" class="form-control" id="filessdsfa">
-                    <span>pdf, doc, docx, zip</span>
+                    <label for="iconNapaginatetle" class="form-label">Paginate</label>
+                    <input type="text" name="paginate" value="{{Settings::get()->paginate}}" class="form-control" id="iconNapaginatetle">
                 </div>
             </fieldset>
 
             <div class="text-end">
-                <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
-                <button type="reset" class="btn btn-danger waves-effect">Reset</button>
+                <button class="btn btn-primary waves-effect waves-light" type="submit">Update</button>
             </div>
         </form>
     </div>

@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('settings.index')}}">
+                    <a href="{{route('settings.edit', Settings::$id)}}">
                         <i class="mdi mdi-briefcase-variant-outline"></i>
                         <span> Settings </span>
                     </a>

@@ -33,7 +33,7 @@ class AdvertisementController extends Controller
         
         $request->validate([
             'title' => 'required|max:255',
-            "file" => "required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048",
+            "file" => "required|image|mimes:jpeg,png,jpg,gif,svg,webp,jfif|max:2048",
         ]);
 
         $advertisement = new Advertisement();

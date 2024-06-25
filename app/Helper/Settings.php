@@ -1,9 +1,9 @@
 <?php
+use App\Models\Setting;
 class Settings{
-  public static $name = 'default';
+  public static $id = 1;
 
-  public static function title(){
-    $setting = Setting::where('name', self::$name)->first();
-    echo $setting->title ?? 'Settings';
+  public static function get(){
+    return Setting::find(self::$id)->first();
   }
 }

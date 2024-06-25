@@ -53,7 +53,22 @@ class SettingController extends Controller
      */
     public function update(Request $request, Setting $setting)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+        ]);
+        $setting->title = $request->title;
+        $setting->keywords = $request->keywords;
+        $setting->author = $request->author;
+        $setting->description = $request->description;
+        $setting->paginate = $request->paginate;
+        if ($request->hasFile('icon')) {
+            $icon = $request->file('icon');
+            $iconname = time() . '.' . $icon->getClientOriginalExtension();
+            $icon->storeAs('public/icon', $iconname);
+            $setting->icon = "icon/" . $iconname;
+        }
+        $setting->save();
+        return redirect()->route('settings.edit', 1)->with('success', 'Setting updated successfully');
     }
 
     /**

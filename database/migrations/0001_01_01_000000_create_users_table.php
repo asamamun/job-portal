@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('roles', ['employer', 'applicant', 'admin'])->default('applicant');
             $table->rememberToken();
             $table->enum('status', ['0', '1'])->default('1');
+            $table->string('contact')->unique()->nullable();
             $table->timestamps();
         });
 
