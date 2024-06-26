@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Mail\Gmail;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -89,7 +91,7 @@ class RegisteredUserController extends Controller
 			$income->description = 'Applicant Account';
 			$income->type = 'expense';
 			$income->save();
-			
+			Mail::to(Auth::user()->email)->send(new Gmail());
             return redirect()->intended(route('home', absolute: false));
         } 
         return redirect()->intended(route('home', absolute: false));
