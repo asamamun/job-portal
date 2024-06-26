@@ -38,9 +38,15 @@ class ResumeController extends Controller
         $applicant_id = $applicant->id;
         $experiences = Experience::where('applicant_id', $applicant_id)->get();
         $educations = Education::where('applicant_id', $applicant_id)->get();
-
-        $pdf = PDF::loadView('cv.w3schools.index', compact('all'));
-        return $pdf->stream("{$name}_cv.pdf");
+        $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+        $pdf = PDF::loadView('cv.w3schools.index', [
+            "user" => $user,
+            "applicant" => $applicant,
+            "experiences"=> $experiences,
+            "educations"=> $educations,
+            "skills"=> $skills
+        ]);
+        return $pdf->stream('cv.pdf');
     }
 
 

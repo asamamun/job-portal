@@ -18,7 +18,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <select name="state_id" class="form-select border-0" id="stateSelect"></select>
+                            <select name="state_id" class="form-select border-0" id="stateSelect">
+                                <option>Select State</option>
+                            </select>
                         </div>
                     </div>
                 </div>

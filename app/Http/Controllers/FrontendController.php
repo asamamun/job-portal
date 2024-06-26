@@ -6,6 +6,7 @@ use App\Models\Employer;
 use App\Models\Functional;
 use App\Models\Industrial;
 use App\Models\Post;
+use App\Models\SavePost;
 use App\Models\Country;
 use App\Models\Setting;
 use App\Models\Special;
@@ -26,7 +27,7 @@ class FrontendController extends Applicant
     }
     public function all()
     {
-        $this->data["posts"] = Post::paginate(Settings::get()->paginate);
+        $this->data["posts"] = Post::orderBy('id', 'desc')->paginate(Settings::get()->paginate);
         return view('jobentry.posts', $this->data);
     }
     public function single($id)

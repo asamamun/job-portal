@@ -29,7 +29,7 @@
 
     <div id="page">
         <div class="photo-and-name">
-            <img src="{{ $user->image != null ? asset("storage/".$user->image) : asset('no_image.png') }}" class="photo" alt="Profile Picture">
+            <img src="{{ $user->image != null ? asset('storage/'.$user->image) : asset('no_image.png') }}" class="photo" alt="Profile Picture">
             <div class="contact-info-box">
                 <h1 class="name">{{ucfirst($user->name)}}</h1>
                 <br>

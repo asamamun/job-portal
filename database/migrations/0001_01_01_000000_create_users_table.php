@@ -22,6 +22,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->enum('status', ['0', '1'])->default('1');
             $table->string('contact')->unique()->nullable();
+            $table->string('address')->nullable(); 
             $table->timestamps();
         });
 
