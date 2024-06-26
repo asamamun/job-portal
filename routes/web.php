@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\employer\DashboardController as EmployerDashboardController;
 use App\Http\Controllers\employer\PostController;
 use App\Http\Controllers\Applicant\ProfileController as ApplicantProfileController;
+use App\Http\Controllers\Applicant\PostController as ApplicantPostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\applicant\ApplyController;
@@ -123,6 +124,9 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     //result
 	Route::post('result', [ExamController::class, 'examResult']);
 	Route::get('apply/{id}', [ApplyController::class, 'apply'])->middleware(ApplyCheck::class);
+    //post
+	Route::get('post/{id}', [ApplicantPostController::class, 'save'])->name('post.save');
+    Route::get('post/delete/{id}', [ApplicantPostController::class, 'delete'])->name('post.delete');
 });
 
 

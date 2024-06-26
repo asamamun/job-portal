@@ -12,21 +12,13 @@ use App\Models\Special;
 use Illuminate\Http\Request;
 use Settings;
 
-class FrontendController extends Controller
+use App\Http\Controllers\Applicant;
+
+class FrontendController extends Applicant
 {
-    public $data = [];
     public function __construct()
     {
-        $functionals = Functional::all();
-        $industrials = Industrial::all();
-        $specials = Special::all();
-        $employers = Employer::all();
-        $countries = Country::all();
-        $this->data["functionals"] = $functionals;
-        $this->data["industrials"] = $industrials;
-        $this->data["specials"] = $specials;
-        $this->data["employers"] = $employers;
-        $this->data["countries"] = $countries;
+        parent::__construct();
     }
     public function index()
     {
@@ -59,17 +51,21 @@ class FrontendController extends Controller
     }
     public function search(Request $request)
     {
-        $query = Post::where('title', 'like', '%' . $request->keyword . '%')->orderBy('id', 'desc');
+        if ($request->has('title')){
+            $query = Post::where('title', 'like', '%' . $request->keyword . '%');
+        }else{
+            $query = Post::query();
+        }
 
         if ($request->has('country_id') && $request->country_id != "Select Country") {
             $query->where('country_id', $request->country_id);
         }
 
-        if ($request->has('state_id')) {
+        if ($request->has('state_id') && $request->state_id != "Select State") {
             $query->where('state_id', $request->state_id);
         }
 
-        $this->data['posts'] = $query->paginate(Settings::get()->paginate);
+        $this->data['posts'] = $query->orderBy('id', 'desc')->paginate(Settings::get()->paginate);
 
         return view('jobentry.posts', $this->data);
     }

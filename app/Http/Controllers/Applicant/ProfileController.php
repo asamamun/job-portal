@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class ProfileController extends Controller
+use App\Http\Controllers\Applicant;
+
+class ProfileController extends Applicant
 {
     public function index()
     {
-        return view('jobentry.profile');
+        return view('jobentry.profile', $this->data);
     }
     public function imageUpdate()
     {
