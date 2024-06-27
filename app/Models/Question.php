@@ -18,8 +18,8 @@ class Question extends Model
         'option_four',
         'answer',
     ];
-    public function question(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo(Category::class);
     }
 }

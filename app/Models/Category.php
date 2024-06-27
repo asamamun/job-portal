@@ -14,7 +14,7 @@ class Category extends Model
         'icon',
         'status',
     ];
-    public function posts(): HasMany
+    public function questions(): HasMany
     {
         return $this->hasMany(Post::class);
     }

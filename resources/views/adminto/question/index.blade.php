@@ -26,18 +26,18 @@
                         <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Icon</th>
+                                    <th>Questions</th>
+                                    <th>Category</th>
                                     <th>Ation</th>
                                 </tr>
                             </thead>
 
 
                             <tbody>
-                                @forelse ($functionals as $functional)
+                                @forelse ($questions as $question)
                                 <tr class="odd">
-                                    <td class="" tabindex="0">{{$functional->name}}</td>
-                                    <td><i class="{{$functional->icon}}"></i></td>
+                                    <td class="" tabindex="0">{{$question->question}}</td>
+                                    <td>{{$question->Category->name}}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                             <div class="btn-group" role="group">
@@ -45,8 +45,8 @@
                                                     <i class="bi bi-arrow-down-square"></i>
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                    <li><a class="dropdown-item" href="{{route('functional.edit', $functional->id)}}">Edit</a></li>
-                                                    <form action="{{route('functional.destroy', $functional->id)}}" method="POST">
+                                                    <li><a class="dropdown-item" href="{{route('question.edit', $question->id)}}">Edit</a></li>
+                                                    <form action="{{route('question.destroy', $question->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <li><button class="dropdown-item" type="submit">Delete</button></li>

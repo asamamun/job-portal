@@ -230,7 +230,7 @@
                                 <a href="{{route('question.create')}}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('question.create')}}"> Show </a>
+                                <a href="{{route('question.index')}}"> Show </a>
                             </li>
                         </ul>
                     </div>

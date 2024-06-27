@@ -64,7 +64,6 @@
             </div>
             <div class="text-end">
                 <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
-                <button type="reset" class="btn btn-danger waves-effect">Reset</button>
             </div>
         </form>
     </div>

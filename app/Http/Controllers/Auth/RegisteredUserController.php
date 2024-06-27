@@ -73,7 +73,7 @@ class RegisteredUserController extends Controller
 			$income->description = 'Employer Account';
 			$income->type = 'expense';
 			$income->save();
-			
+			Mail::to(Auth::user()->email)->send(new Gmail(Auth::user()->name));
             return redirect()->intended(route('employer.dashboard', absolute: false));
         }
         if($role == 'applicant'){
@@ -91,7 +91,7 @@ class RegisteredUserController extends Controller
 			$income->description = 'Applicant Account';
 			$income->type = 'expense';
 			$income->save();
-			Mail::to(Auth::user()->email)->send(new Gmail());
+			Mail::to(Auth::user()->email)->send(new Gmail(Auth::user()->name));
             return redirect()->intended(route('home', absolute: false));
         } 
         return redirect()->intended(route('home', absolute: false));

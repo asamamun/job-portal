@@ -15,7 +15,7 @@ class QuestionController extends Controller
     public function index()
     {
         return view("adminto.question.index", [
-            "questions" => Question::with("category")->get(),
+            "questions" => Question::with("Category")->get(),
         ]);
     }
 
@@ -42,8 +42,8 @@ class QuestionController extends Controller
             "answer" => "required",
         ]);
         Question::create($request->all());
-        echo "success";
-        //return redirect()->route("question.index")->with("success", "Question created successfully");
+        // echo "success";
+        return redirect()->route("question.index")->with("success", "Question created successfully");
     }
 
     /**
@@ -61,8 +61,10 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
+        $categories = Category::all();
         return view("adminto.question.edit", [
             "question" => $question,
+            "categories"=> $categories,
         ]);
     }
 

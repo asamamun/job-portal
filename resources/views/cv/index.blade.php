@@ -10,7 +10,7 @@
     <div style="max-width: 800px; margin: 40px auto; background-color: #fff; padding: 40px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
 
         <header style="text-align: center; margin-bottom: 40px;">
-            <img src="your-image-url.jpg" alt="Your Photo" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #3498db; margin-bottom: 20px;">
+            <img src="{{ $image }}" alt="Your Photo" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #3498db; margin-bottom: 20px;">
             <h1 style="margin: 0; font-size: 2.5em; color: #3498db;">Your Name</h1>
             <p style="margin: 10px 0; font-size: 1.2em;">your.email@example.com | (123) 456-7890 | Your Address, City, State, ZIP</p>
         </header>

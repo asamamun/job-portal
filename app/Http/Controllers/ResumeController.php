@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Applicant;
 use App\Models\Education;
 use App\Models\Experience;
@@ -21,8 +21,12 @@ class ResumeController extends Controller
         $experiences = Experience::where("applicant_id", $applicant_id)->get();
         $educations = Education::where("applicant_id", $applicant_id)->get();
         $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+
+        $imagePath = public_path('storage/' . ($user->image ? $user->image : 'img/no_image.png'));
+        $imageBase64 = imageToBase64($imagePath);
         return view("cv.w3schools.index", [
             "user" => $user,
+            "image" => $imageBase64,
             "applicant" => $applicant,
             "experiences"=> $experiences,
             "educations"=> $educations,
@@ -39,14 +43,27 @@ class ResumeController extends Controller
         $experiences = Experience::where('applicant_id', $applicant_id)->get();
         $educations = Education::where('applicant_id', $applicant_id)->get();
         $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
-        $pdf = PDF::loadView('cv.w3schools.index', [
+
+        
+        $imagePath = public_path('storage/' . ($user->image ? $user->image : 'img/no_image.png'));
+        $imageBase64 = imageToBase64($imagePath);
+        
+        
+        
+        $pdf = Pdf::loadView('cv.w3schools.index', [
             "user" => $user,
+            "image" => $imageBase64,
             "applicant" => $applicant,
             "experiences"=> $experiences,
             "educations"=> $educations,
             "skills"=> $skills
         ]);
-        return $pdf->stream('cv.pdf');
+        /* $pdf->setPaper('A4', 'landscape');
+        $pdf->getFontMetrics()->registerFont(
+            ['family' => 'Montserrat', 'style' => 'normal', 'weight' => 'normal'],
+            public_path('fonts/Montserrat-Regular.ttf')
+        ); */
+        return $pdf->stream('document.pdf');
     }
 
 

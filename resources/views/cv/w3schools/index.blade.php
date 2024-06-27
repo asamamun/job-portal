@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{$user->name}}</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('w3schools-cv/style.css') }}">
     <style>
         .progress {
             width: 100%;

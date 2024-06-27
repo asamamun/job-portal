@@ -18,30 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Functional</a>
-                <div class="dropdown-menu rounded-0 m-0">
-                    @foreach ($functionals as $functional)
-                        <a href="{{route('functional.category', $functional->id)}}" class="dropdown-item">{{$functional->name}}</a>
-                    @endforeach
-                </div>
-            </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industrial</a>
-                <div class="dropdown-menu rounded-0 m-0">
-                    @foreach ($industrials as $industrial)
-                        <a href="{{route('industrial.category', $industrial->id)}}" class="dropdown-item">{{$industrial->name}}</a>
-                    @endforeach
-                </div>
-            </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Special Skilled</a>
-                <div class="dropdown-menu rounded-0 m-0">
-                    @foreach ($specials as $special)
-                        <a href="{{route('special.category', $special->id)}}" class="dropdown-item">{{$special->name}}</a>
-                    @endforeach
-                </div>
-            </div>
+            
             @guest
             <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
             <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>

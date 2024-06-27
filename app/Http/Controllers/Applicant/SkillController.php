@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\SkillType;
 
-class SkillController extends Controller
+use App\Http\Controllers\Applicant;
+
+class SkillController extends Applicant
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function index()
     {
         // Fetch skills associated with the authenticated user's applicant profile
