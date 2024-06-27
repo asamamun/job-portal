@@ -6,21 +6,14 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <h4 class="header-title">Create Form</h4>
-        <p class="text-muted font-14">
-            Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
-        </p>
-
-        <form action="{{ route('functional.update', $functional->id) }}" class="parsley-examples" method="POST">
+        <h4 class="header-title">Edit Skill</h4>
+        
+        <form action="{{ route('skill_type.update', $skill_type->id) }}" class="parsley-examples" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
                 <label for="catName" class="form-label">Name<span class="text-danger">*</span></label>
-                <input type="text" name="name" required="" value="{{ $functional->name }}" class="form-control" id="catName">
-            </div>
-            <div class="mb-3">
-                <label for="iconName" class="form-label">Icon<span class="text-danger">*</span></label>
-                <input type="text" name="icon" required="" value="{{ $functional->icon }}" class="form-control" id="iconName">
+                <input type="text" name="name" required="" value="{{ $skill_type->name }}" class="form-control" id="catName">
             </div>
             <div class="text-end">
                 <button class="btn btn-primary waves-effect waves-light" type="submit">Update</button>

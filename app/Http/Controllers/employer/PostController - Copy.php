@@ -18,13 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view("adminto.posts.index", [
-            "posts" => auth()->user()->employer->posts,
-            "functionals" => Functional::with("functional")->get(),
-            "industrials"=> Industrial::with("industrial")->get(),
-            "specials"=> Special::with("special")->get(),
-            "countries" => Country::with("country")->get(),
-        ]);
+        //
     }
 
     /**
@@ -111,7 +105,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        
+        //
     }
 
     /**
@@ -119,18 +113,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $functional = Functional::all();
-        $industrial = Industrial::all();
-        $special = Special::all();
-        $country = Country::all();
-        return view("adminto.posts.edit", [
-            "post" => $post,
-            "functionals" => $functional,
-            "industrials"=> $industrial,
-            "specials"=> $special,
-            "country"=> $country
-            ]);
-                       
+        //
     }
 
     /**
@@ -138,38 +121,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $request->validate([
-            "title" => "required",
-            "description" => "required",
-            "functional_id" => "required",
-            "industrial_id" => "required",
-            "special_id" => "required",
-            "image" => "required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048",
-            "address" => "required",
-            "contact" => "required",
-            "deadline" => "required",
-            "expires" => "required",
-        ]);
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->functional_id = $request->functional_id;
-        $post->industrial_id = $request->industrial_id;
-        $post->special_id = $request->special_id;
-        $post->type = $request->type;
-        $post->salary = $request->salary;
-        $post->experience = $request->experience;
-        $post->qualification = $request->qualification;
-        $post->vacancy = $request->vacancy;
-        $post->country_id = $request->country_id;
-        $post->state_id = $request->state_id;
-        $post->address = $request->address;
-        $post->contact = $request->contact;
-        $post->email = $request->email;
-        $post->website = $request->website;
-        $post->deadline = $request->deadline;
-        $post->expires = $request->expires;
-        $post->save();
-        return redirect()->route('posts.index')->with("success", "Post updated successfully");
+        //
     }
 
     /**
@@ -177,7 +129,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
-        return redirect()->back()->with("success", "Post deleted successfully");
+        //
     }
 }

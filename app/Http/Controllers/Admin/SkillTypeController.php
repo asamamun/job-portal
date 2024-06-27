@@ -45,7 +45,7 @@ class SkillTypeController extends Controller
      */
     public function show(SkillType $skillType)
     {
-        //
+        
     }
 
     /**
@@ -66,7 +66,7 @@ class SkillTypeController extends Controller
         ]);
         $skillType->name = $request->name;
         $skillType->save();
-        return redirect()->route('skill_type.index')->with('success', 'Skill type updated successfully.');
+        return redirect()->route('skill_type.index')->with('success', 'Skill Type Updated Successfully.');
     }
 
     /**
@@ -75,6 +75,6 @@ class SkillTypeController extends Controller
     public function destroy(SkillType $skillType)
     {
         $skillType->delete();
-        return redirect()->route('functional.index')->with('success', 'Functional deleted successfully');
+        return redirect()->route('skill_type.index')->with('success', 'Skill Type Deleted Successfully');
     }
 }

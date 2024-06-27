@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2024 at 10:20 PM
+-- Generation Time: Jun 26, 2024 at 06:00 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -83,7 +83,10 @@ INSERT INTO `applicants` (`id`, `user_id`, `objective`, `title`, `father`, `moth
 (1, 15, 'I want to make a place for me in this challenging industry  ', 'web developer', '', '', NULL, NULL, NULL, NULL, 'Dhaka', '2024-06-12', 'male', 'islam', 'bangladeshi', 'married', '0', 'both', 200, '1', '2024-06-11 21:17:47', '2024-06-26 09:22:36'),
 (2, 18, NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
 (3, 19, NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58'),
-(5, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-25 21:47:09', '2024-06-25 21:47:09');
+(6, 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
+(7, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 06:46:14', '2024-06-26 06:46:14'),
+(8, 25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 08:00:39', '2024-06-26 08:00:39'),
+(9, 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 08:02:05', '2024-06-26 08:02:05');
 
 -- --------------------------------------------------------
 
@@ -189,7 +192,8 @@ INSERT INTO `categories` (`id`, `name`, `icon`, `status`, `created_at`, `updated
 (6, 'math', 'fa fa-2x fa-route', '1', '2024-06-15 08:40:15', '2024-06-15 08:40:15'),
 (7, 'gk', 'fa fa-2x fa-route', '1', '2024-06-15 08:40:32', '2024-06-15 08:40:32'),
 (8, 'javascript', 'fa fa-2x fa-route', '1', '2024-06-15 08:41:27', '2024-06-15 08:41:27'),
-(9, 'laravel', 'fa fa-2x fa-route', '1', '2024-06-15 10:03:45', '2024-06-15 10:03:45');
+(9, 'laravel', 'fa fa-2x fa-route', '1', '2024-06-15 10:03:45', '2024-06-15 10:03:45'),
+(10, 'React', 'bi bi-funnel-fill', '1', '2024-06-26 08:38:44', '2024-06-26 08:38:44');
 
 -- --------------------------------------------------------
 
@@ -526,9 +530,10 @@ CREATE TABLE `employers` (
 --
 
 INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
-(1, 14, 'abbir', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 300, 'regular', '2024-06-11 21:12:46', '2024-06-25 05:00:48'),
-(2, 16, 'nur', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37'),
-(3, 17, 'asif', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29');
+(1, 14, 'Artial', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-11 21:12:46', '2024-06-26 08:36:15'),
+(2, 16, 'Robi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37'),
+(3, 17, 'GP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29'),
+(4, 27, 'IsDB', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-26 08:04:05', '2024-06-26 08:04:05');
 
 -- --------------------------------------------------------
 
@@ -723,8 +728,13 @@ INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `create
 (77, 14, 100, 'Job Post Created', 'income', '2024-06-25 04:02:16', '2024-06-25 04:02:16'),
 (78, 14, 100, 'Job Post Created', 'income', '2024-06-25 04:52:12', '2024-06-25 04:52:12'),
 (79, 14, 100, 'Job Post Created', 'income', '2024-06-25 05:00:48', '2024-06-25 05:00:48'),
-(81, 22, 20, 'Applicant Account', 'expense', '2024-06-25 21:47:09', '2024-06-25 21:47:09'),
-(82, 15, 5, 'Exam Fees', 'income', '2024-06-26 09:22:37', '2024-06-26 09:22:37');
+(82, 15, 5, 'Exam Fees', 'income', '2024-06-26 09:22:37', '2024-06-26 09:22:37'),
+(83, 23, 20, 'Applicant Account', 'expense', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
+(84, 24, 20, 'Applicant Account', 'expense', '2024-06-26 06:46:14', '2024-06-26 06:46:14'),
+(85, 25, 20, 'Applicant Account', 'expense', '2024-06-26 08:00:39', '2024-06-26 08:00:39'),
+(86, 26, 20, 'Applicant Account', 'expense', '2024-06-26 08:02:05', '2024-06-26 08:02:05'),
+(87, 27, 200, 'Employer Account', 'expense', '2024-06-26 08:04:05', '2024-06-26 08:04:05'),
+(88, 14, 100, 'Job Post Created', 'income', '2024-06-26 08:36:15', '2024-06-26 08:36:15');
 
 -- --------------------------------------------------------
 
@@ -1057,7 +1067,11 @@ INSERT INTO `questions` (`id`, `category_id`, `question`, `option_one`, `option_
 (10, 9, 'Where do we get log files in laravel?', 'App\\logs', 'Public\\Logs', 'Resources\\Logs', 'Storage\\logs', 'Storage\\logs', '2024-06-15 10:16:50', '2024-06-15 10:16:50'),
 (11, 9, 'Which is the default location of your project\'s view?', 'mail.php', 'view.php', 'config.php', 'filesystems.php', 'view.php', '2024-06-15 10:18:20', '2024-06-15 10:18:20'),
 (12, 9, 'Which is used in laravel to create a large amount of sample data?', 'Fake package', 'Faker Package', 'Migration', 'Seedin', 'Faker Package', '2024-06-15 10:19:38', '2024-06-15 10:19:38'),
-(13, 9, 'What do you mean by Heroku?', 'Cloud based hosting solution', 'Laravel Package', 'Web hosting solution', 'MVC Design Pattern', 'Web hosting solution', '2024-06-15 10:21:15', '2024-06-15 10:21:15');
+(13, 9, 'What do you mean by Heroku?', 'Cloud based hosting solution', 'Laravel Package', 'Web hosting solution', 'MVC Design Pattern', 'Web hosting solution', '2024-06-15 10:21:15', '2024-06-15 10:21:15'),
+(14, 10, 'Everything in React is a  ______', 'Module', 'Package', 'Component', 'Class', 'Package', '2024-06-26 08:39:42', '2024-06-26 09:23:24'),
+(15, 10, 'In which directory React Components are saved?', 'Inside js/components/', 'Inside vendor/components/', 'Inside external/components/', 'Inside vendor/', 'Inside js/components/', '2024-06-26 08:45:24', '2024-06-26 08:45:24'),
+(16, 10, 'In which directory React Components are saved?', 'Inside js/components/', 'Inside vendor/components/', 'Inside external/components/', 'Inside vendor/', 'Inside js/components/', '2024-06-26 08:45:49', '2024-06-26 08:45:49'),
+(17, 10, 'In which directory React Components are saved?', 'Inside js/components/', 'Inside vendor/components/', 'Inside external/components/', 'Inside vendor/', 'Inside js/components/', '2024-06-26 08:46:22', '2024-06-26 08:46:22');
 
 -- --------------------------------------------------------
 
@@ -1247,7 +1261,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('QdWjKPHkSkgXsd00lzda5lKbPSp0P7dTQPCpBLWT', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaWZhOXVZZkZpY0Fwc1M3UEJqV0JQelVCYzFPTDZldkpmRUM4a3NIViI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdi9kb3dubG9hZC8xNSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719433052);
+('QdWjKPHkSkgXsd00lzda5lKbPSp0P7dTQPCpBLWT', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaWZhOXVZZkZpY0Fwc1M3UEJqV0JQelVCYzFPTDZldkpmRUM4a3NIViI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdi9kb3dubG9hZC8xNSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719433052),
+('W0hYtd80Zno1OSHtWWU4FJnd5oL8CauYRodRRZrB', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiY25CdHRHM2hNRFMzeG1XT1FqY0syc0I0RDl4aHZGRU9xYURVdlR2ciI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcHBsaWNhbnQvZXhwZXJpZW5jZS9wbGFjZWhvbGRlci5qcGciO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNTt9', 1719416363);
 
 -- --------------------------------------------------------
 
@@ -1274,7 +1289,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `name`, `title`, `keywords`, `author`, `description`, `paginate`, `icon`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'default', 'nur.js', 'job, employer, applicant, finder, employee', 'IsDB', '<p>Access thousands of job openings from top companies across industries. Our platform aggregates opportunities from around the globe, ensuring you never miss out on a great career move.</p>', 6, 'icon/1719294103.png', '1', NULL, '2024-06-25 01:09:38');
+(1, 'default', 'Job-Finder', 'job, employer, applicant, finder, employee', 'IsDB', '<p>Access thousands of job openings from top companies across industries. Our platform aggregates opportunities from around the globe, ensuring you never miss out on a great career move.</p>', 10, 'icon/1719294103.png', '1', NULL, '2024-06-26 08:13:00');
 
 -- --------------------------------------------------------
 
@@ -6507,13 +6522,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `contact`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `address`, `created_at`, `updated_at`) VALUES
-(14, 'Hasib', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', '33qRROwngUzQhsQdi4qMg7iaMF38yFCeJLpfRWStRvk31DwW28P1itPArcr6', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'applicant', 'img/1719255891.jpg', 'applicant@gmail.com', NULL, NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', '31hfEuZhuaZA1kkcmZTZUHvx8wcwig1B5pgTqJlWQFgGr11Gxk1huKbZytor', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
-(16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'LPzSXgTIBoEznFzj9o6YKjvGGRJNC5JBlS5OfDBLwmSnCfSs7SEXLuE9NadN', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
+(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'Bir6BgCHVfBWlArS4RwejdzXV05UgIFHNp47baInBbwe9iA8PF6gDmqYAxa8', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'applicant', 'img/1719255891.jpg', 'applicant@gmail.com', NULL, NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'chSHmp3fm3xgZynC0q6jHpT0Gs1PsDNVDy6CZh72f5dH3O8yUMEX7ltyC1e5', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
+(16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'K1XIVxe3dmWtKMnY3CIOoxqPajQ44sgnV2nEhMxHhhQ3mJvYwdOhczjeIrgi', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', 'Dhaka, Bangladesh', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
 (19, 'Tanima Hasan', 'img/1718610121.png', 'tanima@gmail.com', NULL, NULL, '$2y$12$46On/z8GpU52yWqj0QK6/OTZvyGZex6N1tw4Mr//ctUyNWUILbOXW', 'applicant', 'jmViMfctjYJU9olsIzpwb46qZVxXF8bqCWgxW1qIn2ZNjTyYEUcJn8GpAqKF', '0', 'Dhaka, Bangladesh', '2024-06-17 01:41:24', '2024-06-17 01:43:31'),
-(22, 'onikitbd', NULL, 'onikitbd@gmail.com', NULL, NULL, '$2y$12$ZXXaTepfqTROJs7HShFRiuzPX3y5rh1LwZPyOriWaUVKa2GRDLXsK', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-25 21:47:08', '2024-06-25 21:47:08');
+(23, 'israt ahamed sabbir', NULL, 'onikitbd@gmail.com', NULL, NULL, '$2y$12$z5kPwX4pndjcWOTODPlc2.JM.CLidHyaB52M8gfdhgtPkD4dYbg02', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
+(24, 'sabber hasan', NULL, 'sabberhasan042@gmail.com', NULL, NULL, '$2y$12$FeiNSGIKJTQvfswz4PV8b.6fIk9jhGxMX0DI0gH1.am9JEzcVUzHq', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 06:46:14', '2024-06-26 06:46:14'),
+(25, 'nur mohammod', NULL, 'nurmohammad20161994@gmail.com', NULL, NULL, '$2y$12$/PBSSlDzuoxlKmq0hnUn9uAtEeHMZuvVWLCAuq6uEViuGq2BX6Lr2', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 08:00:39', '2024-06-26 08:00:39'),
+(26, 'Md. Tawhid Khan', NULL, 'tawhidwdpf57@gmail.com', NULL, NULL, '$2y$12$eFE/SYiNDdbr1.mrB/z3f.365/Wnck9u/6gQawOesM7GTeNH0xaPS', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 08:02:05', '2024-06-26 08:02:05'),
+(27, 'ASA AL-MAMUN', NULL, 'idb.faculty@gmail.com', NULL, NULL, '$2y$12$W/8rHSMZmUIXoHhrntjwMOAP6M9SCWb6WxEOHLtgBTtA3EWi8rEBC', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 08:04:05', '2024-06-26 08:04:05');
 
 -- --------------------------------------------------------
 
@@ -6846,7 +6865,7 @@ ALTER TABLE `advertisements`
 -- AUTO_INCREMENT for table `applicants`
 --
 ALTER TABLE `applicants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `applicant_post`
@@ -6870,7 +6889,7 @@ ALTER TABLE `carousels`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -6888,7 +6907,7 @@ ALTER TABLE `education`
 -- AUTO_INCREMENT for table `employers`
 --
 ALTER TABLE `employers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `experiences`
@@ -6912,7 +6931,7 @@ ALTER TABLE `functionals`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `industrials`
@@ -6978,7 +6997,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `recharges`
@@ -7044,7 +7063,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `withdraws`

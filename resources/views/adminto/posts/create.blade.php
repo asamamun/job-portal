@@ -59,7 +59,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>Bascic Information</legend>
+                <legend>Basic Information</legend>
                 <div class="mb-3">
                     <label for="iconNameerwe" class="form-label">Job Type</label>
                     <select name="type" class="form-select" required id="iconNameerwe">
@@ -69,7 +69,7 @@
                         <option value="internship">Internship</option>
                         <option value="contract">Contract</option>
                         <option value="freelance">Freelance</option>
-                        <option value="other">Other</option>
+                        <option value="other">Others</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="stateSelect" class="form-label">State</label>
-                    <select name="state_id" class="form-select" required id="stateSelect"></select>
+                    <select name="state_id" class="form-select" id="stateSelect"></select>
                 </div>
                 <div class="mb-3">
                     <label for="iconNameAddress" class="form-label">Address<span class="text-danger">*</span></label>
