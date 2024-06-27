@@ -63,7 +63,7 @@
                                 <a href="{{url('/example2')}}"> Recharge </a>
                             </li>
                             <li>
-                                <a href=""> Withdraw </a>
+                                <a href="{{url('/withdraw')}}"> Withdraw </a>
                             </li>
                             <li>
                                 <a href="#"> History </a>

@@ -5,11 +5,13 @@ use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\WithdrawController as AdminWithdrawController;
 use App\Http\Controllers\Admin\FunctionalController;
 use App\Http\Controllers\Admin\IndustrialController;
 use App\Http\Controllers\Admin\SpecialController;
 use App\Http\Controllers\Admin\PostTypeController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SkillTypeController;
 use App\Http\Controllers\Admin\StateController;
@@ -99,7 +101,16 @@ Route::middleware([Admin::class])->prefix('admin')->group(function () {
     Route::resource('carousel', CarouselController::class);
 
     // Withdraw
-    Route::post('/withdraw/reject', [WithdrawController::class, 'reject'])->name('withdraw.reject');
+    Route::get('/withdraw/all', [AdminWithdrawController::class, 'index'])->name('withdraw.all');
+    Route::get('/withdraw/request/page', [AdminWithdrawController::class, 'requestPage'])->name('withdraw.request.page');
+    Route::get('/withdraw/approve/page', [AdminWithdrawController::class, 'approvePage'])->name('withdraw.approve.page');
+    Route::get('/withdraw/approve/{id}', [AdminWithdrawController::class, 'approve'])->name('withdraw.approve');
+    Route::get('/withdraw/reject/page', [AdminWithdrawController::class, 'rejectPage'])->name('withdraw.reject.page');
+    Route::get('/withdraw/reject/{id}', [AdminWithdrawController::class, 'reject'])->name('withdraw.reject');
+
+    //Reports
+    Route::get('/reports/search', [ReportController::class, 'searchReportsPage'])->name('reports.search');
+    Route::get('/reports/daily', [ReportController::class, 'showDailyReports'])->name('reports.daily');
 });
 Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('employer.dashboard');

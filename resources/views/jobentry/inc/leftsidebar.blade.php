@@ -216,8 +216,8 @@
                     <ul class="nav-second-level">
                         <li><a href="#">Exam</a></li>
                         <li><a href="#">Result</a></li>
-                        <li><a href="#">Recharge</a></li>
-                        <li><a href="#">Withdraw</a></li>
+                        <li><a href="{{url('/example2')}}">Recharge</a></li>
+                        <li><a href="{{url('/withdraw')}}">Withdraw</a></li>
                         <li><a href="#">Save Post</a></li>
                     </ul>
                 </div>

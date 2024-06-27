@@ -23,16 +23,18 @@ class WithdrawController extends Controller
                 if ($points >= $req_point) {
                     $user->applicant->points = $points - $req_point;
                     $user->applicant->save();
+                }else{
+                    return redirect()->back()->with('error', 'Insufficient Points'); 
                 }
-                return redirect()->back()->with('error', 'Insufficient Points');
             }
             if ($roles == 'employer') {
                 $points = $user->employer->points;
                 if ($points >= $req_point) {
                     $user->employer->points = $points - $req_point;
                     $user->employer->save();
+                }else{
+                    return redirect()->back()->with('error', 'Insufficient Points'); 
                 }
-                return redirect()->back()->with('error', 'Insufficient Points');
             }
 
             $withdraw = new Withdraw();
@@ -45,25 +47,5 @@ class WithdrawController extends Controller
             return redirect()->back()->with('success', 'Withdraw Request Sent');
         }
         return redirect('/login');
-    }
-    public function reject($id)
-    {
-        $user = auth()->user();
-        $roles = $user->roles;
-
-        $withdraw = Withdraw::find($id);
-        $withdraw->status = 'rejected';
-        $withdraw->save();
-
-        if ($roles == 'applicant') {
-            $user->applicant->points = $user->applicant->points + $withdraw->points;
-            $user->applicant->save();
-        }
-        if ($roles == 'employer') {
-            $user->employer->points = $user->employer->points + $withdraw->points;
-            $user->employer->save();
-        }
-
-        return redirect()->back()->with('success', 'Withdraw Request Rejected');
     }
 }

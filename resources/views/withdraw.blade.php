@@ -15,7 +15,7 @@
         <form action="{{ route('withdraw.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="account" class="form-label">Account</label>
+                <label for="account" class="form-label">Account Name</label>
                 <input type="text" class="form-control" id="account" name="account" required>
             </div>
             <div class="mb-3">
@@ -29,7 +29,7 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="account_number" class="form-label">Account Number</label>
+                <label for="account_number" class="form-label">Account No/ Mobile No</label>
                 <input type="text" class="form-control" id="account_number" name="account_number" required>
             </div>
             <div class="mb-3">

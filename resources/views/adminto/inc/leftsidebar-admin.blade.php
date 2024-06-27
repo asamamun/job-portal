@@ -255,20 +255,46 @@
                         </ul>
                     </div>
                 </li>
-                <li class="menu-title mt-2">Reports</li>
+                <li class="menu-title mt-2">Income</li>
                 <li>
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="fe-settings me-1"></i>
-                        <span>Daily Income</span>
+                    <a href="#sidebarTablretert" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Withdraw </span>
+                        <span class="menu-arrow"></span>
                     </a>
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="fe-settings me-1"></i>
-                        <span>Total Income</span>
+                    <div class="collapse" id="sidebarTablretert">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('withdraw.all')}}"> All</a>
+                            </li>
+                            <li>
+                                <a href="{{route('withdraw.request.page')}}"> Request </a>
+                            </li>
+                            <li>
+                                <a href="{{route('withdraw.approve.page')}}"> Approve </a>
+                            </li>
+                            <li>
+                                <a href="{{route('withdraw.reject.page')}}"> Reject </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarTablretertReport" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Report </span>
+                        <span class="menu-arrow"></span>
                     </a>
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="fe-settings me-1"></i>
-                        <span>Mothly Income</span>
-                    </a>
+                    <div class="collapse" id="sidebarTablretertReport">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('reports.search')}}"> Search Report </a>
+                            </li>
+                            <li>
+                                <a href="{{route('reports.daily')}}"> Daily Report </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
 

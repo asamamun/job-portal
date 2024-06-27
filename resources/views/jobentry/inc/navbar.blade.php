@@ -18,8 +18,8 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-            
-            @guest
+            <a href="#" class="nav-item nav-link">About US</a>
+			@guest
             <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
             <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>
             @endguest
