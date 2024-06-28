@@ -296,6 +296,23 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <a href="#sidebarTablretertChart" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Chart </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTablretertChart">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{url('admin/monthly-chart')}}"> Monthly </a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/daily-chart')}}"> Daily </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
 
         </div>

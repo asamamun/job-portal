@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\WithdrawController as AdminWithdrawController;
+use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Admin\FunctionalController;
 use App\Http\Controllers\Admin\IndustrialController;
 use App\Http\Controllers\Admin\SpecialController;
@@ -111,6 +112,10 @@ Route::middleware([Admin::class])->prefix('admin')->group(function () {
     //Reports
     Route::get('/reports/search', [ReportController::class, 'searchReportsPage'])->name('reports.search');
     Route::get('/reports/daily', [ReportController::class, 'showDailyReports'])->name('reports.daily');
+
+    //chart
+    Route::get('/monthly-chart', [ChartController::class, 'monthlyIncomeExpense']);
+    Route::get('/daily-chart', [ChartController::class, 'dailyIncomeExpense']);
 });
 Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('employer.dashboard');

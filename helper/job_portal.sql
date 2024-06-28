@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2024 at 10:09 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 28, 2024 at 07:04 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,7 +80,7 @@ CREATE TABLE `applicants` (
 --
 
 INSERT INTO `applicants` (`id`, `user_id`, `objective`, `title`, `father`, `mother`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `gender`, `religion`, `nationality`, `marital`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
-(1, 15, 'I want to make a place for me in this challenging industry  ', 'web developer', '', '', NULL, NULL, NULL, NULL, 'Dhaka', '2024-06-12', 'male', 'islam', 'bangladeshi', 'married', '0', 'both', 495, '1', '2024-06-11 21:17:47', '2024-06-27 14:02:12'),
+(1, 15, 'I want to make a place for me in this challenging industry  ', 'web developer', '', '', NULL, NULL, NULL, NULL, 'Dhaka', '2024-06-12', 'male', 'islam', 'bangladeshi', 'married', '0', 'both', 490, '1', '2024-06-11 21:17:47', '2024-06-27 22:12:59'),
 (2, 18, NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
 (3, 19, NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58'),
 (6, 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
@@ -654,7 +654,7 @@ CREATE TABLE `incomes` (
 INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `created_at`, `updated_at`) VALUES
 (3, 15, 5, 'Exam Fees', 'income', '2024-06-15 23:07:44', '2024-06-15 23:07:44'),
 (4, 15, 5, 'Exam Fees', 'income', '2024-06-15 23:50:18', '2024-06-15 23:50:18'),
-(5, 17, 200, 'Employer Account', 'expense', '2024-06-15 23:52:29', '2024-06-15 23:52:29'),
+(5, 17, 200, 'Employer Account', 'expense', '2024-01-15 23:52:29', '2024-06-15 23:52:29'),
 (6, 15, 10, 'Job Applyed', 'income', '2024-06-17 00:10:10', '2024-06-17 00:10:10'),
 (7, 15, 10, 'Job Applyed', 'income', '2024-06-17 00:11:00', '2024-06-17 00:11:00'),
 (8, 15, 10, 'Job Applyed', 'income', '2024-06-17 00:11:10', '2024-06-17 00:11:10'),
@@ -662,13 +662,13 @@ INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `create
 (10, 14, 100, 'Job Post Created', 'income', '2024-06-17 00:28:58', '2024-06-17 00:28:58'),
 (11, 18, 20, 'Applicant Account', 'expense', '2024-06-17 00:30:49', '2024-06-17 00:30:49'),
 (12, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:32:04', '2024-06-17 00:32:04'),
-(13, 18, 10, 'Exam Pass Award', 'expense', '2024-06-17 00:32:39', '2024-06-17 00:32:39'),
+(13, 18, 400, 'Exam Pass Award', 'expense', '2024-02-17 00:32:39', '2024-06-17 00:32:39'),
 (14, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:33:26', '2024-06-17 00:33:26'),
 (15, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:34:06', '2024-06-17 00:34:06'),
 (16, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:38:15', '2024-06-17 00:38:15'),
 (17, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:39:04', '2024-06-17 00:39:04'),
 (18, 18, 10, 'Exam Pass Award', 'expense', '2024-06-17 00:39:34', '2024-06-17 00:39:34'),
-(19, 18, 5, 'Exam Fees', 'income', '2024-06-17 00:43:34', '2024-06-17 00:43:34'),
+(19, 18, 500, 'Exam Fees', 'income', '2024-01-17 00:43:34', '2024-06-17 00:43:34'),
 (20, 18, 5, 'Exam Fees', 'income', '2024-06-17 01:22:01', '2024-06-17 01:22:01'),
 (21, 18, 5, 'Exam Fees', 'income', '2024-06-17 01:23:19', '2024-06-17 01:23:19'),
 (22, 18, 5, 'Exam Fees', 'income', '2024-06-17 01:39:19', '2024-06-17 01:39:19'),
@@ -737,7 +737,8 @@ INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `create
 (87, 27, 200, 'Employer Account', 'expense', '2024-06-26 08:04:05', '2024-06-26 08:04:05'),
 (88, 14, 100, 'Job Post Created', 'income', '2024-06-26 08:36:15', '2024-06-26 08:36:15'),
 (89, 15, 5, 'Exam Fees', 'income', '2024-06-27 14:02:12', '2024-06-27 14:02:12'),
-(90, 28, 20, 'Applicant Account', 'expense', '2024-06-27 14:07:05', '2024-06-27 14:07:05');
+(90, 28, 20, 'Applicant Account', 'expense', '2024-06-27 14:07:05', '2024-06-27 14:07:05'),
+(91, 15, 5, 'Exam Fees', 'income', '2024-06-27 22:12:59', '2024-06-27 22:12:59');
 
 -- --------------------------------------------------------
 
@@ -1264,9 +1265,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('imXTHZDo30hWR1QRDge4aquBSbeHTQ8cmOyklU5e', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVFcyYWF6YXQyWEpBVnhwUHFjM1dPNlFKbXlETmU4WnZnbTNHM2ZYdSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9yZXBvcnRzL2RhaWx5Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTY7fQ==', 1719518869),
-('QdWjKPHkSkgXsd00lzda5lKbPSp0P7dTQPCpBLWT', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaWZhOXVZZkZpY0Fwc1M3UEJqV0JQelVCYzFPTDZldkpmRUM4a3NIViI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdi9kb3dubG9hZC8xNSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719433052),
-('W0hYtd80Zno1OSHtWWU4FJnd5oL8CauYRodRRZrB', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiY25CdHRHM2hNRFMzeG1XT1FqY0syc0I0RDl4aHZGRU9xYURVdlR2ciI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcHBsaWNhbnQvZXhwZXJpZW5jZS9wbGFjZWhvbGRlci5qcGciO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNTt9', 1719416363);
+('FRhJna6qARawFwWQ1G7WNzTHKNTmnmVr8SjSmPBU', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWVhiUmN1OG9tVFVYdzdOTnJhOXNOQTV2NzF2R213WFdxQXR4NDdtWCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9kYWlseS1jaGFydCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE2O30=', 1719550889);
 
 -- --------------------------------------------------------
 
@@ -6527,8 +6526,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `contact`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `address`, `created_at`, `updated_at`) VALUES
 (14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'ORxdh1Z5wLcpA4NS1RsLbXdFovAtJKf8oSkDTp2kMzC2v0Mjia0n17qvIjWQ', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', NULL, NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', '2mi2QQIVmt7nPUstRW4wa0aBZuL0FHbWW9o1IzPAUKL2n2KydbjwnCCODaSh', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
-(16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'FJLBBzVu5j6JtvW8nSKFXhplFZYq2uHnYPxqxBtYWEHWKbnrsbPRhI22JyWL', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
+(15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', NULL, NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', '6po6E3pOlbzmzb4zEjJC0p9EpWFkFGMl4RXAd8Xm7fyoB77eVkL8e5eZdrl5', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
+(16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '7VLcY7i3mvtZQfgyaioMkGxnoWZGUjI388mANvxuaGtjFtl1QR7CwlrYUKG1', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', 'Dhaka, Bangladesh', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
 (19, 'Tanima Hasan', 'img/1718610121.png', 'tanima@gmail.com', NULL, NULL, '$2y$12$46On/z8GpU52yWqj0QK6/OTZvyGZex6N1tw4Mr//ctUyNWUILbOXW', 'applicant', 'jmViMfctjYJU9olsIzpwb46qZVxXF8bqCWgxW1qIn2ZNjTyYEUcJn8GpAqKF', '0', 'Dhaka, Bangladesh', '2024-06-17 01:41:24', '2024-06-17 01:43:31'),
@@ -6938,7 +6937,7 @@ ALTER TABLE `functionals`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `industrials`
