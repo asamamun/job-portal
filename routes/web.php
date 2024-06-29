@@ -172,6 +172,7 @@ Route::get('/invoice/{tid}', [InvoiceController::class, 'invoice'])->name('invoi
 #Ajax
 Route::prefix('ajax')->group(function(){
     Route::get('/state/{country_id}', [AjaxController::class, 'stateAjax']);
+    Route::get('/post/cat', [AjaxController::class, 'postCatAjax']);
 });
 
 #Ckeditor

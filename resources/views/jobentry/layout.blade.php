@@ -54,6 +54,21 @@
     <script src="{{ asset('jobentry/lib/waypoints/waypoints.min.js ')}}"></script>
     <script src="{{ asset('jobentry/lib/owlcarousel/owl.carousel.min.js ')}}"></script>
     <script src="{{ asset('jobentry/js/main.js ')}}"></script>
+    <script>
+        $(document).ready(function() {
+            fetch('/ajax/post/cat').then(res => res.json()).then(data => {
+                data.functional.forEach(element => {
+                    $('#PostCatFunctioal').append(`<a href="/post/functional/${element.id}" class="dropdown-item">${element.name}</a>`)
+                });
+                data.industrial.forEach(element => {
+                    $('#PostCatIndustrial').append(`<a href="/post/industrial/${element.id}" class="dropdown-item">${element.name}</a>`)
+                });
+                data.special.forEach(element => {
+                    $('#PostCatSpecial').append(`<a href="/post/special/${element.id}" class="dropdown-item">${element.name}</a>`)
+                });
+            })
+        });
+    </script>
     @yield('script')
 </body>
 

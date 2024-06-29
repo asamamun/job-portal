@@ -6,6 +6,7 @@ use App\Models\Special;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Artisan;
 class SpecialController extends Controller
 {
     /**
@@ -37,6 +38,7 @@ class SpecialController extends Controller
         $special->name = $request->name;
         $special->icon = $request->icon;
         $special->save();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('special.index')->with('success', 'Special created successfully');
     }
 
@@ -68,6 +70,7 @@ class SpecialController extends Controller
         $special->name = $request->name;
         $special->icon = $request->icon;
         $special->save();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('special.index')->with('success', 'Special updated successfully');
     }
 
@@ -77,6 +80,7 @@ class SpecialController extends Controller
     public function destroy(Special $special)
     {
         $special->delete();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('special.index')->with('success', 'Special deleted successfully');
     }
 }

@@ -18,8 +18,20 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Functional</a>
+                <div class="dropdown-menu rounded-0 m-0" id="PostCatFunctioal"></div>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Industrial</a>
+                <div class="dropdown-menu rounded-0 m-0" id="PostCatIndustrial"></div>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Special</a>
+                <div class="dropdown-menu rounded-0 m-0" id="PostCatSpecial"></div>
+            </div>
             <a href="#" class="nav-item nav-link">About US</a>
-			@guest
+            @guest
             <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
             <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>
             @endguest
@@ -29,12 +41,12 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
                 <div class="dropdown-menu rounded-0 m-0">
                     @if(auth()->user()->roles == 'admin')
-                        <a href="{{ url('admin/dashboard') }}" class="dropdown-item">Dashboard</a>
+                    <a href="{{ url('admin/dashboard') }}" class="dropdown-item">Dashboard</a>
                     @elseif(auth()->user()->roles == 'employer')
-                        <a href="{{ url('employer/dashboard') }}" class="dropdown-item">Dashboard</a>
+                    <a href="{{ url('employer/dashboard') }}" class="dropdown-item">Dashboard</a>
                     @else
-						<a href="{{ url('applicant/exam') }}" class="dropdown-item">Online Exam</a>
-                        <a href="{{ route('applicant.profile') }}" class="dropdown-item">Profile Edit</a>
+                    <a href="{{ url('applicant/exam') }}" class="dropdown-item">Online Exam</a>
+                    <a href="{{ route('applicant.profile') }}" class="dropdown-item">Profile Edit</a>
                     @endif
                     <form action="{{ route('logout') }}" method="post">
                         @csrf

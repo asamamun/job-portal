@@ -6,6 +6,7 @@ use App\Models\Functional;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Artisan;
 class FunctionalController extends Controller
 {
     /**
@@ -37,6 +38,7 @@ class FunctionalController extends Controller
         $functional->name = $request->name;
         $functional->icon = $request->icon;
         $functional->save();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('functional.index')->with('success', 'Functional created successfully');
     }
 
@@ -68,6 +70,7 @@ class FunctionalController extends Controller
         $functional->name = $request->name;
         $functional->icon = $request->icon;
         $functional->save();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('functional.index')->with('success', 'Functional updated successfully');
     }
 
@@ -77,6 +80,7 @@ class FunctionalController extends Controller
     public function destroy(Functional $functional)
     {
         $functional->delete();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('functional.index')->with('success', 'Functional deleted successfully');
     }
 }

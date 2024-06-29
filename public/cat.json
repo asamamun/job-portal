@@ -1,0 +1,720 @@
+{
+    "functional": [
+        {
+            "id": 1,
+            "name": "Accounting\/Finance",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T08:26:45.000000Z",
+            "updated_at": "2024-06-11T08:26:45.000000Z"
+        },
+        {
+            "id": 2,
+            "name": "Production\/Operation nur",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T08:27:34.000000Z",
+            "updated_at": "2024-06-11T08:54:58.000000Z"
+        },
+        {
+            "id": 3,
+            "name": "Agro (Plant\/Animal\/Fisheries)",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T08:28:37.000000Z",
+            "updated_at": "2024-06-11T08:28:37.000000Z"
+        },
+        {
+            "id": 4,
+            "name": "Bank\/ Non-Bank Fin. Institution",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T09:30:31.000000Z",
+            "updated_at": "2024-06-11T09:30:31.000000Z"
+        },
+        {
+            "id": 5,
+            "name": "Hospitality\/ Travel\/ Tourism",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T09:47:11.000000Z",
+            "updated_at": "2024-06-11T09:47:11.000000Z"
+        },
+        {
+            "id": 6,
+            "name": "NGO\/Development",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T09:52:30.000000Z",
+            "updated_at": "2024-06-11T09:52:30.000000Z"
+        },
+        {
+            "id": 7,
+            "name": "Supply Chain\/ Procurement",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T09:54:07.000000Z",
+            "updated_at": "2024-06-11T09:54:07.000000Z"
+        },
+        {
+            "id": 8,
+            "name": "Commercial",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T10:48:25.000000Z",
+            "updated_at": "2024-06-11T10:48:25.000000Z"
+        },
+        {
+            "id": 9,
+            "name": "Research\/Consultancy",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T10:48:46.000000Z",
+            "updated_at": "2024-06-11T10:48:46.000000Z"
+        },
+        {
+            "id": 10,
+            "name": "Education\/Training",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T10:49:18.000000Z",
+            "updated_at": "2024-06-11T10:49:18.000000Z"
+        },
+        {
+            "id": 11,
+            "name": "Beauty Care\/ Health & Fitness",
+            "icon": "bi bi-funnel-fill",
+            "status": "1",
+            "created_at": "2024-06-11T10:49:58.000000Z",
+            "updated_at": "2024-06-11T10:49:58.000000Z"
+        },
+        {
+            "id": 13,
+            "name": "Receptionist\/ PS",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:48:47.000000Z",
+            "updated_at": "2024-06-12T03:48:47.000000Z"
+        },
+        {
+            "id": 14,
+            "name": "Engineer\/Architects",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:49:23.000000Z",
+            "updated_at": "2024-06-12T03:49:23.000000Z"
+        },
+        {
+            "id": 15,
+            "name": "IT & Telecommunication",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:49:45.000000Z",
+            "updated_at": "2024-06-12T03:49:45.000000Z"
+        },
+        {
+            "id": 16,
+            "name": "Data Entry\/Operator\/BPO",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:50:09.000000Z",
+            "updated_at": "2024-06-12T03:50:09.000000Z"
+        },
+        {
+            "id": 17,
+            "name": "Garments\/Textile",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:50:35.000000Z",
+            "updated_at": "2024-06-12T03:50:35.000000Z"
+        },
+        {
+            "id": 18,
+            "name": "Marketing\/Sales",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:51:18.000000Z",
+            "updated_at": "2024-06-12T03:51:18.000000Z"
+        },
+        {
+            "id": 19,
+            "name": "Driving\/Motor Technician",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:51:35.000000Z",
+            "updated_at": "2024-06-12T03:51:35.000000Z"
+        },
+        {
+            "id": 20,
+            "name": "HR\/Org. Development",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:51:59.000000Z",
+            "updated_at": "2024-06-12T03:51:59.000000Z"
+        },
+        {
+            "id": 21,
+            "name": "Customer Service\/Call Centre",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:52:20.000000Z",
+            "updated_at": "2024-06-12T03:52:20.000000Z"
+        },
+        {
+            "id": 22,
+            "name": "Security\/Support Service",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:52:41.000000Z",
+            "updated_at": "2024-06-12T03:52:41.000000Z"
+        },
+        {
+            "id": 23,
+            "name": "Gen Mgt\/Admin",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:53:06.000000Z",
+            "updated_at": "2024-06-12T03:53:06.000000Z"
+        },
+        {
+            "id": 24,
+            "name": "Media\/Ad.\/Event Mgt.",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:53:25.000000Z",
+            "updated_at": "2024-06-12T03:53:25.000000Z"
+        },
+        {
+            "id": 25,
+            "name": "Law\/Legal",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:53:50.000000Z",
+            "updated_at": "2024-06-12T03:53:50.000000Z"
+        },
+        {
+            "id": 26,
+            "name": "Design\/Creative",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:54:08.000000Z",
+            "updated_at": "2024-06-12T03:54:08.000000Z"
+        },
+        {
+            "id": 27,
+            "name": "Medical\/Pharma",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:54:25.000000Z",
+            "updated_at": "2024-06-12T03:54:25.000000Z"
+        },
+        {
+            "id": 28,
+            "name": "Company Secretary\/Regulatory affairs",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:54:45.000000Z",
+            "updated_at": "2024-06-12T03:54:45.000000Z"
+        },
+        {
+            "id": 29,
+            "name": "Electrician\/Construction\/Repair",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:55:11.000000Z",
+            "updated_at": "2024-06-12T03:55:11.000000Z"
+        },
+        {
+            "id": 30,
+            "name": "Others",
+            "icon": "bi bi-filter",
+            "status": "1",
+            "created_at": "2024-06-12T03:55:49.000000Z",
+            "updated_at": "2024-06-12T03:55:49.000000Z"
+        }
+    ],
+    "industrial": [
+        {
+            "id": 2,
+            "name": "Agro based Industry",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T03:59:25.000000Z",
+            "updated_at": "2024-06-12T04:02:48.000000Z"
+        },
+        {
+            "id": 3,
+            "name": "Pharmaceuticals",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:03:20.000000Z",
+            "updated_at": "2024-06-12T04:03:20.000000Z"
+        },
+        {
+            "id": 4,
+            "name": "Media \/ Advertising\/ Event Mgt.",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:03:45.000000Z",
+            "updated_at": "2024-06-12T04:03:45.000000Z"
+        },
+        {
+            "id": 5,
+            "name": "Archi.\/Engg.\/Construction",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:10:09.000000Z",
+            "updated_at": "2024-06-12T04:10:09.000000Z"
+        },
+        {
+            "id": 6,
+            "name": "Hospital\/ Diagnostic Center",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:10:32.000000Z",
+            "updated_at": "2024-06-12T04:10:32.000000Z"
+        },
+        {
+            "id": 7,
+            "name": "NGO\/Development",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:11:11.000000Z",
+            "updated_at": "2024-06-12T04:11:11.000000Z"
+        },
+        {
+            "id": 8,
+            "name": "Automobile\/Industrial Machine",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:11:46.000000Z",
+            "updated_at": "2024-06-12T04:11:46.000000Z"
+        },
+        {
+            "id": 9,
+            "name": "Airline\/ Travel\/ Tourism",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:13:18.000000Z",
+            "updated_at": "2024-06-12T04:13:18.000000Z"
+        },
+        {
+            "id": 10,
+            "name": "Real Estate\/Development",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:13:35.000000Z",
+            "updated_at": "2024-06-12T04:13:35.000000Z"
+        },
+        {
+            "id": 11,
+            "name": "Bank\/Non-Bank Fin. Institution",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:13:56.000000Z",
+            "updated_at": "2024-06-12T04:13:56.000000Z"
+        },
+        {
+            "id": 12,
+            "name": "Manufacturing (Light Industry)",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:14:17.000000Z",
+            "updated_at": "2024-06-12T04:14:17.000000Z"
+        },
+        {
+            "id": 13,
+            "name": "Wholesale\/ Retail\/ Export-Import",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:14:35.000000Z",
+            "updated_at": "2024-06-12T04:14:35.000000Z"
+        },
+        {
+            "id": 14,
+            "name": "Education",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:14:54.000000Z",
+            "updated_at": "2024-06-12T04:14:54.000000Z"
+        },
+        {
+            "id": 15,
+            "name": "Manufacturing (Heavy Industry)",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:15:13.000000Z",
+            "updated_at": "2024-06-12T04:15:13.000000Z"
+        },
+        {
+            "id": 16,
+            "name": "Telecommunication",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:15:32.000000Z",
+            "updated_at": "2024-06-12T04:15:32.000000Z"
+        },
+        {
+            "id": 17,
+            "name": "Electronics\/Consumer Durables",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:15:52.000000Z",
+            "updated_at": "2024-06-12T04:15:52.000000Z"
+        },
+        {
+            "id": 18,
+            "name": "Hotel\/Restaurant",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:16:52.000000Z",
+            "updated_at": "2024-06-12T04:16:52.000000Z"
+        },
+        {
+            "id": 19,
+            "name": "Food & Beverage Industry",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:17:45.000000Z",
+            "updated_at": "2024-06-12T04:17:45.000000Z"
+        },
+        {
+            "id": 20,
+            "name": "Energy\/Power\/Fuel",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:18:05.000000Z",
+            "updated_at": "2024-06-12T04:18:05.000000Z"
+        },
+        {
+            "id": 21,
+            "name": "nformation Technology (IT)",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:18:35.000000Z",
+            "updated_at": "2024-06-12T04:18:35.000000Z"
+        },
+        {
+            "id": 22,
+            "name": "Security Service",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:19:25.000000Z",
+            "updated_at": "2024-06-12T04:19:25.000000Z"
+        },
+        {
+            "id": 23,
+            "name": "Garments\/Textile",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:19:47.000000Z",
+            "updated_at": "2024-06-12T04:19:47.000000Z"
+        },
+        {
+            "id": 24,
+            "name": "Logistics\/ Transportation",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:20:30.000000Z",
+            "updated_at": "2024-06-12T04:20:30.000000Z"
+        },
+        {
+            "id": 25,
+            "name": "Fire, Safety & Protection",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:20:57.000000Z",
+            "updated_at": "2024-06-12T04:20:57.000000Z"
+        },
+        {
+            "id": 26,
+            "name": "Govt.\/Semi-Govt.\/Autonomous",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:21:16.000000Z",
+            "updated_at": "2024-06-12T04:21:16.000000Z"
+        },
+        {
+            "id": 27,
+            "name": "Entertainment\/ Recreation",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:22:21.000000Z",
+            "updated_at": "2024-06-12T04:22:21.000000Z"
+        },
+        {
+            "id": 28,
+            "name": "E-Commerce\/ F-Commerce",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:22:43.000000Z",
+            "updated_at": "2024-06-12T04:22:43.000000Z"
+        },
+        {
+            "id": 29,
+            "name": "Others",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:23:00.000000Z",
+            "updated_at": "2024-06-12T04:23:00.000000Z"
+        }
+    ],
+    "special": [
+        {
+            "id": 2,
+            "name": "\u09a1\u09be\u099f\u09be \u098f\u09a8\u09cd\u099f\u09cd\u09b0\u09bf\/\u0995\u09ae\u09cd\u09aa\u09bf\u0989\u099f\u09be\u09b0 \u0985\u09aa\u09be\u09b0\u09c7\u099f\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:26:45.000000Z",
+            "updated_at": "2024-06-12T04:26:45.000000Z"
+        },
+        {
+            "id": 3,
+            "name": "\u0987\u09b2\u09c7\u0995\u099f\u09cd\u09b0\u09bf\u09b6\u09bf\u09af\u09bc\u09be\u09a8\/\u0987\u09b2\u09c7\u0995\u099f\u09cd\u09b0\u09a8\u09bf\u0995\u09b8\u09cd \u099f\u09c7\u0995.",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:28:56.000000Z",
+            "updated_at": "2024-06-12T04:28:56.000000Z"
+        },
+        {
+            "id": 4,
+            "name": "\u09aa\u09cd\u09af\u09be\u09a5\u09b2\u099c\u09bf\u09b8\u09cd\u099f\/\u09b2\u09cd\u09af\u09be\u09ac \u09b8\u09b9\u0995\u09be\u09b0\u09c0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:29:21.000000Z",
+            "updated_at": "2024-06-12T04:29:21.000000Z"
+        },
+        {
+            "id": 5,
+            "name": "\u09ae\u09c7\u0995\u09be\u09a8\u09bf\u0995\/\u099f\u09c7\u0995\u09a8\u09bf\u09b6\u09bf\u09af\u09bc\u09be\u09a8",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:30:08.000000Z",
+            "updated_at": "2024-06-12T04:30:08.000000Z"
+        },
+        {
+            "id": 6,
+            "name": "\u09a1\u09cd\u09b0\u09be\u0987\u09ad\u09be\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:30:42.000000Z",
+            "updated_at": "2024-06-12T04:30:42.000000Z"
+        },
+        {
+            "id": 7,
+            "name": "\u09b8\u09bf\u0995\u09bf\u0989\u09b0\u09bf\u099f\u09bf \u0997\u09be\u09b0\u09cd\u09a1",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:31:12.000000Z",
+            "updated_at": "2024-06-12T04:31:12.000000Z"
+        },
+        {
+            "id": 8,
+            "name": "\u09a8\u09be\u09b0\u09cd\u09b8",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:31:39.000000Z",
+            "updated_at": "2024-06-12T04:31:39.000000Z"
+        },
+        {
+            "id": 9,
+            "name": "\u09b6\u09c7\u09ab\/\u09ac\u09be\u09ac\u09c1\u09b0\u09cd\u099a\u09c0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:32:05.000000Z",
+            "updated_at": "2024-06-12T04:32:05.000000Z"
+        },
+        {
+            "id": 10,
+            "name": "\u0993\u09af\u09bc\u09c7\u099f\u09be\u09b0\/\u0993\u09af\u09bc\u09c7\u099f\u09cd\u09b0\u09c7\u09b8",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:33:32.000000Z",
+            "updated_at": "2024-06-12T04:33:32.000000Z"
+        },
+        {
+            "id": 11,
+            "name": "\u09a1\u09c7\u09b2\u09bf\u09ad\u09be\u09b0\u09c0 \u09ae\u09cd\u09af\u09be\u09a8",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:33:59.000000Z",
+            "updated_at": "2024-06-12T04:33:59.000000Z"
+        },
+        {
+            "id": 12,
+            "name": "\u09aa\u09bf\u09af\u09bc\u09a8",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:34:20.000000Z",
+            "updated_at": "2024-06-12T04:34:20.000000Z"
+        },
+        {
+            "id": 13,
+            "name": "\u09b6\u09cb-\u09b0\u09c1\u09ae \u09b8\u09b9\u0995\u09be\u09b0\u09c0\/\u09b8\u09c7\u09b2\u09b8\u09ae\u09cd\u09af\u09be\u09a8",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:35:37.000000Z",
+            "updated_at": "2024-06-12T04:35:37.000000Z"
+        },
+        {
+            "id": 14,
+            "name": "\u0997\u09cd\u09b0\u09be\u09ab\u09bf\u0995\u09cd\u09b8 \u09a1\u09bf\u099c\u09be\u0987\u09a8\u09be\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:35:58.000000Z",
+            "updated_at": "2024-06-12T04:35:58.000000Z"
+        },
+        {
+            "id": 15,
+            "name": "\u09b8\u09c7\u09b2\u09b8 \u09b0\u09bf\u09aa\u09cd\u09b0\u09c7\u099c\u09c7\u09a8\u09cd\u099f\u09c7\u099f\u09bf\u09ad\/\u09ac\u09bf\u0995\u09cd\u09b0\u09df \u09aa\u09cd\u09b0\u09a4\u09bf\u09a8\u09bf\u09a7\u09bf",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:36:18.000000Z",
+            "updated_at": "2024-06-12T04:36:18.000000Z"
+        },
+        {
+            "id": 16,
+            "name": "\u0997\u09be\u09b0\u09cd\u09ae\u09c7\u09a8\u09cd\u099f\u09b8 \u099f\u09c7\u0995\u09a8\u09bf\u09b6\u09bf\u09af\u09bc\u09be\u09a8",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:36:34.000000Z",
+            "updated_at": "2024-06-12T04:36:34.000000Z"
+        },
+        {
+            "id": 17,
+            "name": "CAD \u0985\u09aa\u09be\u09b0\u09c7\u099f\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:37:48.000000Z",
+            "updated_at": "2024-06-12T04:37:48.000000Z"
+        },
+        {
+            "id": 18,
+            "name": "\u0995\u09c7\u09df\u09be\u09b0\u0997\u09bf\u09ad\u09be\u09b0\/\u09a8\u09cd\u09af\u09be\u09a8\u09c0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:38:09.000000Z",
+            "updated_at": "2024-06-12T04:38:09.000000Z"
+        },
+        {
+            "id": 19,
+            "name": "\u0993\u09af\u09bc\u09c7\u09b2\u09cd\u09a1\u09be\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:38:31.000000Z",
+            "updated_at": "2024-06-12T04:38:31.000000Z"
+        },
+        {
+            "id": 20,
+            "name": "\u09aa\u09cd\u09b2\u09be\u09ae\u09cd\u09ac\u09be\u09b0\/\u09aa\u09be\u0987\u09aa\u09ab\u09bf\u099f\u09bf\u0982",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:38:55.000000Z",
+            "updated_at": "2024-06-12T04:38:55.000000Z"
+        },
+        {
+            "id": 21,
+            "name": "\u09b9\u09be\u0989\u099c\u0995\u09bf\u09aa\u09be\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:39:27.000000Z",
+            "updated_at": "2024-06-12T04:39:27.000000Z"
+        },
+        {
+            "id": 22,
+            "name": "\u0985\u09a8\u09cd\u09af\u09be\u09a8\u09cd\u09af",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:40:39.000000Z",
+            "updated_at": "2024-06-12T04:40:39.000000Z"
+        },
+        {
+            "id": 23,
+            "name": "\u09b0\u09be\u099c\u09ae\u09bf\u09b8\u09cd\u09a4\u09cd\u09b0\u09bf\/\u09a8\u09bf\u09b0\u09cd\u09ae\u09be\u09a3 \u0995\u09b0\u09cd\u09ae\u09c0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:41:10.000000Z",
+            "updated_at": "2024-06-12T04:41:10.000000Z"
+        },
+        {
+            "id": 24,
+            "name": "\u09b8\u09cd\u09af\u09c1\u0987\u0982 \u09ae\u09c7\u09b6\u09bf\u09a8 \u0985\u09aa\u09be\u09b0\u09c7\u099f\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:41:30.000000Z",
+            "updated_at": "2024-06-12T04:41:30.000000Z"
+        },
+        {
+            "id": 25,
+            "name": "\u0995\u09cd\u09b2\u09bf\u09a8\u09be\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:41:50.000000Z",
+            "updated_at": "2024-06-12T04:41:50.000000Z"
+        },
+        {
+            "id": 26,
+            "name": "\u09ae\u09be\u09b2\u09c0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:42:15.000000Z",
+            "updated_at": "2024-06-12T04:42:15.000000Z"
+        },
+        {
+            "id": 27,
+            "name": "\u099c\u09bf\u09ae\/ \u09ab\u09bf\u099f\u09a8\u09c7\u09b8 \u099f\u09cd\u09b0\u09c7\u0987\u09a8\u09be\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:42:39.000000Z",
+            "updated_at": "2024-06-12T04:42:39.000000Z"
+        },
+        {
+            "id": 28,
+            "name": "\u09ac\u09bf\u0989\u099f\u09bf\u09b6\u09bf\u09df\u09be\u09a8\/ \u09b8\u09c7\u09b2\u09c1\u09a8",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:43:44.000000Z",
+            "updated_at": "2024-06-12T04:43:44.000000Z"
+        },
+        {
+            "id": 29,
+            "name": "\u0987\u09ae\u09be\u09ae\/ \u0996\u09a4\u09bf\u09ac\/ \u09ae\u09c1\u09df\u09be\u099c\u09cd\u099c\u09bf\u09a8",
+            "icon": "bi bi-briefcase-fill",
+            "status": "1",
+            "created_at": "2024-06-12T04:44:06.000000Z",
+            "updated_at": "2024-06-12T04:46:16.000000Z"
+        },
+        {
+            "id": 30,
+            "name": "\u0987\u09a8\u09cd\u099f\u09be\u09b0\u09aa\u09cd\u09b0\u09bf\u099f\u09be\u09b0\/ \u09a6\u09cb\u09ad\u09be\u09b7\u09c0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:44:41.000000Z",
+            "updated_at": "2024-06-12T04:44:41.000000Z"
+        },
+        {
+            "id": 31,
+            "name": "\u09ab\u09be\u09df\u09be\u09b0 \u09b8\u09c7\u09ab\u099f\u09bf\/ \u09ab\u09be\u09df\u09be\u09b0\u09ab\u09be\u0987\u099f\u09be\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:45:05.000000Z",
+            "updated_at": "2024-06-12T04:45:05.000000Z"
+        },
+        {
+            "id": 32,
+            "name": "\u09ac\u09df\u09b2\u09be\u09b0 \u0985\u09aa\u09be\u09b0\u09c7\u099f\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:45:25.000000Z",
+            "updated_at": "2024-06-12T04:45:25.000000Z"
+        },
+        {
+            "id": 33,
+            "name": "\u0995\u09be\u09b0\u09cd\u09aa\u09c7\u09a8\u09cd\u099f\u09be\u09b0",
+            "icon": "bi bi-tools",
+            "status": "1",
+            "created_at": "2024-06-12T04:45:50.000000Z",
+            "updated_at": "2024-06-12T04:45:50.000000Z"
+        }
+    ]
+}

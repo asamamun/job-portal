@@ -6,6 +6,7 @@ use App\Models\Industrial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Artisan;
 class IndustrialController extends Controller
 {
     /**
@@ -37,6 +38,7 @@ class IndustrialController extends Controller
         $industrial->name = $request->name;
         $industrial->icon = $request->icon;
         $industrial->save();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('industrial.index')->with('success', 'Industrial created successfully');
     }
 
@@ -68,6 +70,7 @@ class IndustrialController extends Controller
         $industrial->name = $request->name;
         $industrial->icon = $request->icon;
         $industrial->save();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('industrial.index')->with('success', 'Industrial updated successfully');
     }
 
@@ -77,6 +80,7 @@ class IndustrialController extends Controller
     public function destroy(Industrial $industrial)
     {
         $industrial->delete();
+        Artisan::call('app:create-categories-json');
         return redirect()->route('industrial.index')->with('success', 'Industrial deleted successfully');
     }
 }
