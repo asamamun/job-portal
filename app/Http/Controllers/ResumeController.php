@@ -7,6 +7,10 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Applicant;
 use App\Models\Education;
 use App\Models\Experience;
+use App\Models\Language;
+use App\Models\Link;
+use App\Models\Project;
+use App\Models\Reference;
 use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,6 +25,10 @@ class ResumeController extends Controller
         $experiences = Experience::where("applicant_id", $applicant_id)->get();
         $educations = Education::where("applicant_id", $applicant_id)->get();
         $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+        $languages = Language::where('applicant_id', $applicant_id)->get();
+        $links = Link::where('applicant_id', $applicant_id)->get();
+        $references = Reference::where('applicant_id', $applicant_id)->get();
+        $projects = Project::where('applicant_id', $applicant_id)->get();
 
         $imagePath = public_path('storage/' . ($user->image ? $user->image : 'img/no_image.png'));
         $imageBase64 = imageToBase64($imagePath);
@@ -30,7 +38,14 @@ class ResumeController extends Controller
             "applicant" => $applicant,
             "experiences"=> $experiences,
             "educations"=> $educations,
-            "skills"=> $skills
+            "skills"=> $skills,
+            "languages"=> $languages,
+            "links"=> $links,
+            "references"=> $references,
+            "projects"=> $projects
+        
+
+
         ]);
     }
    
@@ -43,6 +58,11 @@ class ResumeController extends Controller
         $experiences = Experience::where('applicant_id', $applicant_id)->get();
         $educations = Education::where('applicant_id', $applicant_id)->get();
         $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+        $languages = Language::where('applicant_id', $applicant_id)->get();
+        $links = Link::where('applicant_id', $applicant_id)->get();
+        $references=Reference::where('applicant_id', $applicant_id)->get();
+        $projects=Project::where('applicant_id', $applicant_id)->get();
+     
 
         
         $imagePath = public_path('storage/' . ($user->image ? $user->image : 'img/no_image.png'));
@@ -56,7 +76,12 @@ class ResumeController extends Controller
             "applicant" => $applicant,
             "experiences"=> $experiences,
             "educations"=> $educations,
-            "skills"=> $skills
+            "skills"=> $skills,
+            "languages"=> $languages,
+            "links"=> $links,
+            "references"=>$references,
+            "projects"=>$projects
+           
         ]);
         /* $pdf->setPaper('A4', 'landscape');
         $pdf->getFontMetrics()->registerFont(
@@ -75,12 +100,24 @@ class ResumeController extends Controller
         $applicant_id = $applicant->id;
         $experiences = Experience::where("applicant_id", $applicant_id)->get();
         $educations = Education::where("applicant_id", $applicant_id)->get();
+      $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+        $languages = Language::where('applicant_id', $applicant_id)->get();
+        $links = Link::where('applicant_id', $applicant_id)->get();
+        $references = Reference::where('applicant_id', $applicant_id)->get();
+        $projects = Project::where('applicant_id', $applicant_id)->get();
+        
         
         return view("cvpro.index", [
             "user" => $user,
             "applicant" => $applicant,
             "experiences"=> $experiences,
-            "educations"=> $educations
+            "educations"=> $educations,
+            "skills"=> $skills,
+            "languages"=> $languages,
+            "links"=> $links,
+            "references"=> $references,
+            "projects"=> $projects
+
         ]);
     }
 
@@ -92,6 +129,11 @@ class ResumeController extends Controller
         $applicant_id = $applicant->id;
         $experiences = Experience::where("applicant_id", $applicant_id)->get();
         $educations = Education::where("applicant_id", $applicant_id)->get();
+        $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+        $languages = Language::where('applicant_id', $applicant_id)->get(); 
+        $links = Link::where('applicant_id', $applicant_id)->get();
+        $references = Reference::where('applicant_id', $applicant_id)->get();
+        $projects = Project::where('applicant_id', $applicant_id)->get();
 
         /* return view("cv.w3schools.index", [
             "user" => $user,
@@ -104,7 +146,13 @@ class ResumeController extends Controller
             "user" => $user,
             "applicant" => $applicant,
             "experiences"=> $experiences,
-            "educations"=> $educations
+            "educations"=> $educations,
+            "skills"=> $skills,
+            "languages"=> $languages,
+            "links"=> $links,
+            "references"=> $references,
+            "projects"=> $projects
+
         ]);
         return $pdf->stream('cvpro.pdf');
     }

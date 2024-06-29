@@ -124,7 +124,11 @@ Route::middleware([Employer::class])->prefix('employer')->group(function () {
 });
 
 Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
-    Route::get('/profile', [ApplicantProfileController::class, 'index'])->name('applicant.profile');
+
+    //profile
+    Route::get('profile', [ApplicantProfileController::class, 'index'])->name('applicant.profile');
+    Route::put('/profile/update/', [ApplicantProfileController::class, 'update'])->name('applicant.profile.update');
+
     Route::put('/update/image', [ApplicantProfileController::class, 'imageUpdate'])->name('applicant.update.image');
     Route::put('/update', [ApplicantProfileController::class, 'update'])->name('applicant.update');
     Route::resource('experience', ExperienceController::class);

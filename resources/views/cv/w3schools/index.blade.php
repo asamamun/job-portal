@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{asset('w3schools-cv/style.css')}}">
 <head>
     <meta charset="UTF-8">
     <title>{{$user->name}}</title>
@@ -32,7 +33,7 @@
                 <h1 class="name">{{ucfirst($user->name)}}</h1>
                 <br>
                 <h3 class="job-title">{{strtoupper($applicant->title)}}</h3>
-                <p class="contact-details">Phone: +92-344-4XX3-1XX &nbsp; - &nbsp; Email:{{$user->email}}</p>
+                <p class="contact-details">Phone: {{$user->contact}} &nbsp; - &nbsp; Email:{{$user->email}}</p>
             </div>
         </div>
         <div id="objective">
@@ -41,12 +42,12 @@
                 {{$applicant->objective}}
             </p>
         </div>
-        <div id="education">
+        <div id="work">
             <h3>Education</h3>
             <table>
                 @foreach ($educations as $education)
-                <tr class="education-1">
-                    <td>{{ucfirst($education->level)}} :</td>
+                <tr class="work-1">
+                    <td><b>{{ucfirst($education->level)}}</b></td>
                     <td>{{$education->institute}}, {{$education->board}}, {{$education->duration}} years, {{$education->subject}}, {{$education->grade}}</td>
                 </tr>
                 @endforeach
@@ -88,12 +89,64 @@
                 @endforeach
             </table>
         </div>
+        <div id="work">
+            <h3>Language</h3>
+            <table>
+                @foreach ($languages as $language)
+                <tr class="work-1">
+                    <td>{{ $language->name }}</td>
+                    <td style="width: 80%;">
+                        @if ($language->level == 'beginner')
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 10%;"></div>
+                            </div>
+                        @elseif ($language->level == 'intermediate')
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 50%;"></div>
+                            </div>
+                        @elseif ($language->level == 'advanced')
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 100%;"></div>
+                            </div>
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+        <div id="work">
+            <h3>Project</h3>
+            <table>
+                @foreach ($projects as $project)
+                <tr class="work-1">
+                    <td><b>{{ucfirst($project->title)}}</b></td>
+                    <td>{{$project->description}}, {{$project->status}}</td>
+                    <td><a href="{{$project->url}}">{{$project->url}}</a></td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+        <div id="work">
+            <h3>Link</h3>
+            <table>
+                @foreach ($links as $link)
+                <tr class="work-1">
+                    <td><b>{{ucfirst($link->title)}}</b></td>
+                    <td><a href="{{$link->url}}">{{$link->url}}</a></td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
         <div id="bio-data">
-            <h3>Bio-Data</h3>
+            <h3>Personal Details</h3>
             <table>
                 <tr>
-                    <td>F'Name:</td>
-                    <td><b>{{$user->name}}</b></td>
+                    <td>Father Name:</td>
+                    <td><b>{{$applicant->father}}</b></td>
+                </tr>
+                <tr>
+                    <td>Father Name:</td>
+                    <td><b>{{$applicant->mother}}</b></td>
                 </tr>
                 <tr>
                     <td>Date of Birth:</td>
@@ -119,6 +172,17 @@
                     <td>Marital Status:</td>
                     <td><b>{{ ucfirst($applicant->marital)}}</b></td>
                 </tr>
+            </table>
+        </div>
+        <div id="work">
+            <h3>Reference</h3>
+            <table>
+                @foreach ($references as $reference)
+                <tr class="work-1">
+                    <td><b>{{ucfirst($reference->name)}}</b></td>
+                    <td>{{$reference->organization}}, {{$reference->designation	}}, {{$reference->phone}} years, {{$reference->email}}</td>
+                </tr>
+                @endforeach
             </table>
         </div>
         <a href="{{ route('cv.download', $user->id) }}" style="margin-top: 50px;">Download</a>
