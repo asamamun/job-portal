@@ -20,10 +20,10 @@ class PostController extends Controller
     {
         return view("adminto.posts.index", [
             "posts" => auth()->user()->employer->posts,
-            "functionals" => Functional::with("functional")->get(),
-            "industrials"=> Industrial::with("industrial")->get(),
-            "specials"=> Special::with("special")->get(),
-            "countries" => Country::with("country")->get(),
+            "functionals" => Functional::all(),
+            "industrials" => Industrial::all(),
+            "specials" => Special::all(),
+            "countries" => Country::all(),
         ]);
     }
 
@@ -69,6 +69,7 @@ class PostController extends Controller
             "deadline" => "required",
             "expires" => "required",
         ]);
+
         $post = new Post();
         $post->employer_id = auth()->user()->employer->id;
 
@@ -111,7 +112,6 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        
     }
 
     /**
@@ -119,18 +119,18 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $functional = Functional::all();
-        $industrial = Industrial::all();
-        $special = Special::all();
-        $country = Country::all();
+        $functionals = Functional::all();
+        $industrials = Industrial::all();
+        $specials = Special::all();
+        $countries = Country::all();
+
         return view("adminto.posts.edit", [
             "post" => $post,
-            "functionals" => $functional,
-            "industrials"=> $industrial,
-            "specials"=> $special,
-            "country"=> $country
-            ]);
-                       
+            "functionals" => $functionals,
+            "industrials" => $industrials,
+            "specials" => $specials,
+            "countries" => $countries,
+        ]);
     }
 
     /**
@@ -168,6 +168,21 @@ class PostController extends Controller
         $post->website = $request->website;
         $post->deadline = $request->deadline;
         $post->expires = $request->expires;
+        $post->save();
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->storeAs('public/img', $imageName);
+            $post->image = "img/" . $imageName;
+        }
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/file', $filename);
+            $post->file = "file/" . $filename;
+        }
+
         $post->save();
         return redirect()->route('posts.index')->with("success", "Post updated successfully");
     }

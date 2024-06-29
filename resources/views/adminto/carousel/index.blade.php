@@ -20,20 +20,22 @@
                         <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
                             <thead>
                                 <tr>
+                                    <th>Header</th>
                                     <th>Title</th>
-                                    <th>File</th>
+                                    <th>Image</th>
                                     <th>Ation</th>
                                 </tr>
                             </thead>
 
 
                             <tbody>
-                                @forelse ($advertisements as $advertisement)
+                                @forelse ($carousels as $carousel)
                                 <tr class="odd">
-                                    <td class="" tabindex="0">{{$advertisement->title}}</td>
+                                    <td class="" tabindex="0">{{$carousel->header}}</td>
+                                    <td class="" tabindex="0">{{$carousel->title}}</td>
                                     <td>
-                                        @if($advertisement->file)
-                                            <a href="{{ asset('storage/' . $advertisement->file) }}"><img src="{{ asset('storage/' . $advertisement->file) }}" alt="{{$advertisement->title}}" style="width: 100px; height: auto;"></a>
+                                        @if($carousel->image)
+                                            <a href="{{ asset('storage/' . $carousel->image) }}"><img src="{{ asset('storage/' . $carousel->image) }}" alt="{{$carousel->title}}" style="width: 100px; height: auto;"></a>
                                         @else
                                             No Image
                                         @endif
@@ -45,8 +47,8 @@
                                                     <i class="bi bi-arrow-down-square"></i>
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                    <li><a class="dropdown-item" href="{{route('advertisement.edit', $advertisement->id)}}">Edit</a></li>
-                                                    <form action="{{route('advertisement.destroy', $advertisement->id)}}" method="POST">
+                                                    <li><a class="dropdown-item" href="{{route('carousel.edit', $carousel->id)}}">Edit</a></li>
+                                                    <form action="{{route('carousel.destroy', $carousel->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <li><button class="dropdown-item" type="submit">Delete</button></li>

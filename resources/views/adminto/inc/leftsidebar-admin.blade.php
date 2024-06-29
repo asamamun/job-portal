@@ -26,10 +26,28 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('settings.edit', Settings::$id)}}">
+                    <a href="{{ route('settings.edit', Settings::$id) }}">
                         <i class="mdi mdi-briefcase-variant-outline"></i>
                         <span> Settings </span>
                     </a>
+                </li>
+               
+                <li>
+                    <a href="#sidebarwerrTables45355322345" data-bs-toggle="collapse">
+                        <i class="mdi mdi-table"></i>
+                        <span> Carousel </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarwerrTables45355322345">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('carousel.create') }}"> Create </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('carousel.index') }}"> Show </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a href="#sidebarwerrTables45355322345" data-bs-toggle="collapse">
@@ -40,10 +58,10 @@
                     <div class="collapse" id="sidebarwerrTables45355322345">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('advertisement.create')}}"> Create </a>
+                                <a href="{{ route('advertisement.create') }}"> Create </a>
                             </li>
                             <li>
-                                <a href="{{route('advertisement.index')}}"> Show </a>
+                                <a href="{{ route('advertisement.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -58,10 +76,10 @@
                     <div class="collapse" id="sidebarTables45345">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('post_type.create')}}"> Create</a>
+                                <a href="{{ route('post_type.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('post_type.index')}}"> Show </a>
+                                <a href="{{ route('post_type.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -77,10 +95,10 @@
                     <div class="collapse" id="sidebarTables342342">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('functional.create')}}"> Create</a>
+                                <a href="{{ route('functional.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('functional.index')}}"> Show </a>
+                                <a href="{{ route('functional.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -94,10 +112,10 @@
                     <div class="collapse" id="sidebarTables534625">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('industrial.create')}}"> Create</a>
+                                <a href="{{ route('industrial.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('industrial.index')}}"> Show </a>
+                                <a href="{{ route('industrial.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -111,10 +129,10 @@
                     <div class="collapse" id="sidebarTables4365">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('special.create')}}"> Create</a>
+                                <a href="{{ route('special.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('special.index')}}"> Show </a>
+                                <a href="{{ route('special.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -128,10 +146,10 @@
                     <div class="collapse" id="sidebardfsdfTables4365">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('skill_type.create')}}"> Create</a>
+                                <a href="{{ route('skill_type.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('skill_type.index')}}"> Show </a>
+                                <a href="{{ route('skill_type.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -175,10 +193,10 @@
                     <div class="collapse" id="sidebarTables45352345">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('country.create')}}"> Create</a>
+                                <a href="{{ route('country.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('country.index')}}"> Show </a>
+                                <a href="{{ route('country.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -192,10 +210,10 @@
                     <div class="collapse" id="sidebarTables453453423">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('state.create')}}"> Create</a>
+                                <a href="{{ route('state.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('state.index')}}"> Show </a>
+                                <a href="{{ route('state.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -210,10 +228,10 @@
                     <div class="collapse" id="sidebarTables45355322345">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('category.create')}}"> Create</a>
+                                <a href="{{ route('category.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('category.index')}}"> Show </a>
+                                <a href="{{ route('category.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -227,10 +245,10 @@
                     <div class="collapse" id="sidebarTables453532422345">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('question.create')}}"> Create</a>
+                                <a href="{{ route('question.create') }}"> Create</a>
                             </li>
                             <li>
-                                <a href="{{route('question.index')}}"> Show </a>
+                                <a href="{{ route('question.index') }}"> Show </a>
                             </li>
                         </ul>
                     </div>
@@ -265,16 +283,16 @@
                     <div class="collapse" id="sidebarTablretert">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('withdraw.all')}}"> All</a>
+                                <a href="{{ route('withdraw.all') }}"> All</a>
                             </li>
                             <li>
-                                <a href="{{route('withdraw.request.page')}}"> Request </a>
+                                <a href="{{ route('withdraw.request.page') }}"> Request </a>
                             </li>
                             <li>
-                                <a href="{{route('withdraw.approve.page')}}"> Approve </a>
+                                <a href="{{ route('withdraw.approve.page') }}"> Approve </a>
                             </li>
                             <li>
-                                <a href="{{route('withdraw.reject.page')}}"> Reject </a>
+                                <a href="{{ route('withdraw.reject.page') }}"> Reject </a>
                             </li>
                         </ul>
                     </div>
@@ -288,10 +306,10 @@
                     <div class="collapse" id="sidebarTablretertReport">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('reports.search')}}"> Search Report </a>
+                                <a href="{{ route('reports.search') }}"> Search Report </a>
                             </li>
                             <li>
-                                <a href="{{route('reports.daily')}}"> Daily Report </a>
+                                <a href="{{ route('reports.daily') }}"> Daily Report </a>
                             </li>
                         </ul>
                     </div>
@@ -305,10 +323,10 @@
                     <div class="collapse" id="sidebarTablretertChart">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{url('admin/monthly-chart')}}"> Monthly </a>
+                                <a href="{{ url('admin/monthly-chart') }}"> Monthly </a>
                             </li>
                             <li>
-                                <a href="{{url('admin/daily-chart')}}"> Daily </a>
+                                <a href="{{ url('admin/daily-chart') }}"> Daily </a>
                             </li>
                         </ul>
                     </div>

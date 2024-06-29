@@ -9,16 +9,20 @@
         <h4 class="header-title">Update Form</h4>
         
 
-        <form action="{{ route('advertisement.update', $advertisement->id) }}" class="parsley-examples" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('carousel.update', $carousel->id) }}" class="parsley-examples" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="catName" class="form-label">Title<span class="text-danger">*</span></label>
-                <input type="text" name="title" required="" value="{{ $advertisement->title }}" class="form-control" id="catName">
+                <label for="header" class="form-label">Header<span class="text-danger">*</span></label>
+                <input type="text" name="header" required="" value="{{ $carousel->header }}" class="form-control" id="header">
             </div>
             <div class="mb-3">
-                <label for="iconName" class="form-label">File<span class="text-danger">*</span></label>
-                <input type="file" name="file" value="{{ $advertisement->file }}" class="form-control" id="iconName">
+                <label for="title" class="form-label">Title<span class="text-danger">*</span></label>
+                <input type="text" name="title" required="" value="{{ $carousel->title }}" class="form-control" id="title">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image<span class="text-danger">*</span></label>
+                <input type="file" name="image" value="{{ $carousel->image }}" class="form-control" id="image">
             </div>
             <div class="text-end">
                 <button class="btn btn-primary waves-effect waves-light" type="submit">Update</button>

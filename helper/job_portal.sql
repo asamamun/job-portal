@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2024 at 09:26 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 29, 2024 at 10:18 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -169,6 +169,14 @@ CREATE TABLE `carousels` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carousels`
+--
+
+INSERT INTO `carousels` (`id`, `header`, `title`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Carousel', 'test', 'img/1719649019.jpeg', '2024-06-29 02:16:59', '2024-06-29 02:16:59'),
+(2, 'Text Carousel', 'test2', 'img/1719649048.gif', '2024-06-29 02:17:28', '2024-06-29 02:17:28');
 
 -- --------------------------------------------------------
 
@@ -1320,6 +1328,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('dUhQY67KfiJ1gP9bel5sxZsfKXrCnTDpGD8U53tF', 16, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOVdWVDJQaVpWaEpwbmU4c2lSd3pnd2ZoUGM3a1dGTDBpYTl1MnFYYyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9jYXJvdXNlbC8xL2VkaXQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNjt9', 1719649060),
 ('e9o8RCOOxz5QepIVODOXad78em6sIgjJE7PaKZjO', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoib1hBWGI1cDI4c1E3eW9tNmVvZERoSXEwWTZybkxLZkZkS2lsT2VUUCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdi8xNSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719645644);
 
 -- --------------------------------------------------------
@@ -6580,7 +6589,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `contact`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `address`, `created_at`, `updated_at`) VALUES
-(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'lmyXtvLlUhe8IIncPYy8LSIAybDjaBvmDp6rEXe0bO1ez9PWypOiHLaGBq2f', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'GNBHo1JkFllB3V6t19OEki3tk1H0fVp7X7tUCj1HmAWQ0NNGNCbQnQuD0s6I', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
 (15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', '01725836911', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', '6po6E3pOlbzmzb4zEjJC0p9EpWFkFGMl4RXAd8Xm7fyoB77eVkL8e5eZdrl5', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
 (16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'rRmPj22QO2NNl8CN2w6s3SdIf5MnONMh7OcinJ2Z6ID0oITBlXuwiWENwIxO', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
@@ -6954,7 +6963,7 @@ ALTER TABLE `applicant_post_types`
 -- AUTO_INCREMENT for table `carousels`
 --
 ALTER TABLE `carousels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `categories`
