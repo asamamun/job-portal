@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->set('types',['online','offline'])->nullable();
 			$table->integer('amount')->nullable();
+			$table->integer('charge')->nullable();
 			$table->string('transaction_id')->nullable();
 			$table->string('status')->nullable();
             $table->timestamps();

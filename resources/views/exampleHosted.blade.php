@@ -37,12 +37,59 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4 order-md-2 mb-4">
-                <h2 class="d-flex justify-content-between align-items-center mb-3">Recharge</h2>
-                <p class="text-muted mb-4">Please fill the form below.</p>
-                <img src="{{asset('storage/'.auth()->user()->image)}}" class="d-block w-100 img-thumbnail"/>
+            <div class="col-md-12 order-md-2 mb-4">
+                <div class="card">
+                    <div class="row card-body">
+                        <div class="col-md-3">
+                            <img src="{{asset('storage/'.auth()->user()->image)}}" class="img-thumbnail w-100 rounded" />
+                        </div>
+                        <div class="col-md-9">
+                            <p class="mb-0">Name:- {{auth()->user()->name}}</p>
+                            <p class="mb-0">Roles:- {{auth()->user()->roles}}</p>
+                            <p class="mb-0">Email:- {{auth()->user()->email}}</p>
+                            <p class="mb-0">Mobile:- {{auth()->user()->contact}}</p>
+                        </div>
+                    </div>
+                    <div class="text-right pb-3 pr-3">
+                        <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-8 order-md-1">
+        </div>
+        <div class="row">
+            <div class="col-md-7 order-md-2 mb-4">
+                <h2 class="d-flex justify-content-between align-items-center mb-3">Recharge History</h2>
+                <p class="text-muted mb-4">Please fill the form below.</p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Charge</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($recharges as $recharge)
+                            <tr>
+                                <td>{{Carbon\Carbon::parse($recharge->created_at)->format('d/M/Y')}}</td>
+                                <td>{{$recharge->amount}}</td>
+                                <td>{{$recharge->charge}}</td>
+                                <td>{{$recharge->amount + $recharge->charge}}</td>
+                                <td>{{$recharge->types}}</td>
+                                <td>{{$recharge->status}}</td>
+                                <td><a href="{{ url('/invoice/'.$recharge->id) }}">view</a></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-5 order-md-1">
                 <h4 class="mb-3">Billing address</h4>
                 <form action="{{ url('/pay') }}" method="POST" class="needs-validation">
                     <input type="hidden" value="{{ csrf_token() }}" name="_token" />

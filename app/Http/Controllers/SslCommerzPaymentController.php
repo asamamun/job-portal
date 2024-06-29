@@ -8,6 +8,7 @@ use App\Library\SslCommerz\SslCommerzNotification;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Applicant;
 use App\Models\Employer;
+use App\Models\Recharge;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -19,7 +20,9 @@ class SslCommerzPaymentController extends Controller
 
     public function exampleHostedCheckout()
     {
-        return view('exampleHosted');
+        return view('exampleHosted', [
+            'recharges' => Recharge::where('user_id', Auth::user()->id)->get()
+        ]);
     }
 
     public function index(Request $request)
@@ -28,8 +31,11 @@ class SslCommerzPaymentController extends Controller
         # Let's say, your oder transaction informations are saving in a table called "orders"
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
 
+        $charge = ($request->total_amount*10)/100;
+        
+        
         $post_data = array();
-        $post_data['total_amount'] = $request->total_amount; # You cant not pay less than 10
+        $post_data['total_amount'] = $request->total_amount+$charge; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
@@ -72,9 +78,11 @@ class SslCommerzPaymentController extends Controller
             ->updateOrInsert([
                 'user_id' => Auth::user()->id,
                 'amount' => $post_data['total_amount'],
+                'charge' => $charge,
                 'types' => 'online',
                 'status' => 'Pending',
-                'transaction_id' => $post_data['tran_id']
+                'transaction_id' => $post_data['tran_id'],
+                'created_at' => date('Y-m-d H:i:s'),
             ]);
 
         $sslc = new SslCommerzNotification();
@@ -141,7 +149,8 @@ class SslCommerzPaymentController extends Controller
                 'user_id' => Auth::user()->id,
                 'amount' => $post_data['total_amount'],
                 'status' => 'Pending',
-                'transaction_id' => $post_data['tran_id']
+                'transaction_id' => $post_data['tran_id'],
+                'updated_at' => date('Y-m-d H:i:s'),
             ]);
 
         $sslc = new SslCommerzNotification();
