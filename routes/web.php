@@ -125,11 +125,17 @@ Route::middleware([Admin::class])->prefix('admin')->group(function () {
     Route::get('/monthly-chart', [ChartController::class, 'monthlyIncomeExpense']);
     Route::get('/daily-chart', [ChartController::class, 'dailyIncomeExpense']);
 });
+
+
+
 Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('employer.dashboard');
     Route::resource('posts', PostController::class)->only(['create'])->middleware(PostCheck::class);
     Route::resource('posts', PostController::class)->except(['create']);
+    Route::get('post/applyed/{id}', [PostController::class, 'applyPost'])->name('post.applyed');
 });
+
+
 
 Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
 
@@ -152,9 +158,12 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     //result
 	Route::post('result', [ExamController::class, 'examResult']);
 	Route::get('apply/{id}', [ApplyController::class, 'apply'])->middleware(ApplyCheck::class);
+    
     //post
 	Route::get('post/{id}', [ApplicantPostController::class, 'save'])->name('post.save');
+    Route::get('post/saved/page', [ApplicantPostController::class, 'savePage'])->name('post.saved.page');
     Route::get('post/delete/{id}', [ApplicantPostController::class, 'delete'])->name('post.delete');
+    
 
 
 

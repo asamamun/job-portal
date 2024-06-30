@@ -83,7 +83,7 @@
                                 <td>{{$recharge->amount + $recharge->charge}}</td>
                                 <td>{{$recharge->types}}</td>
                                 <td>{{$recharge->status}}</td>
-                                <td><a href="{{ url('/invoice/'.$recharge->id) }}">view</a></td>
+                                <td><a href="{{ url('/invoice/'.$recharge->transaction_id) }}">view</a></td>
                             </tr>
                             @endforeach
                         </tbody>

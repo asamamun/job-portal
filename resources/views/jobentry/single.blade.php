@@ -14,19 +14,38 @@
                     <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'.$post->image)}}" alt="" style="width: 80px; height: 80px;">
                     <div class="text-start ps-4">
                         <h3 class="mb-3">{{$post->title}}</h3>
-                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{$post->location}}</span>
+                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{$post->address}}</span>
+                        <span class="text-truncate me-3"><i class="fas fa-user text-primary me-2"></i>{{$post->employer->name}}</span>
                         <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$post->type}}</span>
-                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$post->qualification}}</span>
-                        <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{$post->salary}}</span>
+                        <span class="text-truncate me-3"><i class="fas fa-users text-primary me-2"></i>{{$post->vacancy}}</span>
                     </div>
                 </div>
 
                 <div class="mb-5">
-                    <h4 class="mb-3">Job description</h4>
-                    <p>{{$post->description}}</p>
-                    <h4 class="mb-3">Responsibility</h4>
-                    <p>Magna et elitr diam sed lorem. Diam diam stet erat no est est. Accusam sed lorem stet voluptua sit sit at stet consetetur, takimata at diam kasd gubergren elitr dolor</p>
+                    <h4 class="mb-3">Description</h4>
                     {!!html_entity_decode($post->description)!!}
+                    <br />
+                    <br />
+                    <h4 class="mb-3">Basic Information</h4>
+                    <hr />
+                    <ul class="list-inline">
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Functional:- {{ $post->functional->name }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Industrial:- {{ $post->industrial->name }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Special:- {{ $post->special->name }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Country:- {{ $post->country->name }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;State:- {{ $post->state->name }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Salary:- {{ $post->salary }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Vacancy:- {{ $post->vacancy }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Published Date:- {{ Carbon\Carbon::parse($post->created_at)->format('d M Y') }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Deadline:- {{ Carbon\Carbon::parse($post->deadline)->format('d M Y') }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Qualification:- {{ $post->qualification }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Contact:- {{ $post->contact }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Email:- {{ $post->email }}</li>
+                        <li><i class="fa fa-star text-primary"></i>&nbsp;Website:- <a href="{{$post->website}}" target="_blank">{{$post->website}}</a></li>
+                        @if ($post->file)
+                            <li><i class="fa fa-star text-primary"></i>&nbsp;File:- <a href="{{asset('storage/'.$post->file)}}">Download</a></li> 
+                        @endif
+                    </UL>
                 </div>
 
                 <div class="">

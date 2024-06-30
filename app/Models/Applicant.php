@@ -65,10 +65,6 @@ class Applicant extends Model
     {
         return $this->belongsToMany(Post::class);
     }
-    public function save_posts(): BelongsToMany
-    {
-        return $this->belongsToMany(Post::class);
-    }
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -76,5 +72,9 @@ class Applicant extends Model
     public function results(): HasMany
     {
         return $this->hasMany(Result::class);
+    }
+    public function save_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(SavePost::class);
     }
 }

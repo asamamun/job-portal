@@ -45,6 +45,7 @@ class CvMail extends Mailable
             with: [
                 'subject' => $this->subject,
                 'cvlink' => $this->cvlink,
+                'name' => auth()->user()->name,
             ],
         );
     }

@@ -176,5 +176,31 @@
     </div>
 @endsection
 
-@section('script')
+@section('scripts')
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#CountrySelect').on('change', function() {
+        var country_id = $(this).val();
+        if (country_id) {
+            $.ajax({
+                type: "GET",
+                url: "{{url('ajax/state')}}/" + country_id,
+                success: function(res) {
+                    $('#stateSelect').html(res);
+                }
+            });
+        } else {
+            $("#stateSelect").empty();
+        }
+    });
+
+    function editor(id) {
+        CKEDITOR.replace(id, {
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+    }
+    editor('citySelectDescription');
+</script>
 @endsection

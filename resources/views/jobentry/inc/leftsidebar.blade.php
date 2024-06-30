@@ -200,7 +200,7 @@
                     <ul class="nav-second-level">
                         <li><a href="#">Applied Jobs</a></li>
                         <li><a href="#">Interview</a></li>
-                        <li><a href="#">Save Post</a></li>
+                        <li><a href="{{ route('post.saved.page') }}">Saved Post</a></li>
                     </ul>
                 </div>
             </li>

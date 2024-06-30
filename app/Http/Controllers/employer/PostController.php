@@ -195,4 +195,16 @@ class PostController extends Controller
         $post->delete();
         return redirect()->back()->with("success", "Post deleted successfully");
     }
+
+    public function applyPost($id)
+    {
+        $this->data['posts'] = SavePost::where('applicant_id', $id)
+            ->with('post')
+            ->orderBy('id', 'desc')
+            ->through(function ($savepost) {
+                return $savepost->post;
+            });
+        //dd($this->data['posts']);
+        return view('jobentry.posts', $this->data);
+    }
 }

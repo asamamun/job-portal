@@ -15,7 +15,7 @@ use App\Models\User;
 class InvoiceController extends Controller
 {
     public function invoice($tid){
-        $recharge = Recharge::with(['user:id,roles'])->where('transaction_id', $tid)->first();
+        $recharge = Recharge::with(['user:name,email,id,roles'])->where('transaction_id', $tid)->first();
         $pdf = PDF::loadView('pdf.invoice', compact('recharge'));
         return $pdf->stream('invoice.pdf');
     }

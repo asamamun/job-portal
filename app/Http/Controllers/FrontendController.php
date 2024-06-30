@@ -36,7 +36,7 @@ class FrontendController extends Applicant
     }
     public function single($id)
     {
-        $post = Post::find($id);
+        $post = Post::with('employer', 'functional', 'industrial', 'special')->find($id);
         return view('jobentry.single', compact('post'));
     }
     public function functional($id)

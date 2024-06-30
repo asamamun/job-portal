@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice</title>
+    <title>{{ $recharge->transaction_id }}</title>
 </head>
 <body style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; text-align: center; color: #777;">
     <div style="max-width: 800px; margin: auto; padding: 30px; border: 1px solid #eee; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); font-size: 16px; line-height: 24px; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #555;">
@@ -13,12 +13,11 @@
                     <table style="width: 100%;">
                         <tr>
                             <td style="font-size: 45px; line-height: 45px; color: #333;">
-                                <h2 style="margin: 0; font-size: 45px; line-height: 45px;">Company Name</h2>
+                                <h2 style="margin: 0; font-size: 45px; line-height: 45px;">{{Settings::get()->title}}</h2>
                             </td>
                             <td style="text-align: right;">
-                                Invoice #: 123<br>
-                                Created: June 30, 2024<br>
-                                Due: July 30, 2024
+                                <p>TID #: {{ $recharge->transaction_id }}</p>
+                                <p>Created: {{ Carbon\Carbon::parse($recharge->created_at)->format('d M Y') }}</p>
                             </td>
                         </tr>
                     </table>
@@ -29,13 +28,13 @@
                     <table style="width: 100%;">
                         <tr>
                             <td>
-                                Company Name, Inc.<br>
-                                12345 Sunny Road<br>
-                                Sunnyville, TX 12345
+                                <span style="display: block; width: 50%;">
+                                    {{Settings::get()->address}}
+                                </span>
                             </td>
                             <td style="text-align: right;">
-                                Customer Name<br>
-                                customer@example.com
+                                {{ $recharge->user->name }}<br>
+                                {{ $recharge->user->email }}
                             </td>
                         </tr>
                     </table>
@@ -51,48 +50,32 @@
             </tr>
             <tr class="details">
                 <td style="padding-bottom: 20px;">
-                    Check
+                    Amount
                 </td>
                 <td style="padding-bottom: 20px; text-align: right;">
-                    1000
+                    {{ $recharge->amount }} tk
                 </td>
             </tr>
             <tr class="heading">
                 <td style="background: #eee; border-bottom: 1px solid #ddd; font-weight: bold;">
-                    Item
+                    Charge
                 </td>
                 <td style="background: #eee; border-bottom: 1px solid #ddd; font-weight: bold; text-align: right;">
                     Price
                 </td>
             </tr>
-            <tr class="item">
-                <td style="border-bottom: 1px solid #eee;">
-                    Website design
-                </td>
-                <td style="border-bottom: 1px solid #eee; text-align: right;">
-                    $300.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td style="border-bottom: 1px solid #eee;">
-                    Hosting (3 months)
-                </td>
-                <td style="border-bottom: 1px solid #eee; text-align: right;">
-                    $75.00
-                </td>
-            </tr>
             <tr class="item last">
                 <td style="border-bottom: none;">
-                    Domain name (1 year)
+                    Online Payment Service
                 </td>
                 <td style="border-bottom: none; text-align: right;">
-                    $10.00
+                    {{ $recharge->charge }} tk
                 </td>
             </tr>
             <tr class="total">
                 <td></td>
                 <td style="border-top: 2px solid #eee; font-weight: bold; text-align: right;">
-                   Total: $385.00
+                   Total: {{ $recharge->amount + $recharge->charge }} tk
                 </td>
             </tr>
         </table>
