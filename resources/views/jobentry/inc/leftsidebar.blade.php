@@ -1,16 +1,6 @@
 <div class="col-md-3 bg-white pt-3 pb-3">
-    {{-- <div class="d-flex mb-4">
-        <div class="float-start">
-            <a href="{{ asset('storage/' . (auth()->user()->image ? auth()->user()->image : 'img/avatar.png')) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-                <img src="{{ asset('storage/' . (auth()->user()->image ? auth()->user()->image : 'img/avatar.png')) }}" alt="" class="img-thumbnail rounded float-start mb-2" style="height: 150px; width: 150px" />
-            </a>
-        </div>
-
-        <div class="pl-3">
-            <p class="" style="font-size: 20px">{{ auth()->user()->name }}</p>
-            <p class="" style="font-size: 20px">{{auth()->user()->applicant->points}}</p>
-        </div>
-    </div> --}}
+   
+    {{-- main  --}}
     <div class="d-flex mb-4"> 
         <div class="float-start position-relative">
             <a href="{{ asset('storage/' . (auth()->user()->image ? auth()->user()->image : 'img/avatar.png')) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
@@ -27,7 +17,7 @@
                             @csrf
                     @method('PUT')
                     @endif
-                        <label for="imageUpload" class="upload-label">
+                        <label for="imageUpload" class="upload-label" >
                             <img src="placeholder.jpg" alt="" class="img-fluid">
                             <i class="bi bi-pencil-square text-danger text-success mt-2 "></i>
                         </label>
@@ -42,6 +32,10 @@
             </a>
         </div>
   </div>
+    {{-- main end --}}
+
+
+   
         <div class="pl-3 " style="margin-top: auto;">
             <p class="mb-0" style="font-size: 16px; font-weight: bold">Name :{{ auth()->user()->name }}</p>
             <p class="mb-0" style="font-size: 14px">Points :{{auth()->user()->applicant->points}}</p>
@@ -190,8 +184,10 @@
                 </button>
                 <div class="collapse" id="dashboard-collapse">
                     <ul class="nav-second-level">
-                        <li><a href="{{route('cv', auth()->user()->id)}}">CV <span class="badge bg-secondary">classic</span></a></li>
-                        <li><a href="{{route('cvpro', auth()->user()->id)}}">CV <span class="badge bg-secondary">pro</span></a></li>
+                        <li><a href="{{route('cv', auth()->user()->id)}}">CV <span class="badge bg-info">classic <i>M</i></span></a></li>
+                        <li><a href="{{route('dark', auth()->user()->id)}}">CV <span class="badge bg-info">Dark <i>M</i></span></a></li>
+                        <li><a href="{{route('cvpro', auth()->user()->id)}}">CV <span class="badge bg-info">pro <i>M</i></span></a></li>
+                        <li><a href="{{route('simple', auth()->user()->id)}}">CV </li>
                         <li><a href="#">Download</a></li>
                     </ul>
                 </div>

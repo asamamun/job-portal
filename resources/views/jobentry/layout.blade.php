@@ -57,6 +57,7 @@
     <script>
         $(document).ready(function() {
             fetch('/ajax/post/cat').then(res => res.json()).then(data => {
+
                 data.functional.forEach(element => {
                     $('#PostCatFunctioal').append(`<a href="/post/functional/${element.id}" class="dropdown-item">${element.name}</a>`)
                 });
@@ -66,6 +67,17 @@
                 data.special.forEach(element => {
                     $('#PostCatSpecial').append(`<a href="/post/special/${element.id}" class="dropdown-item">${element.name}</a>`)
                 });
+
+                data.functional.forEach(element => {
+                    $('#functionalSidebar').append(`<p><i class="fa fa-angle-right text-primary me-2"></i><a href="/post/functional/${element.id}">${element.name}</a></p>`)
+                });
+                data.industrial.forEach(element => {
+                    $('#industrialSidebar').append(`<p><i class="fa fa-angle-right text-primary me-2"></i><a href="/post/functional/${element.id}">${element.name}</a></p>`)
+                });
+                data.special.forEach(element => {
+                    $('#specialSidebar').append(`<p><i class="fa fa-angle-right text-primary me-2"></i><a href="/post/functional/${element.id}">${element.name}</a></p>`)
+                });
+
             })
         });
     </script>

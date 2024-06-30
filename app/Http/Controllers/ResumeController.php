@@ -70,7 +70,7 @@ class ResumeController extends Controller
         
         
         
-        $pdf = Pdf::loadView('cv.w3schools.index', [
+        $pdf = Pdf::loadView('cv.index', [
             "user" => $user,
             "image" => $imageBase64,
             "applicant" => $applicant,
@@ -107,7 +107,7 @@ class ResumeController extends Controller
         $projects = Project::where('applicant_id', $applicant_id)->get();
         
         
-        return view("cvpro.index", [
+        return view("cv.cvpro.index", [
             "user" => $user,
             "applicant" => $applicant,
             "experiences"=> $experiences,
@@ -154,6 +154,138 @@ class ResumeController extends Controller
             "projects"=> $projects
 
         ]);
-        return $pdf->stream('cvpro.pdf');
+        return $pdf->stream('cv.cvpro.pdf');
     }
+    //dark
+    public function indexdark($id)
+    {
+        $user = User::find($id);
+        $applicant = Applicant::where("user_id", $id)->first();
+        $applicant_id = $applicant->id;
+        $experiences = Experience::where("applicant_id", $applicant_id)->get();
+        $educations = Education::where("applicant_id", $applicant_id)->get();
+      $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+        $languages = Language::where('applicant_id', $applicant_id)->get();
+        $links = Link::where('applicant_id', $applicant_id)->get();
+        $references = Reference::where('applicant_id', $applicant_id)->get();
+        $projects = Project::where('applicant_id', $applicant_id)->get();
+        
+        
+        return view("cv.dark.index", [
+            "user" => $user,
+            "applicant" => $applicant,
+            "experiences"=> $experiences,
+            "educations"=> $educations,
+            "skills"=> $skills,
+            "languages"=> $languages,
+            "links"=> $links,
+            "references"=> $references,
+            "projects"=> $projects
+
+        ]);
+    }
+
+    public function downloaddark($id)
+    {
+        $user = User::find($id);
+        $name = $user->name;
+        $applicant = Applicant::where("user_id", $id)->first();
+        $applicant_id = $applicant->id;
+        $experiences = Experience::where("applicant_id", $applicant_id)->get();
+        $educations = Education::where("applicant_id", $applicant_id)->get();
+        $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+        $languages = Language::where('applicant_id', $applicant_id)->get(); 
+        $links = Link::where('applicant_id', $applicant_id)->get();
+        $references = Reference::where('applicant_id', $applicant_id)->get();
+        $projects = Project::where('applicant_id', $applicant_id)->get();
+
+        /* return view("cv.w3schools.index", [
+            "user" => $user,
+            "applicant" => $applicant,
+            "experiences"=> $experiences,
+            "educations"=> $educations
+        ]); */
+
+        $pdf = PDF::loadView("dark.index", [
+            "user" => $user,
+            "applicant" => $applicant,
+            "experiences"=> $experiences,
+            "educations"=> $educations,
+            "skills"=> $skills,
+            "languages"=> $languages,
+            "links"=> $links,
+            "references"=> $references,
+            "projects"=> $projects
+
+        ]);
+        return $pdf->stream('cv.dark.pdf');
+    }
+
+
+
+
+      //Cv simple
+      public function indexsimple($id)
+      {
+          $user = User::find($id);
+          $applicant = Applicant::where("user_id", $id)->first();
+          $applicant_id = $applicant->id;
+          $experiences = Experience::where("applicant_id", $applicant_id)->get();
+          $educations = Education::where("applicant_id", $applicant_id)->get();
+        $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+          $languages = Language::where('applicant_id', $applicant_id)->get();
+          $links = Link::where('applicant_id', $applicant_id)->get();
+          $references = Reference::where('applicant_id', $applicant_id)->get();
+          $projects = Project::where('applicant_id', $applicant_id)->get();
+          
+          
+          return view("cv.simple.index", [
+              "user" => $user,
+              "applicant" => $applicant,
+              "experiences"=> $experiences,
+              "educations"=> $educations,
+              "skills"=> $skills,
+              "languages"=> $languages,
+              "links"=> $links,
+              "references"=> $references,
+              "projects"=> $projects
+  
+          ]);
+      }
+  
+      public function downloadsimple($id)
+      {
+          $user = User::find($id);
+          $name = $user->name;
+          $applicant = Applicant::where("user_id", $id)->first();
+          $applicant_id = $applicant->id;
+          $experiences = Experience::where("applicant_id", $applicant_id)->get();
+          $educations = Education::where("applicant_id", $applicant_id)->get();
+          $skills = Skill::with('SkillType')->where('applicant_id', $applicant_id)->get();
+          $languages = Language::where('applicant_id', $applicant_id)->get(); 
+          $links = Link::where('applicant_id', $applicant_id)->get();
+          $references = Reference::where('applicant_id', $applicant_id)->get();
+          $projects = Project::where('applicant_id', $applicant_id)->get();
+  
+          /* return view("cv.w3schools.index", [
+              "user" => $user,
+              "applicant" => $applicant,
+              "experiences"=> $experiences,
+              "educations"=> $educations
+          ]); */
+  
+          $pdf = PDF::loadView("simple.index", [
+              "user" => $user,
+              "applicant" => $applicant,
+              "experiences"=> $experiences,
+              "educations"=> $educations,
+              "skills"=> $skills,
+              "languages"=> $languages,
+              "links"=> $links,
+              "references"=> $references,
+              "projects"=> $projects
+  
+          ]);
+          return $pdf->stream('cv.simple.pdf');
+      }
 }

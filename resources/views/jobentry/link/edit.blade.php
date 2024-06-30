@@ -12,8 +12,13 @@
             @include('jobentry.inc.leftsidebar') 
             <div class="card  col-9">
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Link Edit</h4>
-               
+              
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mt-0 header-title">Link Edit</h4>
+                        <a href="{{ route('link.index') }}" class="btn btn-light">
+                            <i class="bi bi-arrow-left"></i>
+                        </a>
+                    </div>
                     <form action="{{ route('link.update', $link->id) }}" class="parsley-examples" method="POST">
                         @csrf
                         @method('PUT')

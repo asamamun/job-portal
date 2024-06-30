@@ -298,34 +298,16 @@
       list-style-type: disc;
     }
 
-    .contact-info-box {
-      display: flex;
-      align-items: center;
-    }
-
     /* End Layout */
   </style>
 </head>
 
 <body>
   <page size="A4">
-
-    <div class="contact-info-box" style="background-color: #b9a9a9; padding: 20px; display: flex; align-items: center; justify-content: flex-start;">
-      <img src="{{ $user->image != null ? asset("storage/".$user->image) : asset('no_image.png') }}" class="photo" alt="Profile Picture" style="width: 4cm; height: 4cm; border-radius: 50%; border: 0.15cm solid white; object-fit: cover; object-position: 50% 50%; margin-right: 40px;">
-      <div style="text-align: center; padding-top: 10px; padding-bottom: 10px;">
-        <h1 class="name" style="margin-left: 20px; text-transform: uppercase;">{{ ucfirst($user->name) }}</h1>
-        <h3 class="job-title" style="margin-left: 20px; text-transform: uppercase;">{{ strtoupper($applicant->title) }}</h3>
-        {{-- Uncomment and modify this line as needed --}}
-        {{-- <p class="contact-details">Phone: {{ $user->contact }} &nbsp; - &nbsp; Email:{{ $user->email }}</p> --}}
-      </div>
-    </div>
-    </div>
-
-
-    </div>
     <div class="container">
       <div class="leftPanel">
         <!-- Assuming Laravel Blade syntax for image -->
+        <img src="{{ $user->image != null ? asset("storage/".$user->image) : asset('no_image.png') }}" class="photo" alt="Profile Picture">
         <div class="details">
           <div class="item bottomLineSeparator">
             <h2>CONTACT</h2>
@@ -370,11 +352,11 @@
                   <div class="progress">
                     <div class="progress-bar">
                       @if ($skill->level == 'beginner')
-                      <div class="bar" style="width: 10%;background-color: #5e1f1f;"></div>
+                      <div class="bar" style="width: 10%;background-color: #dd8f8f;"></div>
                       @elseif ($skill->level == 'intermediate')
-                      <div class="bar" style="width: 50%;background-color: #300428;"></div>
+                      <div class="bar" style="width: 50%;background-color: #bd5eaa;"></div>
                       @elseif ($skill->level == 'advanced')
-                      <div class="bar" style="width: 100%;background-color: #1b3f1e;"></div>
+                      <div class="bar" style="width: 100%;background-color: #60b467;"></div>
                       @endif
                     </div>
                   </div>
@@ -383,6 +365,7 @@
               @endforeach
             </table>
           </div>
+
           <div class="item bottomLineSeparator">
             <h2>Language</h2>
             <table>
@@ -393,11 +376,11 @@
                   <div class="progress">
                     <div class="progress-bar">
                       @if ($language->level == 'beginner')
-                      <div class="bar" style="width: 10%;background-color: #a85f5f;"></div>
+                      <div class="bar" style="width: 10%;background-color: #dd8f8f;"></div>
                       @elseif ($language->level == 'intermediate')
-                      <div class="bar" style="width: 50%;background-color:#300428;"></div>
+                      <div class="bar" style="width: 50%;background-color: #bd5eaa;"></div>
                       @elseif ($language->level == 'advanced')
-                      <div class="bar" style="width: 100%;background-color: #1b3f1e;;"></div>
+                      <div class="bar" style="width: 100%;background-color: #60b467;"></div>
                       @endif
                     </div>
                   </div>
@@ -417,16 +400,32 @@
               @endforeach
             </table>
           </div>
+
+
+
         </div>
       </div>
       <div class="rightPanel" style="background-color: #f0f0f0; padding: 10px;">
         <div id="page">
+          {{-- <div class="contact-info-box">
+                    <h1 class="name">{{ucfirst($user->name)}}</h1>
+
+          <h3 class="job-title">{{strtoupper($applicant->title)}}</h3> --}}
+          {{-- <p class="contact-details">Phone: {{$user->contact}} &nbsp; - &nbsp; Email:{{$user->email}}</p> --}}
+          {{-- </div> --}}
+          <div class="contact-info-box" style="background-color: #b9a9a9; padding: 10px;">
+            <h1 class="name">{{ucfirst($user->name)}}</h1>
+            <h3 class="job-title">{{strtoupper($applicant->title)}}</h3>
+            {{-- <p class="contact-details">Phone: {{$user->contact}} &nbsp; - &nbsp; Email:{{$user->email}}</p> --}}
+          </div>
           <div id="objective">
             <h3>Objective</h3>
             <p>
               {{$applicant->objective}}
             </p>
           </div>
+
+
           <div class="item">
             <h2>WORK EXPERIENCE</h2>
             <div class="workExperience">
@@ -448,6 +447,8 @@
                 @endforeach
               </table>
             </div>
+          </div>
+          <div class="item">
             <h2>Project</h2>
             <div class="workExperience">
               <table>
@@ -463,6 +464,7 @@
                   <td style="width: 100%;">
                     {{$project->description}}
                   </td>
+
                 </tr>
                 <tr>
                   <td style="width: 100%;">
@@ -473,6 +475,7 @@
               </table>
             </div>
           </div>
+
         </div>
         <div class="item">
           <h2>Personal Details</h2>
@@ -515,6 +518,8 @@
             </table>
           </div>
         </div>
+
+
         <div class="item">
           <h2>Reference</h2>
           <div class="workExperience">

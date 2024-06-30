@@ -33,12 +33,12 @@
                 </li>
                
                 <li>
-                    <a href="#sidebarwerrTables45355322345" data-bs-toggle="collapse">
+                    <a href="#sidebarwerrtyertTables45355322345" data-bs-toggle="collapse">
                         <i class="mdi mdi-table"></i>
                         <span> Carousel </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarwerrTables45355322345">
+                    <div class="collapse" id="sidebarwerrtyertTables45355322345">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('carousel.create') }}"> Create </a>

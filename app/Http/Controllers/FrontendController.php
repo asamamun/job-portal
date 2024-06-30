@@ -25,6 +25,10 @@ class FrontendController extends Applicant
     {
         return view('jobentry.index', $this->data);
     }
+    public function about()
+    {
+        return view('jobentry.about', $this->data);
+    }
     public function all()
     {
         $this->data["posts"] = Post::orderBy('id', 'desc')->paginate(Settings::get()->paginate);
@@ -43,6 +47,11 @@ class FrontendController extends Applicant
     public function industrial($id)
     {
         $this->data["posts"] = Post::where('industrial_id', $id)->orderBy('id', 'desc')->paginate(Settings::get()->paginate);
+        return view('jobentry.posts', $this->data);
+    }
+    public function special($id)
+    {
+        $this->data["posts"] = Post::where('special_id', $id)->orderBy('id', 'desc')->paginate(Settings::get()->paginate);
         return view('jobentry.posts', $this->data);
     }
     public function employer($id)

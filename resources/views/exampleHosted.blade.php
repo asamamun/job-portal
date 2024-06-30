@@ -48,6 +48,7 @@
                             <p class="mb-0">Roles:- {{auth()->user()->roles}}</p>
                             <p class="mb-0">Email:- {{auth()->user()->email}}</p>
                             <p class="mb-0">Mobile:- {{auth()->user()->contact}}</p>
+                            <p class="mb-0">Address:- {{auth()->user()->address}}</p>
                         </div>
                     </div>
                     <div class="text-right pb-3 pr-3">

@@ -10,18 +10,14 @@
     <div class="container">
         <div class="row gy-5 gx-4">
             <div class="col-lg-4">
-                <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
-                    <h4 class="mb-4">Job Summery</h4>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: 01 Jan, 2045</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: 123 Position</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: Full Time</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: $123 - $456</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Location: New York, USA</p>
-                    <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: 01 Jan, 2045</p>
+                <div class="bg-light rounded p-5 mb-4 wow slideInUp" id="functionalSidebar" data-wow-delay="0.1s">
+                    <h4 class="mb-4">Functional</h4>
                 </div>
-                <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
-                    <h4 class="mb-4">Company Detail</h4>
-                    <p class="m-0">Ipsum dolor ipsum accusam stet et et diam dolores, sed rebum sadipscing elitr vero dolores. Lorem dolore elitr justo et no gubergren sadipscing, ipsum et takimata aliquyam et rebum est ipsum lorem diam. Et lorem magna eirmod est et et sanctus et, kasd clita labore.</p>
+                <div class="bg-light rounded p-5 mb-4 wow slideInUp" id="industrialSidebar" data-wow-delay="0.1s">
+                    <h4 class="mb-4">Industrial</h4>
+                </div>
+                <div class="bg-light rounded p-5 mb-4 wow slideInUp" id="specialSidebar" data-wow-delay="0.1s">
+                    <h4 class="mb-4">Special</h4>
                 </div>
             </div>
             <div class="col-lg-8">

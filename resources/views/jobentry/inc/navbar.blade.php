@@ -30,7 +30,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Special</a>
                 <div class="dropdown-menu rounded-0 m-0" id="PostCatSpecial"></div>
             </div>
-            <a href="#" class="nav-item nav-link">About US</a>
+            <a href="{{route('about')}}" class="nav-item nav-link">About US</a>
             @guest
             <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
             <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>
@@ -58,7 +58,7 @@
 
         </div>
         @if(auth()->user() && auth()->user()->roles == 'employer')
-        <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
         @else
         <a href="{{ route('post.all') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Find A Job<i class="fa fa-arrow-right ms-3"></i></a>
         @endif

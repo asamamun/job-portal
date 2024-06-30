@@ -33,6 +33,7 @@ use App\Http\Controllers\Applicant\ReferenceController;
 use App\Http\Controllers\Applicant\SkillController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\WithdrawController;
@@ -48,6 +49,7 @@ use Illuminate\Support\Facades\Route;
 
 //every on access this link
 Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::prefix('post')->group(function () {
     Route::get('/all', [FrontendController::class, 'all'])->name('post.all');
     Route::get('/single/{id}', [FrontendController::class, 'single'])->name('post.single');
@@ -68,8 +70,14 @@ Route::post('/withdraw/store', [WithdrawController::class, 'store'])->name('with
 Route::get('/cv/{id}', [ResumeController::class, 'index'])->name('cv');
 Route::get('/cv/download/{id}', [ResumeController::class, 'download'])->name('cv.download');
 //cvpro
-Route::get('/cvpro/{id}', [ResumeController::class, 'indexcv'])->name('cvpro');
-Route::get('/cvpro/download/{id}', [ResumeController::class, 'download'])->name('cvpro.download');
+Route::get('/cv/cvpro/{id}', [ResumeController::class, 'indexcv'])->name('cvpro');
+Route::get('/cv/cvpro/download/{id}', [ResumeController::class, 'downloadcv'])->name('cvpro.download');
+//cvdark
+Route::get('/cv/dark/{id}', [ResumeController::class, 'indexdark'])->name('dark');
+Route::get('/cv/dark/download/{id}', [ResumeController::class, 'downloaddark'])->name('dark.download');
+//cvdark
+Route::get('/cv/cvsimple/{id}', [ResumeController::class, 'indexsimple'])->name('simple');
+Route::get('/cv/cvsimple/download/{id}', [ResumeController::class, 'downloadsimple'])->name('simple.download');
 
 
 
@@ -147,6 +155,12 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     //post
 	Route::get('post/{id}', [ApplicantPostController::class, 'save'])->name('post.save');
     Route::get('post/delete/{id}', [ApplicantPostController::class, 'delete'])->name('post.delete');
+
+
+
+    //Email for cv link
+    Route::get('/send/page/', [EmailController::class, 'cvPage'])->name('send.page');
+    Route::post('/send/cv/', [EmailController::class, 'cvLink'])->name('send.cv');
 });
 
 

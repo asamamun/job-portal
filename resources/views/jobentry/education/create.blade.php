@@ -12,8 +12,13 @@
             @include('jobentry.inc.leftsidebar')
              <div class="card  col-9">
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Education Details</h4>
-                  
+ 
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mt-0 header-title">Education Details</h4>
+                        <a href="{{ route('education.index') }}" class="btn btn-light">
+                            <i class="bi bi-arrow-left"></i>
+                        </a>
+                    </div>
                     <form action="{{ route('education.store') }}" class="parsley-examples" method="POST">
                         @csrf
                         <label for="levelname" class="form-label">Level<span class="text-danger">*</span></label>

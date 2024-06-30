@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2024 at 09:36 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jun 30, 2024 at 10:01 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,7 +80,7 @@ CREATE TABLE `applicants` (
 --
 
 INSERT INTO `applicants` (`id`, `user_id`, `objective`, `title`, `father`, `mother`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `gender`, `religion`, `nationality`, `marital`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
-(1, 15, 'I want to make space for me in this challenging industry', 'Web Developer', 'md', 'mrs', '123456789', NULL, NULL, 'Fulltime', 'Dhaka', '2024-06-12', 'male', 'islam', 'bangladeshi', 'single', '0', 'full-time', 490, '0', '2024-06-11 21:17:47', '2024-06-29 00:17:58'),
+(1, 15, 'A motivated and detail-oriented professional seeking to leverage [number] years of experience in [your field/industry] to contribute effectively to [company/organization name]. Proven ability to [mention key skills or achievements relevant to the position]. Eager to apply strong organizational skills and a proactive mindset to support [specific goals or responsibilities of the position].', 'Web Developer', 'md kamal', 'mrs', '123456789', NULL, NULL, 'Fulltime', 'Dhaka', '2024-06-12', 'male', 'islam', 'bangladeshi', 'single', '0', 'part-time', 465, '0', '2024-06-11 21:17:47', '2024-06-29 23:22:21'),
 (2, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
 (3, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58'),
 (6, 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
@@ -115,7 +115,9 @@ CREATE TABLE `applicant_post` (
 
 INSERT INTO `applicant_post` (`id`, `post_id`, `applicant_id`, `status`, `created_at`, `updated_at`) VALUES
 (11, 4, 1, 'applied', '2024-06-17 00:19:23', NULL),
-(12, 2, 1, 'applied', '2024-06-23 00:40:40', NULL);
+(12, 2, 1, 'applied', '2024-06-23 00:40:40', NULL),
+(13, 7, 1, 'applied', '2024-06-29 23:15:22', NULL),
+(14, 3, 1, 'applied', '2024-06-29 23:22:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -515,8 +517,9 @@ CREATE TABLE `education` (
 --
 
 INSERT INTO `education` (`id`, `applicant_id`, `level`, `institute`, `board`, `duration`, `session`, `subject`, `group`, `division`, `grade`, `grade_out_of`, `passing_year`, `created_at`, `updated_at`) VALUES
-(1, 1, 'secondary', 'govt school', 'Dhaka', '2', '2008', 'english', 'scince', 'Dhaka', '3.6', '5', '2010', '2024-06-24 00:45:29', '2024-06-24 00:45:29'),
-(2, 1, 'bachelor', 'adamjee', 'dhaka', '4', '2013-2014', 'accounting', 'business', 'dhaka', '3.00', '4.00', '2019', '2024-06-24 13:06:28', '2024-06-24 13:06:28');
+(1, 1, 'secondary', 'Barguna Zilla School', 'Dhaka', '2', '2008-2009', 'english', 'scince', 'Dhaka', '3.6', '5', '2010', '2024-06-24 00:45:29', '2024-06-24 00:45:29'),
+(2, 1, 'bachelor', 'adamjee', 'dhaka', '4', '2013-2014', 'accounting', 'business', 'dhaka', '3.00', '4.00', '2019', '2024-06-24 13:06:28', '2024-06-24 13:06:28'),
+(3, 1, 'bachelor', 'National University', 'Dhaka', '4', '2015', 'management', 'scince', 'Dhaka', '3.6', '5', '2010', '2024-06-29 23:05:29', '2024-06-29 23:05:29');
 
 -- --------------------------------------------------------
 
@@ -552,7 +555,7 @@ CREATE TABLE `employers` (
 --
 
 INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
-(1, 14, 'Artial', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100, 'regular', '2024-06-11 21:12:46', '2024-06-27 12:36:34'),
+(1, 14, 'Artial', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, 'regular', '2024-06-11 21:12:46', '2024-06-29 23:57:08'),
 (2, 16, 'Robi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37'),
 (3, 17, 'GP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29'),
 (4, 27, 'IsDB', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-26 08:04:05', '2024-06-26 08:04:05'),
@@ -563,7 +566,7 @@ INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence
 (9, 33, 'ACI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:18:23', '2024-06-28 22:18:23'),
 (10, 34, 'Samsung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:19:44', '2024-06-28 22:19:44'),
 (11, 35, 'LG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:20:38', '2024-06-28 22:20:38'),
-(12, 36, 'Bikash', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:22:10', '2024-06-28 22:22:10');
+(12, 36, 'Bkash', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:22:10', '2024-06-28 22:22:10');
 
 -- --------------------------------------------------------
 
@@ -592,7 +595,7 @@ CREATE TABLE `experiences` (
 
 INSERT INTO `experiences` (`id`, `applicant_id`, `company`, `address`, `phone`, `position`, `department`, `description`, `from`, `to`, `created_at`, `updated_at`) VALUES
 (2, 1, 'IsDB1', 'Agargaon Dhaka, Bangladesh', '01831587760', 'trainee', 'WDPF', 'HTML, CSS, JS, PHP, Lavavel', '2024-06-01', '2024-06-12', '2024-06-11 22:15:03', '2024-06-11 22:29:12'),
-(4, 1, 'gnsl', 'gnsl tower', '01234567890', 'trainee', 'wdpf', 'rhbjjkbvf', '2024-01-23', '2024-06-15', '2024-06-24 13:07:40', '2024-06-24 13:07:40');
+(4, 1, 'gnsl', 'gnsl tower', '01234567890', 'trainee', 'wdpf', 'HTML, CSS, JS, PHP, Lavavel', '2024-01-23', '2024-06-15', '2024-06-24 13:07:40', '2024-06-24 13:07:40');
 
 -- --------------------------------------------------------
 
@@ -781,7 +784,11 @@ INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `create
 (102, 38, 5, 'Exam Fees', 'income', '2024-06-28 22:30:45', '2024-06-28 22:30:45'),
 (103, 38, 5, 'Exam Fees', 'income', '2024-06-28 22:30:49', '2024-06-28 22:30:49'),
 (104, 38, 5, 'Exam Fees', 'income', '2024-06-28 22:30:52', '2024-06-28 22:30:52'),
-(105, 38, 5, 'Exam Fees', 'income', '2024-06-28 22:30:55', '2024-06-28 22:30:55');
+(105, 38, 5, 'Exam Fees', 'income', '2024-06-28 22:30:55', '2024-06-28 22:30:55'),
+(106, 15, 5, 'Exam Fees', 'income', '2024-06-29 20:56:01', '2024-06-29 20:56:01'),
+(107, 15, 5, 'Job Applyed', 'income', '2024-06-29 23:15:22', '2024-06-29 23:15:22'),
+(108, 15, 5, 'Job Applyed', 'income', '2024-06-29 23:22:21', '2024-06-29 23:22:21'),
+(109, 14, 100, 'Job Post Created', 'income', '2024-06-29 23:57:08', '2024-06-29 23:57:08');
 
 -- --------------------------------------------------------
 
@@ -1099,7 +1106,7 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `applicant_id`, `title`, `description`, `url`, `start_date`, `end_date`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'appertmant', 'dsfghjk', 'https://coders24x7.com/', '2024-04-29', '2024-05-15', 'complete', '2024-06-29 01:15:47', '2024-06-29 01:15:47');
+(1, 1, 'appertmant', '\nChatGPT\nCreating a star shape in CSS using HTML and CSS can be achieved in a few different ways. One common method is to use CSS for the shape and HTML for the structure. Here\'s a straightforward', 'https://coders24x7.com/', '2024-04-29', '2024-05-15', 'complete', '2024-06-29 01:15:47', '2024-06-29 01:15:47');
 
 -- --------------------------------------------------------
 
@@ -1197,7 +1204,8 @@ CREATE TABLE `references` (
 --
 
 INSERT INTO `references` (`id`, `applicant_id`, `name`, `organization`, `designation`, `phone`, `relation`, `email`, `address`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Abu Saleh Abdullah Al Mamun', 'GNSL', 'Trainer', '1236549845621', 'Teacher', 'asamamun@gmai.com', 'kazipara', '2024-06-29 01:05:32', '2024-06-29 01:05:32');
+(1, 1, 'Abu Saleh Abdullah Al Mamun', 'GNSL', 'Trainer', '1236549845621', 'Teacher', 'asamamun@gmai.com', 'Faculty, Genuity Training\nPlot 623 & 624, Begum Rokeya \nSharani, Kazipara, Mirpur, Dhaka, \nBangladesh', '2024-06-29 01:05:32', '2024-06-29 01:05:32'),
+(2, 1, 'Md. Moshaidul Islam', 'Isdb', 'Consultant', '01711071219', 'Academic', 'moshaidul@gmail.com', 'Show & Tell Consulting Ltd IsDB-BISEW IT Scholarship  Programme', '2024-06-29 23:01:10', '2024-06-29 23:01:10');
 
 -- --------------------------------------------------------
 
@@ -1340,7 +1348,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('OyXnME1JNFqDyuETxtOAh1JeeEwPh2TJg4KTnucn', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVjJxbDJiZGZuZGw1MEpyNGl3ZnZTbnNvU05DUDk4Mk82Y3FtclBycSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9leGFtcGxlMiI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719689720);
+('pEL2VPKd40siIGKc2f7xyJHW2dMUof8eaSATyZgE', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoic2w4ak9rNjBZMkE1bzBKTzRkVEFaVXp6WUcxbUVnMEliVGdlMkFLWSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hamF4L3Bvc3QvY2F0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTU7fQ==', 1719734436);
 
 -- --------------------------------------------------------
 
@@ -6600,9 +6608,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `contact`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `address`, `created_at`, `updated_at`) VALUES
-(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'GNBHo1JkFllB3V6t19OEki3tk1H0fVp7X7tUCj1HmAWQ0NNGNCbQnQuD0s6I', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', '01725836911', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', '6po6E3pOlbzmzb4zEjJC0p9EpWFkFGMl4RXAd8Xm7fyoB77eVkL8e5eZdrl5', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
-(16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'wL84xYmDKYc41cx3opyQegpUpOOeN8qKnqq9VEZzrOejhTUBDJrSzEY0741x', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
+(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'DwsOdTpvzqS5dESmxCiURd3LPoOteN06uX176T97uIYieFo5IHyRHOnNo6Gl', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', '01725836911', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'i3Rh9DPC9IaDOp5B0C3T8dL3NcTY1JZ3lB7HoFubQrYzMO1ZuMA2UO4RlhZ1', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
+(16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', '6YZVzsVHKe9jAlqnxlp3RUdIr7tbe50uPMvCDOBxLGnTdZDKE2JHX6SZhst5', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', 'Dhaka, Bangladesh', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
 (19, 'Tanima Hasan', 'img/1718610121.png', 'tanima@gmail.com', NULL, NULL, '$2y$12$46On/z8GpU52yWqj0QK6/OTZvyGZex6N1tw4Mr//ctUyNWUILbOXW', 'applicant', 'jmViMfctjYJU9olsIzpwb46qZVxXF8bqCWgxW1qIn2ZNjTyYEUcJn8GpAqKF', '0', 'Dhaka, Bangladesh', '2024-06-17 01:41:24', '2024-06-17 01:43:31'),
@@ -6962,7 +6970,7 @@ ALTER TABLE `applicants`
 -- AUTO_INCREMENT for table `applicant_post`
 --
 ALTER TABLE `applicant_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `applicant_post_types`
@@ -6992,7 +7000,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employers`
@@ -7022,7 +7030,7 @@ ALTER TABLE `functionals`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `industrials`
@@ -7100,7 +7108,7 @@ ALTER TABLE `recharges`
 -- AUTO_INCREMENT for table `references`
 --
 ALTER TABLE `references`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `results`
