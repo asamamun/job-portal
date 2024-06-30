@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2024 at 06:12 PM
+-- Generation Time: Jul 01, 2024 at 01:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,10 +80,10 @@ CREATE TABLE `applicants` (
 --
 
 INSERT INTO `applicants` (`id`, `user_id`, `objective`, `title`, `father`, `mother`, `nid`, `file`, `cv`, `jobtype`, `location`, `dob`, `gender`, `religion`, `nationality`, `marital`, `type`, `available_for`, `points`, `status`, `created_at`, `updated_at`) VALUES
-(1, 15, 'A motivated and detail-oriented professional seeking to leverage [number] years of experience in [your field/industry] to contribute effectively to [company/organization name]. Proven ability to [mention key skills or achievements relevant to the position]. Eager to apply strong organizational skills and a proactive mindset to support [specific goals or responsibilities of the position].', 'Web Developer', 'md kamal', 'mrs', '123456789', NULL, NULL, 'Fulltime', 'Dhaka', '2024-06-12', 'male', 'islam', 'bangladeshi', 'single', '0', 'part-time', 465, '0', '2024-06-11 21:17:47', '2024-06-29 23:22:21'),
+(1, 15, 'A motivated and detail-oriented professional seeking to leverage [number] years of experience in [your field/industry] to contribute effectively to [company/organization name]. Proven ability to [mention key skills or achievements relevant to the position]. Eager to apply strong organizational skills and a proactive mindset to support [specific goals or responsibilities of the position].', 'Web Developer', 'md kamal', 'mrs', '123456789', NULL, NULL, 'Fulltime', 'Dhaka', '2024-06-12', 'male', 'islam', 'bangladeshi', 'single', '0', 'part-time', 445, '0', '2024-06-11 21:17:47', '2024-06-30 12:34:49'),
 (2, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 40, '1', '2024-06-17 00:30:49', '2024-06-17 01:39:19'),
 (3, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'others', 'islam', 'bangladeshi', 'others', '0', 'both', 445, '1', '2024-06-17 01:41:24', '2024-06-17 07:14:58'),
-(6, 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
+(6, 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 10, '1', '2024-06-26 06:44:31', '2024-06-30 12:51:45'),
 (7, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 06:46:14', '2024-06-26 06:46:14'),
 (8, 25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 08:00:39', '2024-06-26 08:00:39'),
 (9, 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islam', 'bangladeshi', NULL, '0', 'both', 20, '1', '2024-06-26 08:02:05', '2024-06-26 08:02:05'),
@@ -97,10 +97,10 @@ INSERT INTO `applicants` (`id`, `user_id`, `objective`, `title`, `father`, `moth
 -- --------------------------------------------------------
 
 --
--- Table structure for table `applicant_post`
+-- Table structure for table `applicant_posts`
 --
 
-CREATE TABLE `applicant_post` (
+CREATE TABLE `applicant_posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED DEFAULT NULL,
   `applicant_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -110,14 +110,16 @@ CREATE TABLE `applicant_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `applicant_post`
+-- Dumping data for table `applicant_posts`
 --
 
-INSERT INTO `applicant_post` (`id`, `post_id`, `applicant_id`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `applicant_posts` (`id`, `post_id`, `applicant_id`, `status`, `created_at`, `updated_at`) VALUES
 (11, 4, 1, 'applied', '2024-06-17 00:19:23', NULL),
 (12, 2, 1, 'applied', '2024-06-23 00:40:40', NULL),
 (13, 7, 1, 'applied', '2024-06-29 23:15:22', NULL),
-(14, 3, 1, 'applied', '2024-06-29 23:22:21', NULL);
+(14, 3, 1, 'interview', '2024-06-29 23:22:21', '2024-06-30 13:50:27'),
+(15, 6, 1, 'applied', '2024-06-30 12:34:49', NULL),
+(16, 3, 6, 'rejected', '2024-06-30 12:51:45', '2024-06-30 13:53:23');
 
 -- --------------------------------------------------------
 
@@ -555,8 +557,8 @@ CREATE TABLE `employers` (
 --
 
 INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
-(1, 14, 'Artial', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 800, 'regular', '2024-06-11 21:12:46', '2024-06-30 09:48:34'),
-(2, 16, 'Robi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-11 21:20:37', '2024-06-11 21:20:37'),
+(1, 14, 'Artial', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 605, 'regular', '2024-06-11 21:12:46', '2024-06-30 12:51:45'),
+(2, 16, 'Robi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 505, 'regular', '2024-06-11 21:20:37', '2024-06-30 12:34:49'),
 (3, 17, 'GP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29'),
 (4, 27, 'IsDB', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-26 08:04:05', '2024-06-26 08:04:05'),
 (5, 29, 'softwindtech', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:10:00', '2024-06-28 22:10:00'),
@@ -790,7 +792,13 @@ INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `create
 (108, 15, 5, 'Job Applyed', 'income', '2024-06-29 23:22:21', '2024-06-29 23:22:21'),
 (109, 14, 100, 'Job Post Created', 'income', '2024-06-29 23:57:08', '2024-06-29 23:57:08'),
 (110, 14, 100, 'Job Post Created', 'income', '2024-06-30 09:48:09', '2024-06-30 09:48:09'),
-(111, 14, 100, 'Job Post Created', 'income', '2024-06-30 09:48:34', '2024-06-30 09:48:34');
+(111, 14, 100, 'Job Post Created', 'income', '2024-06-30 09:48:34', '2024-06-30 09:48:34'),
+(112, 15, 5, 'Exam Fees', 'income', '2024-06-30 12:04:24', '2024-06-30 12:04:24'),
+(113, 15, 5, 'Exam Fees', 'income', '2024-06-30 12:04:49', '2024-06-30 12:04:49'),
+(114, 14, 100, 'Job Post Created', 'income', '2024-06-30 12:11:01', '2024-06-30 12:11:01'),
+(115, 15, 5, 'Job Applyed', 'income', '2024-06-30 12:34:49', '2024-06-30 12:34:49'),
+(116, 14, 100, 'Job Post Created', 'income', '2024-06-30 12:47:12', '2024-06-30 12:47:12'),
+(117, 23, 5, 'Job Applyed', 'income', '2024-06-30 12:51:45', '2024-06-30 12:51:45');
 
 -- --------------------------------------------------------
 
@@ -1350,7 +1358,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Ianj9zPkNpIKIy19DWPEA1lTeJs1rIeWSjwRWpZE', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiamlmMzd2S2c2cTFXNDhWekpXNkZsYlMzOEt3bDByYjN0Z21ZTGpNOSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hamF4L3Bvc3QvY2F0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTQ7fQ==', 1719762520);
+('9Suuzvi2rE7xYaoFfQOzRv0bbs1hKbiy0TAV27n9', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVVp1VzlUSW91bkY0OVB6d0lDM2hMS0tVTjIxaGZDdHNxN08zREY2USI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lbXBsb3llci9wb3N0cy9hcHBsaWVkLzMiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNDt9', 1719777203);
 
 -- --------------------------------------------------------
 
@@ -6610,13 +6618,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `contact`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `address`, `created_at`, `updated_at`) VALUES
-(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'DwsOdTpvzqS5dESmxCiURd3LPoOteN06uX176T97uIYieFo5IHyRHOnNo6Gl', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', '01725836911', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', '1HPxu7UTiozr4UQNcjLGF7bDTtVJ6exmmqdD8lZHg9YrOIFFOKodfAzjf68W', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
-(16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'v5CEc8wKYwQU1laqNlwMcayby2K1AddcsEAh3lQqKzeYj9kU7VXCnvJ5c83j', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
+(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'bXK0HvFDZQ1dRMWRQTUT8qrvVIbo3RxbJjsxF7HkRSr2I2S7F7TnniAEC0hh', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', '01725836911', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'VgKxqVFxkfP2dxOV6UhUOIBgNNQgkBGYKuXfVQPdQf1W0qxRMrSMtxsmoZuY', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
+(16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'eRABmCzyPEYcMvIjX4yP27PiGSO69Rae12f6JtXU2jZNM3gjRzpjkrpwji8Q', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
 (17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', 'Dhaka, Bangladesh', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
 (19, 'Tanima Hasan', 'img/1718610121.png', 'tanima@gmail.com', NULL, NULL, '$2y$12$46On/z8GpU52yWqj0QK6/OTZvyGZex6N1tw4Mr//ctUyNWUILbOXW', 'applicant', 'jmViMfctjYJU9olsIzpwb46qZVxXF8bqCWgxW1qIn2ZNjTyYEUcJn8GpAqKF', '0', 'Dhaka, Bangladesh', '2024-06-17 01:41:24', '2024-06-17 01:43:31'),
-(23, 'israt ahamed sabbir', NULL, 'onikitbd@gmail.com', NULL, NULL, '$2y$12$z5kPwX4pndjcWOTODPlc2.JM.CLidHyaB52M8gfdhgtPkD4dYbg02', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
+(23, 'israt ahamed sabbir', NULL, 'onikitbd@gmail.com', NULL, NULL, '$2y$12$z5kPwX4pndjcWOTODPlc2.JM.CLidHyaB52M8gfdhgtPkD4dYbg02', 'applicant', '5g6eoTZrUL8NQgvI3LDVlcKzRz8w2SISwFuyn3D9gAGWSwpVLNHzTvd1ErOs', '1', 'Dhaka, Bangladesh', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
 (24, 'sabber hasan', NULL, 'sabberhasan042@gmail.com', NULL, NULL, '$2y$12$FeiNSGIKJTQvfswz4PV8b.6fIk9jhGxMX0DI0gH1.am9JEzcVUzHq', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 06:46:14', '2024-06-26 06:46:14'),
 (25, 'nur mohammod', NULL, 'nurmohammad20161994@gmail.com', NULL, NULL, '$2y$12$/PBSSlDzuoxlKmq0hnUn9uAtEeHMZuvVWLCAuq6uEViuGq2BX6Lr2', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 08:00:39', '2024-06-26 08:00:39'),
 (26, 'Md. Tawhid Khan', NULL, 'tawhidwdpf57@gmail.com', NULL, NULL, '$2y$12$eFE/SYiNDdbr1.mrB/z3f.365/Wnck9u/6gQawOesM7GTeNH0xaPS', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 08:02:05', '2024-06-26 08:02:05'),
@@ -6680,9 +6688,9 @@ ALTER TABLE `applicants`
   ADD KEY `applicants_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `applicant_post`
+-- Indexes for table `applicant_posts`
 --
-ALTER TABLE `applicant_post`
+ALTER TABLE `applicant_posts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `applicant_post_post_id_foreign` (`post_id`),
   ADD KEY `applicant_post_applicant_id_foreign` (`applicant_id`);
@@ -6969,10 +6977,10 @@ ALTER TABLE `applicants`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `applicant_post`
+-- AUTO_INCREMENT for table `applicant_posts`
 --
-ALTER TABLE `applicant_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `applicant_posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `applicant_post_types`
@@ -7032,7 +7040,7 @@ ALTER TABLE `functionals`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `industrials`
@@ -7183,9 +7191,9 @@ ALTER TABLE `applicants`
   ADD CONSTRAINT `applicants_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `applicant_post`
+-- Constraints for table `applicant_posts`
 --
-ALTER TABLE `applicant_post`
+ALTER TABLE `applicant_posts`
   ADD CONSTRAINT `applicant_post_applicant_id_foreign` FOREIGN KEY (`applicant_id`) REFERENCES `applicants` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `applicant_post_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 

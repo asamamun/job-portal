@@ -132,7 +132,8 @@ Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::get('/dashboard', [EmployerDashboardController::class, 'index'])->name('employer.dashboard');
     Route::resource('posts', PostController::class)->only(['create'])->middleware(PostCheck::class);
     Route::resource('posts', PostController::class)->except(['create']);
-    Route::get('post/applyed/{id}', [PostController::class, 'applyPost'])->name('post.applyed');
+    Route::get('posts/applied/{id}', [PostController::class, 'applyPost'])->name('posts.applied');
+    Route::get('posts/applied/status/{id}/{txt}', [PostController::class, 'applyPostStatus'])->name('posts.applied.status');
 });
 
 
@@ -158,12 +159,12 @@ Route::middleware([Applicant::class])->prefix('applicant')->group(function () {
     //result
 	Route::post('result', [ExamController::class, 'examResult']);
 	Route::get('apply/{id}', [ApplyController::class, 'apply'])->middleware(ApplyCheck::class);
-    
+
     //post
 	Route::get('post/{id}', [ApplicantPostController::class, 'save'])->name('post.save');
     Route::get('post/saved/page', [ApplicantPostController::class, 'savePage'])->name('post.saved.page');
     Route::get('post/delete/{id}', [ApplicantPostController::class, 'delete'])->name('post.delete');
-    
+
 
 
 

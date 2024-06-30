@@ -14,7 +14,7 @@ class ApplyController extends Controller
 {
     public function apply($id)
     {
-        $result = DB::table('applicant_post')->where('post_id', $id)->where('applicant_id', auth()->user()->applicant->id)->first();
+        $result = DB::table('applicant_posts')->where('post_id', $id)->where('applicant_id', auth()->user()->applicant->id)->first();
         if ($result) {
             return back()->with('error', 'You have already applied for this job');
         }
@@ -35,12 +35,12 @@ class ApplyController extends Controller
         $employer->points = $employer->points + 5;
         $employer->save();
 
-        DB::table('applicant_post')->insert([
+        DB::table('applicant_posts')->insert([
             'post_id' => $id,
             'applicant_id' => auth()->user()->applicant->id,
             'created_at' => now(),
         ]);
-        
+
         return back()->with('success', 'You have successfully applied for this job');
     }
 }

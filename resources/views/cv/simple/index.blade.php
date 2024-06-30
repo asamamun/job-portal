@@ -10,7 +10,7 @@
             width: 100%;
             background-color: #f1f1f1;
             border: 1px solid #ccc;
-            
+
         }
 
         .progress-bar {
@@ -185,11 +185,11 @@
                 @endforeach
             </div>
         </div>
-        <a href="{{ route('cv.download', $user->id) }}" style="margin-top: 50px; text-decoration: none">Download</a>
-        &nbsp;
-        <a href="{{ route('send.page', $user->id) }}" style="margin-top: 50px; text-decoration: none">Send</a>
       </div>
   </page>
+  <a href="{{ route('cv.download', $user->id) }}" style="text-decoration: none">Download</a>
+  &nbsp;
+  <a href="{{ route('send.page', $user->id) }}" style="text-decoration: none">Send</a>
 </body>
 
 </html>

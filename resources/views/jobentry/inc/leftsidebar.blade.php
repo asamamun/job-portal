@@ -1,7 +1,7 @@
 <div class="col-md-3 bg-white pt-3 pb-3">
-   
+
     {{-- main  --}}
-    <div class="d-flex mb-4"> 
+    <div class="d-flex mb-4">
         <div class="float-start position-relative">
             <a href="{{ asset('storage/' . (auth()->user()->image ? auth()->user()->image : 'img/avatar.png')) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                 <img src="{{ asset('storage/' . (auth()->user()->image ? auth()->user()->image : 'img/avatar.png')) }}" alt="" class="img-thumbnail rounded float-start mb-2" style="height: 150px; width: 150px;" />
@@ -11,7 +11,7 @@
                         @csrf
                         @method('PUT')
                     @else
-                       
+
                     {{-- <form action="{{ route('applicant.store.image') }}"  method="POST" enctype="multipart/form-data"> --}}
                         <form action="{{ route('applicant.update.image') }}"  method="POST" enctype="multipart/form-data">
                             @csrf
@@ -22,7 +22,7 @@
                             <i class="bi bi-pencil-square text-danger text-success mt-2 "></i>
                         </label>
                         <input type="file" id="imageUpload" name="image" parsley-trigger="change" required accept="image/*" style="display: none;">
-                    
+
                         <!-- Plus icon for adding image -->
                         <button type="submit" class="btn text-success mt-2" style="font-size: 15px">
                             <i class="bi bi-plus-square mt-2" ></i>
@@ -35,13 +35,13 @@
     {{-- main end --}}
 
 
-   
+
         <div class="pl-3 " style="margin-top: auto;">
             <p class="mb-0" style="font-size: 16px; font-weight: bold">Name :{{ auth()->user()->name }}</p>
             <p class="mb-0" style="font-size: 14px">Points :{{auth()->user()->applicant->points}}</p>
             <p class="mb-0" style="font-size: 14px">Date Of Birth :{{auth()->user()->applicant->dob}}</p>
         </div>
-  
+
 
     <hr style="clear: both;"/>
     <div>
@@ -53,7 +53,7 @@
                 <div class="collapse" id="home-collapse">
                     <ul class="nav-second-level" style="list-style: none;">
                         <li><a href="{{ url('applicant/profile') }}">Personel Details</a></li>
-                       
+
                         <li>
                             <a href="#sidebarTables45345" data-bs-toggle="collapse">
                                 <i class="mdi mdi-table"></i>
@@ -188,7 +188,7 @@
                         <li><a href="{{route('dark', auth()->user()->id)}}">CV <span class="badge bg-info">Dark <i>M</i></span></a></li>
                         <li><a href="{{route('cvpro', auth()->user()->id)}}">CV <span class="badge bg-info">pro <i>M</i></span></a></li>
                         <li><a href="{{route('simple', auth()->user()->id)}}">CV </li>
-                        <li><a href="#">Download</a></li>
+                        <li><a href="{{ route('cv.download', auth()->user()->id) }}">Download</a></li>
                     </ul>
                 </div>
             </li>
@@ -210,7 +210,7 @@
                 </button>
                 <div class="collapse" id="orders-collapse">
                     <ul class="nav-second-level">
-                        <li><a href="#">Exam</a></li>
+                        <li><a href="/applicant/exam">Exam</a></li>
                         <li><a href="#">Result</a></li>
                         <li><a href="{{url('/example2')}}">Recharge</a></li>
                         <li><a href="{{url('/withdraw')}}">Withdraw</a></li>

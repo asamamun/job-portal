@@ -5,11 +5,13 @@ namespace App\Http\Controllers\employer;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ApplicantPost;
 use App\Models\Country;
 use App\Models\Functional;
 use App\Models\Income;
 use App\Models\Industrial;
 use App\Models\Special;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -198,13 +200,16 @@ class PostController extends Controller
 
     public function applyPost($id)
     {
-        $this->data['posts'] = SavePost::where('applicant_id', $id)
-            ->with('post')
-            ->orderBy('id', 'desc')
-            ->through(function ($savepost) {
-                return $savepost->post;
-            });
-        //dd($this->data['posts']);
-        return view('jobentry.posts', $this->data);
+        $applicantposts = ApplicantPost::where('post_id', $id)->with(['applicant' => function ($query) {
+            $query->with('user');
+        }])->get();
+        return view('adminto.posts.applied', compact('applicantposts'));
+    }
+    public function applyPostStatus($id, $txt)
+    {
+        $apppost = ApplicantPost::find($id);
+        $apppost->status = $txt;
+        $apppost->save();
+        return redirect()->back()->with("success", "Status updated successfully");
     }
 }

@@ -69,5 +69,9 @@ class Post extends Model
     {
         return $this->belongsToMany(SavePost::class);
     }
+    public function applicant_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(ApplicantPost::class);
+    }
 
 }

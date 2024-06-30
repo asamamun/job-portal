@@ -33,7 +33,7 @@
                             <tbody>
                                 @forelse ($posts as $post)
                                 <tr class="odd">
-                                    <td class="" tabindex="0">{{$post->title}}</td>
+                                    <td class="" tabindex="0">{{Str::limit($post->title, 30)}}</td>
                                     <td>{{$post->type}}</td>
                                     <td>{{$post->address}}</td>
                                     <td>{{$post->salary}}</td>
@@ -46,6 +46,7 @@
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                                     <li><a class="dropdown-item" href="{{route('posts.edit', $post->id)}}">Edit</a></li>
+                                                    <li><a class="dropdown-item" href="{{route('posts.applied', $post->id)}}">Application</a></li>
                                                     <form action="{{route('posts.destroy', $post->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
