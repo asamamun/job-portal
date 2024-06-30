@@ -5,7 +5,7 @@
 @section('content')
 
 
-@include('jobentry.inc.aboutpic')
+@include('jobentry.inc.jumbotron', ['title' => 'About Us'])
 @include('jobentry.inc.about')
 @include('jobentry.inc.testimonial')
 @include('jobentry.inc.footer')

@@ -10,6 +10,7 @@ use App\Models\SavePost;
 use App\Models\Country;
 use App\Models\Setting;
 use App\Models\Special;
+use App\Models\Carousel;
 use Illuminate\Http\Request;
 use Settings;
 
@@ -20,6 +21,7 @@ class FrontendController extends Applicant
     public function __construct()
     {
         parent::__construct();
+        $this->data["carousels"] = Carousel::all();
     }
     public function index()
     {

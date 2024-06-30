@@ -3,7 +3,7 @@
 
 @endsection
 @section('content')
-@include('jobentry.inc.jumbotron')
+@include('jobentry.inc.jumbotron', ['title' => $post->title])
 
 <!-- Job Detail Start -->
 <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">

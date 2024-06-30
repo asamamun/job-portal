@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-@include('jobentry.inc.jumbotron')
+@include('jobentry.inc.jumbotron', ['title' => auth()->user()->name])
 <div class="container-fluid pt-3 pb-3" data-wow-delay="0.1s">
     <div class="container py-5">
         <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">profile</h1>
