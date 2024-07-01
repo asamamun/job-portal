@@ -12,7 +12,7 @@
     @yield('head')
 
     <!-- Favicon -->
-    <link href="{{ asset('jobentry/img/favicon.ico ')}}" rel="icon">
+    <link href="{{ asset('Storage/'.Settings::get()->icon) }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

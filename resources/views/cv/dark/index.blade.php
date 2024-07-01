@@ -299,12 +299,31 @@
     }
 
     /* End Layout */
+    .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile h1 {
+            margin: 0;
+            font-size: 28px;
+        }
   </style>
 </head>
 
 <body>
   <page size="A4">
+    <div class="profile">
     <div class="container">
+     
       <div class="leftPanel">
         <!-- Assuming Laravel Blade syntax for image -->
         <img src="{{ $user->image != null ? asset("storage/".$user->image) : asset('no_image.png') }}" class="photo" alt="Profile Picture">
@@ -400,9 +419,6 @@
               @endforeach
             </table>
           </div>
-
-
-
         </div>
       </div>
       <div class="rightPanel" style="background-color: #f0f0f0; padding: 10px;">
@@ -540,10 +556,14 @@
             </table>
           </div>
         </div>
-        <a href="{{ route('cv.download', $user->id) }}" style="margin-top: 50px; text-decoration: none">Download</a>
-        &nbsp;
-        <a href="{{ route('send.page', $user->id) }}" style="margin-top: 50px; text-decoration: none">Send</a>
+          <span class="item">
+           <a href="{{ route('cv.download', $user->id) }}" style="margin-top: 50px; text-decoration: none">Download</a>
+            &nbsp;
+           <a href="{{ route('send.page', $user->id) }}" style="margin-top: 50px; text-decoration: none">Send</a>
+        </span>
       </div>
+   </div>
+  </div>
   </page>
 </body>
 

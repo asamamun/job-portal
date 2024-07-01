@@ -20,6 +20,11 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->integer('paginate')->nullable(10);
             $table->string('icon')->nullable();
+            $table->string('address')->nullable();
+            $table->string('email')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('mobile')->nullable();
             $table->set('status', [1,0])->default(1);
             $table->timestamps();
         });

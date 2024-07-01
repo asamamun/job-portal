@@ -10,7 +10,7 @@
             width: 100%;
             background-color: #f1f1f1;
             border: 1px solid #ccc;
-
+            
         }
 
         .progress-bar {
@@ -27,6 +27,8 @@
 <body>
 
     <div id="page">
+        <div class="container"> 
+            <div class="profile">
         <div class="photo-and-name">
             <img src="{{ $user->image != null ? asset('storage/'.$user->image) : asset('no_image.png') }}" class="photo" alt="Profile Picture">
             <div class="contact-info-box">
@@ -183,13 +185,15 @@
                     <td>{{$reference->organization}}, {{$reference->designation	}}, {{$reference->phone}} years, {{$reference->email}}</td>
                 </tr>
                 @endforeach
-            </div>
+            </table>
         </div>
+   
+        <a href="{{ route('cv.download', $user->id) }}" style="margin-top: 50px; text-decoration: none">Download</a>
+        &nbsp;
+        <a href="{{ route('send.page', $user->id) }}" style="margin-top: 50px; text-decoration: none">Send</a>
       </div>
-  </page>
-  <a href="{{ route('cv.download', $user->id) }}" style="text-decoration: none">Download</a>
-  &nbsp;
-  <a href="{{ route('send.page', $user->id) }}" style="text-decoration: none">Send</a>
+    </div>
+  </div>
 </body>
 
 </html>

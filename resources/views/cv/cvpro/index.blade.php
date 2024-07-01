@@ -304,12 +304,28 @@
     }
 
     /* End Layout */
+    .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile h1 {
+            margin: 0;
+            font-size: 28px;
+        }
   </style>
 </head>
 
 <body>
   <page size="A4">
-
     <div class="contact-info-box" style="background-color: #b9a9a9; padding: 20px; display: flex; align-items: center; justify-content: flex-start;">
       <img src="{{ $user->image != null ? asset("storage/".$user->image) : asset('no_image.png') }}" class="photo" alt="Profile Picture" style="width: 4cm; height: 4cm; border-radius: 50%; border: 0.15cm solid white; object-fit: cover; object-position: 50% 50%; margin-right: 40px;">
       <div style="text-align: center; padding-top: 10px; padding-bottom: 10px;">
@@ -319,10 +335,9 @@
         {{-- <p class="contact-details">Phone: {{ $user->contact }} &nbsp; - &nbsp; Email:{{ $user->email }}</p> --}}
       </div>
     </div>
-    </div>
+   
 
-
-    </div>
+    <div class="profile">
     <div class="container">
       <div class="leftPanel">
         <!-- Assuming Laravel Blade syntax for image -->
@@ -535,9 +550,12 @@
             </table>
           </div>
         </div>
+        <span class="item">
         <a href="{{ route('cv.download', $user->id) }}" style="margin-top: 50px; text-decoration: none">Download</a>
         &nbsp;
         <a href="{{ route('send.page', $user->id) }}" style="margin-top: 50px; text-decoration: none">Send</a>
+      </span>
+      </div>
       </div>
   </page>
 </body>

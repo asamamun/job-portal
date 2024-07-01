@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2024 at 08:00 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jul 01, 2024 at 05:55 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -1359,7 +1359,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('9Suuzvi2rE7xYaoFfQOzRv0bbs1hKbiy0TAV27n9', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVVp1VzlUSW91bkY0OVB6d0lDM2hMS0tVTjIxaGZDdHNxN08zREY2USI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lbXBsb3llci9wb3N0cy9hcHBsaWVkLzMiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNDt9', 1719777203),
+('Goz9zQwGtI1fYsszS7DTMDYD4hkYLVodsvIUgVz5', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVFdNU0JocEtnN1BrMUhaWVFYNkpuNFNxNTNQeUNrNmpZYmJOSnFKMyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdi9jdnByby8xNSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719806025),
 ('NuMXTkJgm6WLcNUoueplZ4YaozVihJzU1XBYXcxf', 15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoieEJOTnpYMHpLRXExbnhvVWlBR2hpbG5adnYweThrYjNNZmMxUGkyNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly9sb2NhbGhvc3Qvam9iLXBvcnRhbC9wdWJsaWMvYXBwbGljYW50L3NlbmQvcGFnZT8xNT0iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNTt9', 1719798962);
 
 -- --------------------------------------------------------
@@ -1377,6 +1377,9 @@ CREATE TABLE `settings` (
   `description` text DEFAULT NULL,
   `paginate` int(11) NOT NULL DEFAULT 10,
   `icon` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `mobile` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `status` set('0','1') NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1386,8 +1389,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `name`, `title`, `keywords`, `author`, `description`, `paginate`, `icon`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'default', 'Job-Finder', 'job, employer, applicant, finder, employee', 'IsDB', '<p>Access thousands of job openings from top companies across industries. Our platform aggregates opportunities from around the globe, ensuring you never miss out on a great career move.</p>', 10, 'icon/1719294103.png', '1', NULL, '2024-06-26 08:13:00');
+INSERT INTO `settings` (`id`, `name`, `title`, `keywords`, `author`, `description`, `paginate`, `icon`, `address`, `mobile`, `email`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'default', 'Job-Finder', 'job, employer, applicant, finder, employee', 'IsDB', '<p>Access thousands of job openings from top companies across industries. Our platform aggregates opportunities from around the globe, ensuring you never miss out on a great career move.</p>', 10, 'icon/1719294103.png', '123 Street, New York, USA', '01775567493', 'sabbir@gmail.com', '1', NULL, '2024-06-26 08:13:00');
 
 -- --------------------------------------------------------
 

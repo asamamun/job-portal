@@ -231,7 +231,7 @@
                  <img src="{{ asset('storage/'.Settings::get()->icon) }}" alt="" height="16">
              </span>
          </a>
-         <a href="index.html" class="logo logo-dark text-center">
+         <a href="{{route('home')}}" class="logo logo-dark text-center">
              <span class="logo-sm">
                  <img src="{{ asset('storage/'.Settings::get()->icon) }}" alt="" height="22">
              </span>

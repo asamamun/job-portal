@@ -221,12 +221,28 @@
         }
 
         /* End Specific Adjustments */
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile h1 {
+            margin: 0;
+            font-size: 28px;
+        }
     </style>
 </head>
 
 <body>
     <page size="A4">
-
         <div class="contact-info-box">
             <img src="{{ $user->image != null ? asset('storage/' . $user->image) : asset('no_image.png') }}" class="photo-container" alt="Profile Picture">
             <div style="text-align: center; padding-top: 10px; padding-bottom: 5px;">
@@ -234,6 +250,7 @@
                 <h3 class="job-title">{{ strtoupper($applicant->title) }}</h3>
             </div>
         </div>
+        <div class="profile">
         <div class="container">
             <div class="leftPanel">
                 <!-- Assuming Laravel Blade syntax for image -->
@@ -499,6 +516,8 @@
                 &nbsp;
                 <a href="{{ route('send.page') }}" style="margin-top: 50px; text-decoration: none">Send</a>
 
+            </div>
+            </div>
             </div>
 
     </page>
