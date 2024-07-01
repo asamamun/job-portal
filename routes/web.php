@@ -38,6 +38,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\SubscribeController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Applicant;
 use App\Http\Middleware\Employer;
@@ -50,6 +51,8 @@ use Illuminate\Support\Facades\Route;
 //every on access this link
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::post('/subscribe/store',[SubscribeController::class, 'store'])->name('subscribe.store');
+
 Route::prefix('post')->group(function () {
     Route::get('/all', [FrontendController::class, 'all'])->name('post.all');
     Route::get('/single/{id}', [FrontendController::class, 'single'])->name('post.single');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2024 at 01:54 AM
+-- Generation Time: Jul 01, 2024 at 08:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -984,7 +984,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2024_06_09_070514_create_countries_table', 1),
 (20, '2024_06_09_070515_create_states_table', 1),
 (21, '2024_06_09_070516_create_posts_table', 1),
-(22, '2024_06_09_070802_create_applicant_post_table', 1),
+(22, '2024_06_09_070802_create_applicant_posts_table', 1),
 (23, '2024_06_09_070852_create_messages_table', 1),
 (24, '2024_06_09_070958_create_save_posts_table', 1),
 (25, '2024_06_09_071047_create_reviews_table', 1),
@@ -997,7 +997,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (32, '2024_06_13_043314_create_results_table', 2),
 (33, '2024_06_14_084222_create_personal_access_tokens_table', 3),
 (34, '2024_06_18_123424_create_advertisements_table', 4),
-(35, '2024_06_25_071841_create_carousels_table', 5);
+(35, '2024_06_25_071841_create_carousels_table', 5),
+(36, '2024_07_01_011723_create_subscribes_table', 6);
 
 -- --------------------------------------------------------
 
@@ -1358,7 +1359,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('9Suuzvi2rE7xYaoFfQOzRv0bbs1hKbiy0TAV27n9', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVVp1VzlUSW91bkY0OVB6d0lDM2hMS0tVTjIxaGZDdHNxN08zREY2USI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lbXBsb3llci9wb3N0cy9hcHBsaWVkLzMiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNDt9', 1719777203);
+('9Suuzvi2rE7xYaoFfQOzRv0bbs1hKbiy0TAV27n9', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVVp1VzlUSW91bkY0OVB6d0lDM2hMS0tVTjIxaGZDdHNxN08zREY2USI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lbXBsb3llci9wb3N0cy9hcHBsaWVkLzMiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNDt9', 1719777203),
+('NuMXTkJgm6WLcNUoueplZ4YaozVihJzU1XBYXcxf', 15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoieEJOTnpYMHpLRXExbnhvVWlBR2hpbG5adnYweThrYjNNZmMxUGkyNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly9sb2NhbGhvc3Qvam9iLXBvcnRhbC9wdWJsaWMvYXBwbGljYW50L3NlbmQvcGFnZT8xNT0iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNTt9', 1719798962);
 
 -- --------------------------------------------------------
 
@@ -6594,6 +6596,26 @@ INSERT INTO `states` (`id`, `country_id`, `name`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subscribes`
+--
+
+CREATE TABLE `subscribes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subscribes`
+--
+
+INSERT INTO `subscribes` (`id`, `email`, `created_at`, `updated_at`) VALUES
+(1, 'admin@gmail.com', '2024-06-30 19:44:33', '2024-06-30 19:44:33');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -6947,6 +6969,12 @@ ALTER TABLE `states`
   ADD KEY `states_country_id_foreign` (`country_id`);
 
 --
+-- Indexes for table `subscribes`
+--
+ALTER TABLE `subscribes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -7076,7 +7104,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -7167,6 +7195,12 @@ ALTER TABLE `specials`
 --
 ALTER TABLE `states`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5221;
+
+--
+-- AUTO_INCREMENT for table `subscribes`
+--
+ALTER TABLE `subscribes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

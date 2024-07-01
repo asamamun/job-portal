@@ -12,7 +12,7 @@ class EmailController extends Controller
     public function cvPage(Request $request)
     {
       $cvlink = url()->previous();
-      return view("jobentry.send", ["cvlink" => $cvlink]);
+      return view("jobentry.send", ["cvlink" => $cvlink])->with('success', 'Email sent successfully');
     }
     public function cvLink(Request $request)
     {
