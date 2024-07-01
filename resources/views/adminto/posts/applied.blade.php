@@ -74,6 +74,7 @@
 
             </div>
         </div>
+        <a href="{{route('posts.applied.download', [$id, 'interview'])}}">interview</a>
     </div>
 </div>
 @endsection

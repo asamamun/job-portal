@@ -137,6 +137,7 @@ Route::middleware([Employer::class])->prefix('employer')->group(function () {
     Route::resource('posts', PostController::class)->except(['create']);
     Route::get('posts/applied/{id}', [PostController::class, 'applyPost'])->name('posts.applied');
     Route::get('posts/applied/status/{id}/{txt}', [PostController::class, 'applyPostStatus'])->name('posts.applied.status');
+    Route::get('posts/applied/download/{id}/{txt}', [PostController::class, 'applyPostDownload'])->name('posts.applied.download');
 });
 
 

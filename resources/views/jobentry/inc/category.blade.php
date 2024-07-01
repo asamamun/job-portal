@@ -8,9 +8,9 @@
             @foreach ($employers as $employer)
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <a class="cat-item rounded p-4" href="{{route('emp.all', $employer->id)}}">
-                    <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
+                    <img class="mb-3" style="width: 100px;" src="{{ asset('storage/'.Settings::get()->icon) }}" alt=""/>
                     <h6 class="mb-3">{{$employer->name}}</h6>
-                    <p class="mb-0">123 Vacancy</p>
+                    <p class="mb-0">{{$employer->type}}</p>
                 </a>
             </div>
             @endforeach

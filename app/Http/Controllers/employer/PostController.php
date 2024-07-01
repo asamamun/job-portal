@@ -146,7 +146,7 @@ class PostController extends Controller
             "functional_id" => "required",
             "industrial_id" => "required",
             "special_id" => "required",
-            "image" => "required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048",
+            "image" => "image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048",
             "address" => "required",
             "contact" => "required",
             "deadline" => "required",
@@ -203,7 +203,7 @@ class PostController extends Controller
         $applicantposts = ApplicantPost::where('post_id', $id)->with(['applicant' => function ($query) {
             $query->with('user');
         }])->get();
-        return view('adminto.posts.applied', compact('applicantposts'));
+        return view('adminto.posts.applied', compact('applicantposts', 'id'));
     }
     public function applyPostStatus($id, $txt)
     {
@@ -211,5 +211,13 @@ class PostController extends Controller
         $apppost->status = $txt;
         $apppost->save();
         return redirect()->back()->with("success", "Status updated successfully");
+    }
+    public function applyPostDownload($id, $txt)
+    {
+        $applicantposts = ApplicantPost::where('post_id', $id)->with(['applicant' => function ($query) {
+            $query->with('user');
+        }])->get();
+        dd($applicantposts);
+        return view("adminto.posts.appliedtable", compact('applicantposts'));
     }
 }

@@ -56,7 +56,7 @@
     <script src="{{ asset('jobentry/js/main.js ')}}"></script>
     <script>
         $(document).ready(function() {
-            fetch('/ajax/post/cat').then(res => res.json()).then(data => {
+            fetch('<?php env('APP_URL') ?>/ajax/post/cat').then(res => res.json()).then(data => {
 
                 data.functional.forEach(element => {
                     $('#PostCatFunctioal').append(`<a href="/post/functional/${element.id}" class="dropdown-item">${element.name}</a>`)

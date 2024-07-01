@@ -222,7 +222,7 @@
      </ul>
 
      <!-- LOGO -->
-     <div class="logo-box">
+     <div class="logo-box pt-2">
          <a href="index.html" class="logo logo-light text-center">
              <span class="logo-sm">
                  <img src="{{ asset('storage/'.Settings::get()->icon) }}" alt="" height="22">
@@ -231,12 +231,12 @@
                  <img src="{{ asset('storage/'.Settings::get()->icon) }}" alt="" height="16">
              </span>
          </a>
-         <a href="{{route('home')}}" class="logo logo-dark text-center">
+         <a href="{{ route('home') }}" class="logo logo-dark text-center">
              <span class="logo-sm">
                  <img src="{{ asset('storage/'.Settings::get()->icon) }}" alt="" height="22">
              </span>
              <span class="logo-lg">
-                 <img src="{{ asset('storage/'.Settings::get()->icon) }}" alt="" style="height: 100px;">
+                 <img src="{{ asset('storage/'.Settings::get()->icon) }}" alt="" height="50">
              </span>
          </a>
      </div>

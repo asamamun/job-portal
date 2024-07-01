@@ -13,7 +13,7 @@
                 <li class="menu-title">Navigation</li>
 
                 <li>
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ url('admin/dashboard') }}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span class="badge bg-success rounded-pill float-end">9+</span>
                         <span> Dashboard </span>

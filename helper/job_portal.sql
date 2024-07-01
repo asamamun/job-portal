@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2024 at 05:55 AM
+-- Generation Time: Jul 01, 2024 at 09:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -153,7 +153,11 @@ CREATE TABLE `cache` (
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
 ('admin@mail.com|127.0.0.1', 'i:1;', 1719684845),
-('admin@mail.com|127.0.0.1:timer', 'i:1719684845;', 1719684845);
+('admin@mail.com|127.0.0.1:timer', 'i:1719684845;', 1719684845),
+('sojib123@gmail.com|127.0.0.1', 'i:2;', 1719817978),
+('sojib123@gmail.com|127.0.0.1:timer', 'i:1719817978;', 1719817978),
+('tawhid@gmai.l.com|127.0.0.1', 'i:1;', 1719815554),
+('tawhid@gmai.l.com|127.0.0.1:timer', 'i:1719815554;', 1719815554);
 
 -- --------------------------------------------------------
 
@@ -557,18 +561,18 @@ CREATE TABLE `employers` (
 --
 
 INSERT INTO `employers` (`id`, `user_id`, `name`, `address`, `website`, `licence_no`, `contact_person`, `contact_phone`, `contact_email`, `logo`, `description`, `founded`, `linkedin`, `facebook`, `twitter`, `instagram`, `points`, `type`, `created_at`, `updated_at`) VALUES
-(1, 14, 'Artial', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 605, 'regular', '2024-06-11 21:12:46', '2024-06-30 12:51:45'),
+(1, 14, 'Artial', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 205, 'regular', '2024-06-11 21:12:46', '2024-07-01 06:24:53'),
 (2, 16, 'Robi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 505, 'regular', '2024-06-11 21:20:37', '2024-06-30 12:34:49'),
-(3, 17, 'GP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500, 'regular', '2024-06-15 23:52:29', '2024-06-15 23:52:29'),
-(4, 27, 'IsDB', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-26 08:04:05', '2024-06-26 08:04:05'),
-(5, 29, 'softwindtech', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:10:00', '2024-06-28 22:10:00'),
-(6, 30, 'nokia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:13:19', '2024-06-28 22:13:19'),
-(7, 31, 'google', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:15:43', '2024-06-28 22:15:43'),
-(8, 32, 'walton', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:17:20', '2024-06-28 22:17:20'),
-(9, 33, 'ACI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:18:23', '2024-06-28 22:18:23'),
-(10, 34, 'Samsung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:19:44', '2024-06-28 22:19:44'),
-(11, 35, 'LG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:20:38', '2024-06-28 22:20:38'),
-(12, 36, 'Bkash', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 200, 'regular', '2024-06-28 22:22:10', '2024-06-28 22:22:10');
+(3, 17, 'GP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600, 'regular', '2024-06-15 23:52:29', '2024-07-01 06:40:17'),
+(4, 27, 'IsDB', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2000, 'regular', '2024-06-26 08:04:05', '2024-06-26 08:04:05'),
+(5, 29, 'softwindtech', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1000, 'regular', '2024-06-28 22:10:00', '2024-07-01 06:53:09'),
+(6, 30, 'nokia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3000, 'regular', '2024-06-28 22:13:19', '2024-07-01 06:57:50'),
+(7, 31, 'google', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2000, 'regular', '2024-06-28 22:15:43', '2024-07-01 07:06:22'),
+(8, 32, 'walton', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2000, 'regular', '2024-06-28 22:17:20', '2024-06-28 22:17:20'),
+(9, 33, 'ACI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2000, 'regular', '2024-06-28 22:18:23', '2024-06-28 22:18:23'),
+(10, 34, 'Samsung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1700, 'regular', '2024-06-28 22:19:44', '2024-07-01 07:35:26'),
+(11, 35, 'LG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1700, 'regular', '2024-06-28 22:20:38', '2024-07-01 07:29:26'),
+(12, 36, 'Bkash', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4600, 'regular', '2024-06-28 22:22:10', '2024-07-01 07:22:27');
 
 -- --------------------------------------------------------
 
@@ -798,7 +802,37 @@ INSERT INTO `incomes` (`id`, `user_id`, `points`, `description`, `type`, `create
 (114, 14, 100, 'Job Post Created', 'income', '2024-06-30 12:11:01', '2024-06-30 12:11:01'),
 (115, 15, 5, 'Job Applyed', 'income', '2024-06-30 12:34:49', '2024-06-30 12:34:49'),
 (116, 14, 100, 'Job Post Created', 'income', '2024-06-30 12:47:12', '2024-06-30 12:47:12'),
-(117, 23, 5, 'Job Applyed', 'income', '2024-06-30 12:51:45', '2024-06-30 12:51:45');
+(117, 23, 5, 'Job Applyed', 'income', '2024-06-30 12:51:45', '2024-06-30 12:51:45'),
+(118, 14, 100, 'Job Post Created', 'income', '2024-07-01 06:07:41', '2024-07-01 06:07:41'),
+(119, 14, 100, 'Job Post Created', 'income', '2024-07-01 06:22:15', '2024-07-01 06:22:15'),
+(120, 14, 100, 'Job Post Created', 'income', '2024-07-01 06:24:02', '2024-07-01 06:24:02'),
+(121, 14, 100, 'Job Post Created', 'income', '2024-07-01 06:24:53', '2024-07-01 06:24:53'),
+(122, 17, 100, 'Job Post Created', 'income', '2024-07-01 06:32:15', '2024-07-01 06:32:15'),
+(123, 17, 100, 'Job Post Created', 'income', '2024-07-01 06:35:41', '2024-07-01 06:35:41'),
+(124, 17, 100, 'Job Post Created', 'income', '2024-07-01 06:35:44', '2024-07-01 06:35:44'),
+(125, 17, 100, 'Job Post Created', 'income', '2024-07-01 06:36:05', '2024-07-01 06:36:05'),
+(126, 17, 100, 'Job Post Created', 'income', '2024-07-01 06:40:17', '2024-07-01 06:40:17'),
+(127, 29, 100, 'Job Post Created', 'income', '2024-07-01 06:43:55', '2024-07-01 06:43:55'),
+(128, 29, 100, 'Job Post Created', 'income', '2024-07-01 06:47:33', '2024-07-01 06:47:33'),
+(129, 29, 100, 'Job Post Created', 'income', '2024-07-01 06:49:20', '2024-07-01 06:49:20'),
+(130, 29, 100, 'Job Post Created', 'income', '2024-07-01 06:49:32', '2024-07-01 06:49:32'),
+(131, 29, 100, 'Job Post Created', 'income', '2024-07-01 06:53:09', '2024-07-01 06:53:09'),
+(132, 30, 100, 'Job Post Created', 'income', '2024-07-01 06:54:11', '2024-07-01 06:54:11'),
+(133, 30, 100, 'Job Post Created', 'income', '2024-07-01 06:57:50', '2024-07-01 06:57:50'),
+(134, 31, 100, 'Job Post Created', 'income', '2024-07-01 07:04:06', '2024-07-01 07:04:06'),
+(135, 31, 100, 'Job Post Created', 'income', '2024-07-01 07:06:22', '2024-07-01 07:06:22'),
+(136, 36, 100, 'Job Post Created', 'income', '2024-07-01 07:13:52', '2024-07-01 07:13:52'),
+(137, 36, 100, 'Job Post Created', 'income', '2024-07-01 07:18:04', '2024-07-01 07:18:04'),
+(138, 36, 100, 'Job Post Created', 'income', '2024-07-01 07:19:22', '2024-07-01 07:19:22'),
+(139, 36, 100, 'Job Post Created', 'income', '2024-07-01 07:19:57', '2024-07-01 07:19:57'),
+(140, 36, 100, 'Job Post Created', 'income', '2024-07-01 07:20:04', '2024-07-01 07:20:04'),
+(141, 36, 100, 'Job Post Created', 'income', '2024-07-01 07:22:27', '2024-07-01 07:22:27'),
+(142, 35, 100, 'Job Post Created', 'income', '2024-07-01 07:23:41', '2024-07-01 07:23:41'),
+(143, 35, 100, 'Job Post Created', 'income', '2024-07-01 07:26:17', '2024-07-01 07:26:17'),
+(144, 35, 100, 'Job Post Created', 'income', '2024-07-01 07:29:26', '2024-07-01 07:29:26'),
+(145, 34, 100, 'Job Post Created', 'income', '2024-07-01 07:31:02', '2024-07-01 07:31:02'),
+(146, 34, 100, 'Job Post Created', 'income', '2024-07-01 07:33:50', '2024-07-01 07:33:50'),
+(147, 34, 100, 'Job Post Created', 'income', '2024-07-01 07:35:26', '2024-07-01 07:35:26');
 
 -- --------------------------------------------------------
 
@@ -1078,7 +1112,22 @@ INSERT INTO `posts` (`id`, `employer_id`, `functional_id`, `industrial_id`, `spe
 (4, 1, 18, 16, 14, 'contract', 'open', 18, 1993, '. It helps you provide y. It helps you provide y', '<p>. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y. It helps you provide y</p>', 'dfvdvc', 60000, 4, '2024-06-20', '4', 'HSC', '01557767493', 'gdskjfh@gmail.com', 'coders24x7.com', 'img/pic (3).jfif', NULL, '2024-06-20', NULL, NULL, '2024-06-16 11:29:55', '2024-06-16 11:29:55'),
 (5, 3, 17, 16, 19, 'internship', 'open', 18, 1992, 'Parsley is a javascript form validation library. It helps you provide your users', '<p>&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>\r\n\r\n<p>Parsley is a javascript form validation library. It helps you provide your users&nbsp;</p>', 'dfvdvc', 40000, 4, '2024-06-04', '4', 'HSC', '01557767493', 'gdskjfh@gmail.com', 'coders24x7.com', 'img/pic (1).jpg', NULL, '2024-06-21', NULL, NULL, '2024-06-16 11:30:51', '2024-06-16 11:30:51'),
 (6, 2, 19, 18, 20, 'contract', 'open', 16, 534, 'you provide your users with feedback on their form submission before sending it to your server.', '<p>you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.you provide your users with feedback on their form submission before sending it to your server.</p>', 'dfvdvc', 20000, 1, '2024-06-13', '45', 'HSC', '01557767493', 'gdskjfh@gmail.com', 'coders24x7.com', 'img/pic (2).webp', NULL, '2024-06-12', NULL, NULL, '2024-06-16 11:31:53', '2024-06-16 11:31:53'),
-(7, 1, 18, 3, 15, 'full-time', 'open', 19, 760, 'Sales Executives', '<p>kkkkkkkk oooooooooo wwwwwwwww fgfgfgfgffg nur sabbir maria&nbsp;</p>', 'Dhaka', 10000, 2, '2024-06-30', '1', 'hsc', '0123456789', 'admin@mail.com', 'www.maria.com', 'img/1719313247.png', 'file/1719313247.zip', '2024-07-30', NULL, NULL, '2024-06-25 05:00:47', '2024-06-25 05:00:47');
+(7, 1, 18, 3, 15, 'full-time', 'open', 19, 760, 'Sales Executives', '<p>kkkkkkkk oooooooooo wwwwwwwww fgfgfgfgffg nur sabbir maria&nbsp;</p>', 'Dhaka', 10000, 2, '2024-06-30', '1', 'hsc', '0123456789', 'admin@mail.com', 'www.maria.com', 'img/1719313247.png', 'file/1719313247.zip', '2024-07-30', NULL, NULL, '2024-06-25 05:00:47', '2024-06-25 05:00:47'),
+(8, 1, 18, 23, 22, 'full-time', 'open', 19, 760, 'Marketing officer', '<p>We are looking for a talented Marketing Officer to undertake marketing projects for the benefit of our company. You will organize creative campaigns and promotional events that can make a difference in our company&rsquo;s success according to trends and customer requirements. The ideal candidate will be passionate about the art of marketing and will have an abundance of ideas for building efficient strategies.</p>', 'Kazipara', 20000, 10, '2024-07-10', '3', 'post graduation', '0123456789', 'asif@gmail.com', 'www.jb.com', 'img/1719815041.jpg', 'file/1719815041.jfif', '2024-07-26', NULL, NULL, '2024-07-01 06:24:01', '2024-07-01 06:24:01'),
+(9, 3, 4, 11, 22, 'full-time', 'open', 19, 760, 'Internal Auditor', '<p>We are looking for a talented Internal Auditor to add value and improve our operations by bringing a systematic and disciplined approach to the effectiveness of risk management, control, and governance processes. The successful candidate will possess a thorough knowledge of accounting procedures and a sound judgement.</p>', 'dhaka', 40000, 5, '2024-07-12', '5', 'Bachelor’s degree in Accounting, Finance, or a related field.', '0123456789', 'tawhid@gmai.l.com', 'www.fiber.com', 'img/1719815740.jpg', 'file/1719815740.jfif', '2024-07-30', NULL, NULL, '2024-07-01 06:35:40', '2024-07-01 06:35:40'),
+(10, 3, 4, 11, 22, 'part-time', 'open', 19, 760, 'Account Officer', '<p>We are committed to providing excellent service and innovative solutions to our clients. We are seeking a detail-oriented and experienced Account Officer to join our finance team and manage our financial transactions and procedures.</p>', 'Dhaka', 15000, 3, '2024-07-06', '1', 'Graduation', '01259634487', 'tawhid@gmail.com', 'www.fiber.com', 'img/1719816017.jpg', 'file/1719816017.jfif', '2024-07-31', NULL, NULL, '2024-07-01 06:40:17', '2024-07-01 06:40:17'),
+(11, 5, 1, 24, 22, 'full-time', 'open', 19, 760, 'Business Analyst', '<ul>\r\n	<li>Analyze business processes and identify areas for improvement.</li>\r\n	<li>Gather and document business requirements from stakeholders.</li>\r\n	<li>Develop and present business cases and project proposals.</li>\r\n	<li>Conduct market research and analyze industry trends.</li>\r\n	<li>Collaborate with cross-functional teams to implement solutions.</li>\r\n</ul>', 'Dhaka', 60000, 1, '2024-07-01', '7', 'post graduation', '0123465789', 'rolexkalam@gmail.com', 'www.rolex.com', 'img/1719816453.jpg', 'file/1719816453.jfif', '2024-07-17', NULL, NULL, '2024-07-01 06:47:33', '2024-07-01 06:47:33'),
+(12, 5, 1, 24, 22, 'full-time', 'open', 19, 760, 'Office Helper', '<p>The successful candidate will perform various tasks to support our administrative staff, ensuring that all office activities are carried out efficiently and effectively.</p>', 'Dhaka', 12000, 2, '2024-07-04', '0', '8th pass', '0123456789', 'rolex@gmail.com', 'www.rolex.com', 'img/1719816788.jpg', 'file/1719816788.jfif', '2024-07-23', NULL, NULL, '2024-07-01 06:53:08', '2024-07-01 06:53:08'),
+(13, 6, 3, 2, 22, 'full-time', 'open', 19, 750, 'Plant Manager', '<p>The successful candidate will be responsible for ensuring the efficient and productive operation of our manufacturing facility while maintaining high standards of safety, quality, and compliance. The Plant Manager will oversee all daily operations, coordinate production activities, and ensure the effective utilization of resources.</p>', 'Rangpur', 50000, 4, '2024-07-02', '4', 'post graduation', '0124788579', 'raselmia123@gmail.com', 'www.bdagro.com', 'img/1719817070.jpg', 'file/1719817070.jfif', '2024-07-15', NULL, NULL, '2024-07-01 06:57:50', '2024-07-01 06:57:50'),
+(14, 6, 3, 2, 22, 'full-time', 'open', 19, 750, 'Executive', '<p>The Executive will work closely with the Board of Directors and other senior leaders to drive business objectives and achieve long-term goals.</p>', 'Rangpur', 30000, 5, '2024-07-03', '2', 'Bachelor’s degree in Accounting, Finance, or a related field.', '012648895', 'raselmia123@gmail.com', 'www.bdagro.com', 'img/1719817235.jpg', 'file/1719817235.jfif', '2024-07-17', NULL, NULL, '2024-07-01 07:00:35', '2024-07-01 07:00:35'),
+(15, 7, 14, 5, 22, 'full-time', 'open', 19, 760, 'Architect', '<p>The successful candidate will be responsible for designing and overseeing the construction of buildings and other structures, ensuring they meet both aesthetic and functional requirements. The Architect will work closely with clients, engineers, and other stakeholders to bring visions to life while adhering to safety and compliance standards.</p>', 'Dhaka', 120000, 3, '2024-07-07', '4', 'post graduation', '0132346597', 'jahangir123@gmail.com', 'www.new.com', 'img/1719817582.jpg', 'file/1719817582.jfif', '2024-08-08', NULL, NULL, '2024-07-01 07:06:22', '2024-07-01 07:06:22'),
+(16, 7, 14, 5, 22, 'full-time', 'open', 19, 760, 'OH (Occupational Health) and Safety (OHS) Specialist', '<p>We are looking for an experienced Occupational Health and Safety (OHS) Specialist to ensure our company adheres to health and safety regulations and to promote a culture of safety within the workplace. The successful candidate will be responsible for developing, implementing, and monitoring safety programs, conducting risk assessments, and providing training to employees on safety protocols.</p>', 'Dhaka', 130000, 2, '2024-07-07', '5', 'Bachelor’s degree in Occupational Health and Safety, Environmental Science, or a related field.', '012456658944', 'jahangir123@gmail.com', 'www.new.com', 'img/1719817737.jpg', 'file/1719817737.jfif', '2024-08-07', NULL, NULL, '2024-07-01 07:08:57', '2024-07-01 07:08:57'),
+(17, 12, 9, 26, 22, 'full-time', 'open', 19, 753, 'Digital Marketing Specialist', '<p>We are looking for a talented Digital Marketing Specialist to develop, implement, track, and optimize our digital marketing campaigns across all digital channels. The successful candidate will be highly creative with experience in identifying target audiences and devising digital campaigns that engage, inform, and motivate.</p>', 'Rajshahi', 25000, 12, '2024-07-03', '3', 'Graduation', '0123456897', 'sobuj123@gmail.com', 'www.global.com', 'img/1719818284.jpg', 'file/1719818284.jfif', '2024-08-10', NULL, NULL, '2024-07-01 07:18:04', '2024-07-01 07:18:04'),
+(18, 12, 2, 3, 22, 'full-time', 'open', 19, 753, 'Team Leader', '<p>The Team Leader will be responsible for guiding and managing a team of 10 employees, ensuring productivity, efficiency, and high morale. The ideal candidate will possess strong leadership qualities, excellent communication skills, and a proven track record of achieving team targets.</p>', 'Rajshahi', 55000, 1, '2024-07-11', '5', 'post graduation', '0123456789', 'sobuj123@gmail.com', 'www.global.com', 'img/1719818547.jpg', 'file/1719818547.jfif', '2024-08-07', NULL, NULL, '2024-07-01 07:22:27', '2024-07-01 07:22:27'),
+(19, 11, 27, 6, 8, 'full-time', 'open', 19, 751, 'Nurse', '<p>We are looking for skilled Nurses to provide compassionate and high-quality patient care in our [hospital/clinic/healthcare facility]. The Nurses will be responsible for assessing patient health problems and needs, developing and implementing nursing care plans, and maintaining medical records. The ideal candidates will have a passion for patient care, strong clinical skills, and the ability to work effectively in a team environment.</p>', 'Cox\'s Bazar', 35000, 11, '2024-07-12', '7', 'Degree in Nursing (RN preferred).', '0123456987', 'manik123@gmail.com', 'www.jibonhospital.com', 'img/1719818777.jpg', 'file/1719818777.jfif', '2024-08-01', NULL, NULL, '2024-07-01 07:26:17', '2024-07-01 07:26:17'),
+(20, 11, 27, 6, 18, 'full-time', 'open', 19, 751, 'Caregiver', '<p>We are looking for compassionate Caregivers to provide essential assistance and support to our clients. The Caregivers will assist with daily activities such as bathing, grooming, meal preparation, medication reminders, and companionship. The ideal candidates will have a passion for helping others, strong interpersonal skills, and a genuine desire to make a positive impact on the lives of our clients.</p>', 'Cox\'s Bazar', 10000, 10, '2024-07-06', '1', '8th pass', '0123359744', 'manik123@gmail.com', 'www.jibonhospital.com', 'img/1719818966.jpg', 'file/1719818966.jfif', '2024-07-16', NULL, NULL, '2024-07-01 07:29:26', '2024-07-01 07:29:26'),
+(21, 10, 15, 16, 2, 'part-time', 'open', 19, 771, 'Computer Operator', '<p>We are looking for a competent Computer Operator to monitor and control our computer systems. The successful candidate will be responsible for handling various computer-related tasks, such as running computer programs, maintaining system logs, troubleshooting issues, and ensuring data integrity. The Computer Operator will play a crucial role in maintaining our company&#39;s operational efficiency and productivity.</p>', 'Dhaka', 14000, 20, '2024-07-25', '1', 'Graduation', '0123455697', 'sheikmuijib123@gmail.com', 'www.way.com', 'img/1719819229.jpg', 'file/1719819229.jfif', '2024-08-06', NULL, NULL, '2024-07-01 07:33:49', '2024-07-01 07:33:49'),
+(22, 10, 15, 16, 2, 'full-time', 'open', 19, 771, 'Typist', '<p>We are looking for a competent Typist to perform typing and word processing tasks for our [company/department]. The Typist will be responsible for producing accurate and well-presented documents from handwritten drafts or digital recordings. The ideal candidate will have strong typing skills, attention to detail, and the ability to work efficiently to meet deadlines.</p>', 'Dhaka', 16000, 4, '2024-07-06', '2', 'Graduation', '0132365897', 'sheikmuijib123@gmail.com', 'www.way.com', 'img/1719819326.jpg', 'file/1719819326.jfif', '2024-07-23', NULL, NULL, '2024-07-01 07:35:26', '2024-07-01 07:35:26');
 
 -- --------------------------------------------------------
 
@@ -1359,8 +1408,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Goz9zQwGtI1fYsszS7DTMDYD4hkYLVodsvIUgVz5', 15, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVFdNU0JocEtnN1BrMUhaWVFYNkpuNFNxNTNQeUNrNmpZYmJOSnFKMyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdi9jdnByby8xNSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE1O30=', 1719806025),
-('NuMXTkJgm6WLcNUoueplZ4YaozVihJzU1XBYXcxf', 15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoieEJOTnpYMHpLRXExbnhvVWlBR2hpbG5adnYweThrYjNNZmMxUGkyNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly9sb2NhbGhvc3Qvam9iLXBvcnRhbC9wdWJsaWMvYXBwbGljYW50L3NlbmQvcGFnZT8xNT0iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxNTt9', 1719798962);
+('gvA85exiEcNiDlBn5djpSGzVRTHjR5aEFGeGBMeX', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoia0NYZG5rOGtPUHJVUkFFa1pyaXJnMEVWTkowYllhR3k0bDh1M0IyNyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hamF4L3Bvc3QvY2F0Ijt9fQ==', 1719819344),
+('GX7kU7ylLATUM54LnnyEbmBvN6AxJqnlRw0AzfsT', 14, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYVVCWHZaSGVFbFFzRWxMdTFBczF0ZkUxdVBKMlF0UDR2bWdGUXM2NyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hamF4L3Bvc3QvY2F0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTQ7fQ==', 1719820671),
+('iBYKZaPKAFdx6jnRQwJO1tRNa5d3VHJjMuKRYaKf', NULL, '192.168.54.79', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZ0VYNVdYU3Fudzl3UmN0Z21QdkNHaEN4ekZaWlNYS2gyMTNpNm0wQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzM6Imh0dHA6Ly8xOTIuMTY4LjU0Ljc5L1JvdW5kLTU3L0xhcmF2ZWwvTW9udGhseSUyMHByb2plY3Qvam9iLXBvcnRhbC9wdWJsaWMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1719813937);
 
 -- --------------------------------------------------------
 
@@ -1390,7 +1440,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `name`, `title`, `keywords`, `author`, `description`, `paginate`, `icon`, `address`, `mobile`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'default', 'Job-Finder', 'job, employer, applicant, finder, employee', 'IsDB', '<p>Access thousands of job openings from top companies across industries. Our platform aggregates opportunities from around the globe, ensuring you never miss out on a great career move.</p>', 10, 'icon/1719294103.png', '123 Street, New York, USA', '01775567493', 'sabbir@gmail.com', '1', NULL, '2024-06-26 08:13:00');
+(1, 'default', 'Job-Finder', 'job, employer, applicant, finder, employee', 'IsDB', '<p>Access thousands of job openings from top companies across industries. Our platform aggregates opportunities from around the globe, ensuring you never miss out on a great career move.</p>', 10, 'icon/1719814698.png', '123 Street, New York, USA', '01775567493', 'sabbir@gmail.com', '1', NULL, '2024-06-26 08:13:00');
 
 -- --------------------------------------------------------
 
@@ -6643,10 +6693,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `contact`, `email_verified_at`, `password`, `roles`, `remember_token`, `status`, `address`, `created_at`, `updated_at`) VALUES
-(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'bXK0HvFDZQ1dRMWRQTUT8qrvVIbo3RxbJjsxF7HkRSr2I2S7F7TnniAEC0hh', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
-(15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', '01725836911', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', 'VgKxqVFxkfP2dxOV6UhUOIBgNNQgkBGYKuXfVQPdQf1W0qxRMrSMtxsmoZuY', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
+(14, 'Hasib Kahan', 'img/1719242153.jpg', 'employer@gmail.com', '01775567493', NULL, '$2y$12$ZOhg0IzmPiE5ztGHYgrSnevxaCd5PEl3rgx7xBoPWr6Q8.7Vp5qRa', 'employer', 'CaXeNgaAiBg9pktGLkRd0y6t9JFSs0hWb4l75OI0UsTptSybysTvsKcn6yTt', '0', 'Dhaka, Bangladesh', '2024-06-11 21:12:46', '2024-06-15 03:33:04'),
+(15, 'Bijoy Khan', 'img/1719255891.jpg', 'applicant@gmail.com', '01725836911', NULL, '$2y$12$/J4HtSF46mI6lzBnpWaIvuN/vhkmfKkdlB5l6h5nGHQ1IHy06uWSG', 'applicant', '9w14wxd0xjw42KbnG8GuxYDtlytJUs3ttZqQ05oSmMyg6F9BRfxQ3g29jQjG', '0', 'Dhaka, Bangladesh', '2024-06-11 21:17:47', '2024-06-24 13:04:51'),
 (16, 'admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$12$/Fb.DUxdVFgFQQAl6fThcuWMkqh9N9MFfaKfa/K8ZlwJEZpoghZ/i', 'admin', 'eRABmCzyPEYcMvIjX4yP27PiGSO69Rae12f6JtXU2jZNM3gjRzpjkrpwji8Q', '1', 'Dhaka, Bangladesh', '2024-06-11 21:20:37', '2024-06-15 03:33:04'),
-(17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, NULL, '$2y$12$4pKVJqp3mPQV31y9rmanhu8KDcVh5kkKg8I8d10VuShYrSF23d2rS', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-15 23:52:28', '2024-06-15 23:52:28'),
+(17, 'Tawhid', NULL, 'tawhid@gmail.com', NULL, NULL, '$2y$12$Ih65PjaFtWufx4y0X2IBkO7XodAQcsrqTcAzQ6IJh1hFMKeUtf90m', 'employer', 'incGs7lAYA66gy7TXoLVKFqzMkXSKKT71kodko6iGckPoRrUMwYOdi4Wi4A2', '1', 'Dhaka, Bangladesh', '2024-06-15 23:52:28', '2024-07-01 06:32:10'),
 (18, 'mariya muntaha', 'img/1718607292.jpg', 'mariya@gmail.com', NULL, NULL, '$2y$12$pea8aQ.Po5c5ZOnz0Av0xek.p00UFn7cnlqu3RsMNrWfxaazNhcvq', 'applicant', NULL, '0', 'Dhaka, Bangladesh', '2024-06-17 00:30:48', '2024-06-17 00:54:54'),
 (19, 'Tanima Hasan', 'img/1718610121.png', 'tanima@gmail.com', NULL, NULL, '$2y$12$46On/z8GpU52yWqj0QK6/OTZvyGZex6N1tw4Mr//ctUyNWUILbOXW', 'applicant', 'jmViMfctjYJU9olsIzpwb46qZVxXF8bqCWgxW1qIn2ZNjTyYEUcJn8GpAqKF', '0', 'Dhaka, Bangladesh', '2024-06-17 01:41:24', '2024-06-17 01:43:31'),
 (23, 'israt ahamed sabbir', NULL, 'onikitbd@gmail.com', NULL, NULL, '$2y$12$z5kPwX4pndjcWOTODPlc2.JM.CLidHyaB52M8gfdhgtPkD4dYbg02', 'applicant', '5g6eoTZrUL8NQgvI3LDVlcKzRz8w2SISwFuyn3D9gAGWSwpVLNHzTvd1ErOs', '1', 'Dhaka, Bangladesh', '2024-06-26 06:44:31', '2024-06-26 06:44:31'),
@@ -6655,14 +6705,14 @@ INSERT INTO `users` (`id`, `name`, `image`, `email`, `contact`, `email_verified_
 (26, 'Md. Tawhid Khan', NULL, 'tawhidwdpf57@gmail.com', NULL, NULL, '$2y$12$eFE/SYiNDdbr1.mrB/z3f.365/Wnck9u/6gQawOesM7GTeNH0xaPS', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 08:02:05', '2024-06-26 08:02:05'),
 (27, 'ASA AL-MAMUN', NULL, 'idb.faculty@gmail.com', NULL, NULL, '$2y$12$W/8rHSMZmUIXoHhrntjwMOAP6M9SCWb6WxEOHLtgBTtA3EWi8rEBC', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-26 08:04:05', '2024-06-26 08:04:05'),
 (28, 'azad kalam', NULL, 'ajadkalam@gmail.com', NULL, NULL, '$2y$12$nC/1SKh6GLZewxoIzZ.AkuHjZL4o1pJHcdLryaiPezkeL.SJ8Kf0W', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-27 14:07:04', '2024-06-27 14:07:04'),
-(29, 'azad kalam', NULL, 'rolexkalam@gmail.com', NULL, NULL, '$2y$12$fqE9DdAxcVQDsBG58eqFtOuQsgW4setUfD8fHGdYFT.I4bwo5aIPO', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:10:00', '2024-06-28 22:10:00'),
-(30, 'rasel mia', NULL, 'raselmia123@gmail.com', NULL, NULL, '$2y$12$8i8txsnkIfsCH7Dc7MZwkeEV/DiSCaq1Tk8hKsAwinuOgkV3jn5jS', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:13:19', '2024-06-28 22:13:19'),
-(31, 'jahangir choudury', NULL, 'jahangir123@gmail.com', NULL, NULL, '$2y$12$Q3S7Ncamv6mIo8JFbmbhmuwA99WgVPh5UgeZ95on0h1it7vxmluSS', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:15:43', '2024-06-28 22:15:43'),
+(29, 'azad kalam', NULL, 'rolexkalam@gmail.com', NULL, NULL, '$2y$12$UMa1eRPGblMMsvfvoGNO9.xnZum662eGaGT5SI1qHxSZ0IzKq1UGS', 'employer', 'gSNfOzHap8eXJtiSmkdeqtRnbYw5JKRo9KKbTMsVI1am82wIDpiY9vWdM8vW', '1', 'Dhaka, Bangladesh', '2024-06-28 22:10:00', '2024-07-01 06:43:52'),
+(30, 'rasel mia', NULL, 'raselmia123@gmail.com', NULL, NULL, '$2y$12$Y1BDy69YfTUKyXJ4Cis.CevTpABeKOslUeh4OKSCDj5JihAF1yF6G', 'employer', 'fWqa6VFMapH3Ak3bE349IGOTmzGNs35qFCKpphKPlJMSV2XVbWePT3khv3HR', '1', 'Dhaka, Bangladesh', '2024-06-28 22:13:19', '2024-07-01 06:54:03'),
+(31, 'jahangir choudury', NULL, 'jahangir123@gmail.com', NULL, NULL, '$2y$12$yvoYCZLRAj82DqJ5ZfhVa.HLIiAeEOT5eg2ZHvptUJ0UCLT5NPuTS', 'employer', '9kJTyAq0etieZrP7PDCi5ut9ZIow0wQbEVeoWIH7m0Ta08zbaFO71plkydKZ', '1', 'Dhaka, Bangladesh', '2024-06-28 22:15:43', '2024-07-01 07:04:03'),
 (32, 'moian alom', NULL, 'moian123@gmail.com', NULL, NULL, '$2y$12$lyVIPWzxjW1X12ZC9I1AYu6c7bdlBapU.AzAz2wgkOCLt9qcTXIj2', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:17:20', '2024-06-28 22:17:20'),
 (33, 'abul kalam azad', NULL, 'abulkalam123@gmail.com', NULL, NULL, '$2y$12$DtYVI6RNmbfGue0SrYPoR.sOIVnWneZBTcF/YgCf9KhY4xTQteeXO', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:18:23', '2024-06-28 22:18:23'),
-(34, 'sheik mujibur rahman', NULL, 'sheikmuijib123@gmail.com', NULL, NULL, '$2y$12$wPCJl0fx/hiraru3.oYbmuzSIF4cbblE.XUWFuDYavJu/uSSa8P0W', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:19:44', '2024-06-28 22:19:44'),
-(35, 'manik alom rotom', NULL, 'manik123@gmail.com', NULL, NULL, '$2y$12$L17qVTwjSWBWnLJlVkH2MeUnUsNVudGq0jLoJQZoSoTkrTMKkgcnu', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:20:38', '2024-06-28 22:20:38'),
-(36, 'sobuj mia lal', NULL, 'sobuj123@gmail.com', NULL, NULL, '$2y$12$ItZStkT1nQl2LoiXNaWt0eIwSWHcYH755zDpci4Aoh.5FeQxpck5m', 'employer', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:22:10', '2024-06-28 22:22:10'),
+(34, 'sheik mujibur rahman', NULL, 'sheikmuijib123@gmail.com', NULL, NULL, '$2y$12$ytD20rBZel2JiAcwH2yj9e/mps/EiL.YatUtnNm9eIrhHNSHIoedG', 'employer', '8tiqLQouElUulfII6Fe6A5hlb314tev8wEUDiL7Xte7LJJBSM6vDS3ZHHWcZ', '1', 'Dhaka, Bangladesh', '2024-06-28 22:19:44', '2024-07-01 07:30:59'),
+(35, 'manik alom rotom', NULL, 'manik123@gmail.com', NULL, NULL, '$2y$12$rfdcL3OXQKRoQAUM1h5ptubgtoyMylPu.VLVFBP6vdWPf6PnO9nPS', 'employer', 'uPx3SSBdYI7bc8GOApoRY7InG7nHqDNP2Hz9SATJe33tuBshXiaUWwfyqRhq', '1', 'Dhaka, Bangladesh', '2024-06-28 22:20:38', '2024-07-01 07:23:38'),
+(36, 'sobuj mia lal', NULL, 'sobuj123@gmail.com', NULL, NULL, '$2y$12$HQ8jkl8woBiigzSGTYina.aPOIaqNlXjHUS5sKevTcp/o9NbWmATC', 'employer', 'EdpRa8vGq5975GiywREgdhs9GiZJKlLZpsOBYoQr0UJxvfl5ArTGLWOBKT1A', '1', 'Dhaka, Bangladesh', '2024-06-28 22:22:10', '2024-07-01 07:13:48'),
 (37, 'sojib wajed joy', NULL, 'sojib123@gmail.com', NULL, NULL, '$2y$12$uxEB7P0bEAVdFcMTO4fmquIe6sjlltUaxz9vrPvoSWsDfMg1iNmdq', 'applicant', NULL, '1', 'Dhaka, Bangladesh', '2024-06-28 22:27:10', '2024-06-28 22:27:10'),
 (38, 'nobab shiraj', NULL, 'shiraj123@gmail.com', NULL, NULL, '$2y$12$UTYBEVUd3IGqxCEoBCF4/.Sm8Nk/VBgNdfyrOnVywetlYuafelqPC', 'applicant', 'XHtMInPwg4GIIaYr1ZGRF699gqwHF6Jig0wIddqUCVuyxwwrwDUgSfrnHvXk', '0', 'Dhaka, Bangladesh', '2024-06-28 22:28:52', '2024-06-28 22:30:41');
 
@@ -7071,7 +7121,7 @@ ALTER TABLE `functionals`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT for table `industrials`
@@ -7119,7 +7169,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `post_types`
