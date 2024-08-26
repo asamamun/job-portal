@@ -187,7 +187,7 @@
                         <li><a href="{{route('cv', auth()->user()->id)}}">CV <span class="badge bg-info">classic <i>M</i></span></a></li>
                         <li><a href="{{route('dark', auth()->user()->id)}}">CV <span class="badge bg-info">Dark <i>M</i></span></a></li>
                         <li><a href="{{route('cvpro', auth()->user()->id)}}">CV <span class="badge bg-info">pro <i>M</i></span></a></li>
-                        <li><a href="{{route('simple', auth()->user()->id)}}">CV </li>
+                        <li><a href="{{route('simple', auth()->user()->id)}}">CV </a></li>
                         <li><a href="{{ route('cv.download', auth()->user()->id) }}">Download</a></li>
                     </ul>
                 </div>

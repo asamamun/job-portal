@@ -59,6 +59,7 @@
                                                     <li><a class="dropdown-item" href="{{route('posts.applied.status', [$applicantpost->id, "hired"])}}">hired</a></li>
                                                 </ul>
                                             </div>
+                                            <a href="{{route('simple', [$applicantpost->applicant->user->id])}}" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
                                         </div>
                                     </td>
                                 </tr>
