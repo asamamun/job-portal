@@ -9,3 +9,17 @@
 6. php artisan serve
 7. php artisan schedule:work
 8. 127.0.0.1:8000
+
+
+import Database by CMD
+mysql -u root -p
+CREATE DATABASE job_portal
+EXIT
+
+import
+mysql -u root job_portal <C:\xampp\htdocs\job-portal\helper\job_portal.sql
+EXIT
+
+export
+mysqldump -u root job_portal > C:\xampp\htdocs\job-portal\helper\job_portal.sql
+EXIT
